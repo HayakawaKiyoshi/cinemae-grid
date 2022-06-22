@@ -22,6 +22,7 @@ public class DBManager {
 		System.out.println("DBに接続しました");
 		return conn;
 	}
+	//test matsuo
 
 	/**
 	* DB接続を切断する
