@@ -15,6 +15,5 @@ public class AllDisplayController {
 	private ModelAndView index(ModelAndView mav) {
 		mav.setViewName("Admin/AllDisplay");
 		return mav;
-
 	}
 }
