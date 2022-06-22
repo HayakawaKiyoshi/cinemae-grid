@@ -18,10 +18,11 @@ public class DBManager {
 		// DBへ接続
 		Connection conn = DriverManager.getConnection(
 				"jdbc:oracle:thin:@localhost:1521:XE",
-				"xxxxxxx", "xxxxxx");
+				"jdbcuser", "12345");
 		System.out.println("DBに接続しました");
 		return conn;
 	}
+	//test matsuo
 
 	/**
 	* DB接続を切断する
