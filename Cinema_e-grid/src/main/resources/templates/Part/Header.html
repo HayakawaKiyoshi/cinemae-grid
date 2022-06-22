@@ -2,55 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
-<link rel="stylesheet" media="all"
-	th:href="@{../../static/css/test_matsuo.css}">
+<link rel="stylesheet" media="all" th:href="@{/css/test_matsuo.css}">
 <head>
 <meta charset="UTF-8">
 <title>ヘッダー</title>
 
 </head>
 <body>
-	<!-- div class="container">
-		<div class="header" layout:fragment="header">
-			<h1>シネマ イーグリッド</h1>
-			<ul class="nav nav-tabs">
-				<li class="nav-item"><a href="#" class="nav-link active">トップ</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">マイページ</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">上映スケジュール</a></li>
-				<li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
-			</ul>
+	<div class="header" layout:fragment="header">
+			<div class="container">
 			<br>
-			<div class="sp-menu d-md-none d-none position-fixed"></div>
+				<h1 class="title">シネマ イーグリッド</h1>
+				<br> <br>
+			</div>
+			<div class="container">
+				<ul class="nav nav-pills nav-justified">
+					<li class="nav-item"><a href="#" class="nav-link active">トップ</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">マイページ</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">上映スケジュール</a></li>
+					<li class="nav-item"><a href="#" class="nav-link">アクセス</a></li>
+				</ul>
+				<br>
+			</div>
 		</div>
-	</div -->
-
-	<div class="sp-menu d-md-none d-none position-fixed">
-		<ul>
-			<li><a
-				class="d-block text-white p-3 border-bottom border-dark-gray bg-dark-gray">グランドシネマサンシャイン
-					池袋 | 劇場メニュー</a></li>
-			<li><a href="/theater/gdcs/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">TOP/上映スケジュール<br>
-				<span class="x-small">TOP/SCHEDULE</span></a></li>
-			<li><a href="/theater/gdcs/news/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">NEWS&INFO<br>
-				<span class="x-small">NEWS&INFORMATION</span></a></li>
-			<li><a href="/theater/gdcs/advance_ticket/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">前売券情報<br>
-				<span class="x-small">ADVANCE TICKET</span></a></li>
-			<li><a href="/theater/gdcs/concession/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">コンセッション<br>
-				<span class="x-small">CONCESSION</span></a></li>
-			<li><a href="/theater/gdcs/admission/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">料金案内<br>
-				<span class="x-small">ADMISSION</span></a></li>
-			<li><a href="/theater/gdcs/floor_guide/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">劇場設備<br>
-				<span class="x-small">FLOOR GUIDE</span></a></li>
-			<li><a href="/theater/gdcs/access/"
-				class="d-block text-white p-3 border-bottom border-dark-gray">アクセス<br>
-				<span class="x-small">ACCESS</span></a></li>
-		</ul>
-	</div>
 </body>
 </html>

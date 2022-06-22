@@ -19,7 +19,7 @@ public class test_matsuo {
 	//http://localhost:10000/cinema/test
 	@RequestMapping(value = "/cinema/test", method = RequestMethod.GET)
 	private ModelAndView login( ModelAndView mav) {
-		mav.setViewName("Part/Header");
+		mav.setViewName("Layout/Layout");
 
 		return mav;
 	}
