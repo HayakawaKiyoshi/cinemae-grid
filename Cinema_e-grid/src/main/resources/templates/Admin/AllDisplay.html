@@ -1,10 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者メニュー画面</title>
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-
+	<h2>管理者メニュー</h2>
+	<ul class="nav nav-tabs">
+		<li class="nav-item"><a href="#user" class="nav-link active">会員一覧</a></li>
+		<li class="nav-item"><a href="#movie" class="nav-link">映画一覧</a></li>
+		<li class="nav-item"><a href="#store" class="nav-link">店舗一覧</a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane active" id="user">
+			<div class="container">
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered">
+						<tr>
+							<th>ユーザーID</th>
+							<th>メールアドレス</th>
+							<th>名前</th>
+							<th>パスワード</th>
+							<th>権限</th>
+							<th>ユーザー削除フラグ</th>
+							<th>変更</th>
+							<th>削除</th>
+						</tr>
+						<tr>
+							<td>a</td>
+							<td>a</td>
+							<td>a</td>
+							<td>a</td>
+							<td>a</td>
+							<td>a</td>
+							<td><a href="#">
+									<button type="button" class="btn-default">更新</button>
+							</a></td>
+							<td><a href="#">
+									<button type="button" class="btn-default">削除</button>
+							</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane" id="movie">
+			<p>b</p>
+		</div>
+		<div class="tab-pane" id="store">
+			<p>c</p>
+		</div>
+	</div>
 </body>
 </html>
