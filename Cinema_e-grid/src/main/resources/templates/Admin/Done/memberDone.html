@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/loginStyle.css}">
 <head>
 <meta charset="UTF-8">
 <title>完了画面</title>
 </head>
 <body>
+  <div class="header">
+	<br>
+	<h1 class="title">シネマ イーグリッド</h1>
+	<br> <br>
+  </div>
+
+  <div class="login">
   <p th:text="${msg} + 'が完了しました。'"></p>
   <form th:action="@{url}">
   	<input type="submit" th:value="${btn}">
   </form>
+  </div>
+  <div layout:insert="~{Part/Footer::footer}"></div>
 </body>
 </html>

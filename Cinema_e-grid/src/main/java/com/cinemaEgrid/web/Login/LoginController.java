@@ -34,10 +34,17 @@ public class LoginController {
 
 		String[] user = UserDao.login(form.getId(), form.getPass());
 
-		if (user[0] != null) {
-			//該当する会員がいた場合、トップ画面へ
+		if (user[0] != null && user[3].equals("0")) {
+			//該当する会員がいた場合
 			session.setAttribute("user", user);
-			mav.setViewName("/login/topPage");
+
+			if(user[1].equals("3")) {
+				//管理者の場合は管理者トップページへ
+				mav.setViewName("/admin/alldisplay");
+			} else {
+				//管理者以外の場合はトップページへ
+				mav.setViewName("/login/topPage");
+			}
 		} else {
 			//該当する会員がいない時は、ログイン画面へ
 			mav.setViewName("/User/Login/login");

@@ -3,14 +3,15 @@
 	background-color: gray;
 	text-align: center;
 	border: 1px solid black;
-	height: 100px;
+	height: 130px;
 	width: 80%;
 	margin: auto;
 }
 
 .title {
 	color: white;
-	font-family: Georgia;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 60px;
 }
 
 .login{
