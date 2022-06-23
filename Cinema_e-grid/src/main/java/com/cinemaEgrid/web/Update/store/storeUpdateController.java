@@ -54,7 +54,7 @@ public class storeUpdateController {
 //		if (result.hasErrors()) {
 //			mav.setViewName("Admin/Update/store/storeUpdate");
 //		} else {
-			mav.setViewName("Admin/Update/store/storeCheck");
+			mav.setViewName("Admin/Confirm/store/storeCheck");
 //		}
 		return mav;
 	}
@@ -72,7 +72,7 @@ public class storeUpdateController {
 			StoreDao.updateStore(form);
 		} catch (SQLException e) {
 		}
-		mav.setViewName("Admin/Update/updateSuccess");
+		mav.setViewName("Admin/Done/updateSuccess");
 		return mav;
 	}
 
