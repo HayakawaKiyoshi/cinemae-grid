@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class test_yoshida {
 	@Autowired
 	HttpSession session;
-
+	//
 	//上映予定を表示するテストコントローラ
 
 	//ログイン画面に遷移するコントローラ
