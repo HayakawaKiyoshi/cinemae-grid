@@ -30,14 +30,13 @@ public class test_matsuo {
 	//http://localhost:10000/cinema/test2
 	@RequestMapping(value = "/cinema/test2", method = RequestMethod.GET)
 	private ModelAndView Toptest( ModelAndView mav) throws SQLException {
-		
-		
+
+
 		mav.setViewName("User/Top/TopPage");
 
 		ArrayList<Movie> movieList = MovieDao.selectAllmovie();
 
 		mav.addObject("list", movieList);
-
 
 		return mav;
 	}
