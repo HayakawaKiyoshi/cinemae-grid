@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cinemaEgrid.bean.User_TableBean;
-import com.cinemaEgrid.dao.User_TableDao;
+import com.cinemaEgrid.bean.User;
+import com.cinemaEgrid.dao.UserDao;
 import com.cinemaEgrid.form.SubmitForm;
 
 /**
@@ -48,13 +48,13 @@ public class SubmitController {
 	private ModelAndView newUserSubmit(SubmitForm form, ModelAndView mav) {
 
 		//登録
-		ArrayList<User_TableBean> userList =
-				User_TableDao.submit(form.getId(), form.getName(), form.getMail(),
+		ArrayList<User> userList =
+				UserDao.submit(form.getId(), form.getName(), form.getMail(),
 				form.getPass(), form.getAuthority(), form.getDel_flg());
 
 		if(session.getAttribute("type").equals(0)) {
 			//新規会員登録の場合
-			String[] user = User_TableDao.login
+			String[] user = UserDao.login
 					(userList.get(0).getUser_id(), userList.get(0).getPassword());
 			session.setAttribute("user", user);
 			mav.addObject("msg", "会員登録");

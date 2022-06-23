@@ -1,6 +1,6 @@
 package com.cinemaEgrid.bean;
 
-public class User_TableBean {
+public class User {
 
 	private String user_id;
 	private String user_mail;
@@ -10,7 +10,7 @@ public class User_TableBean {
 	private String user_del_flg;
 
 
-	public User_TableBean(String user_id, String user_mail, String user_name,
+	public User(String user_id, String user_mail, String user_name,
 			String password, String authority, String user_del_flg) {
 		this.user_id = user_id;
 		this.user_mail = user_mail;
@@ -20,7 +20,7 @@ public class User_TableBean {
 		this.user_del_flg = user_del_flg;
 	}
 
-	public User_TableBean() {
+	public User() {
 
 	}
 

@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.cinemaEgrid.bean.User_TableBean;
+import com.cinemaEgrid.bean.User;
 
 
-public class User_TableDao {
+public class UserDao {
 
 	public static String[] login(String id, String pass) {
 		String[] user = new String[3];		//ログインしたユーザーの情報
@@ -52,10 +52,10 @@ public class User_TableDao {
 		return user;
 	}
 
-	public static ArrayList<User_TableBean> submit
+	public static ArrayList<User> submit
 	(String id, String name, String email, String pass,
 			String auth, String del_flg) {
-	ArrayList<User_TableBean> empList = new ArrayList<User_TableBean>();
+	ArrayList<User> empList = new ArrayList<User>();
 
 	Connection conn = null;
 	DBManager manager = new DBManager();
@@ -96,7 +96,7 @@ public class User_TableDao {
 			String password = rs.getString("Password");
 			String authority = rs.getString("Authority");
 			String user_del_flg = rs.getString("User_del_flg");
-			User_TableBean userT = new User_TableBean
+			User userT = new User
 					(user_id, user_mail, user_name, password, authority,
 							user_del_flg);
 			empList.add(userT);

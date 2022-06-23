@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cinemaEgrid.dao.User_TableDao;
+import com.cinemaEgrid.dao.UserDao;
 import com.cinemaEgrid.form.LoginForm;
 
 /**
@@ -32,7 +32,7 @@ public class LoginController {
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	private ModelAndView userLoginCheck(LoginForm form, ModelAndView mav) {
 
-		String[] user = User_TableDao.login(form.getId(), form.getPass());
+		String[] user = UserDao.login(form.getId(), form.getPass());
 
 		if (user[0] != null) {
 			//該当する会員がいた場合、トップ画面へ
