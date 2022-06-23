@@ -86,11 +86,11 @@
 					<th>変更</th>
 					<th>削除</th>
 				</tr>
-				<tr>
-					<td>c</td>
-					<td>c</td>
-					<td>c</td>
-					<td>c</td>
+				<tr th:each="s:${list}">
+					<td th:text="*{s.Store_no}"></td>
+					<td th:text="*{s.store_name}"></td>
+					<td th:text="*{s.store_location}"></td>
+					<td th:text="*{s.store_del_flg}"></td>
 					<td><a href="#">
 							<button type="button" class="btn-default">更新</button>
 					</a></td>
