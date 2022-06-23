@@ -24,7 +24,7 @@ public class AccessController {
 	private ModelAndView index(Store form, ModelAndView mav) {
 		List<Store> storelist = null;
 		try {
-			storelist = StoreDao.storeDisp();
+			storelist = StoreDao.dispStore();
 		} catch (SQLException e) {
 		}
 		mav.addObject("list", storelist);

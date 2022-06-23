@@ -34,8 +34,10 @@
 					</tr>
 					<tr>
 						<td>店舗削除フラグ</td>
-						<td><input type="radio" name="store_del_flg" value="0">有効
-							<input type="radio" name="store_del_flg" value="1">削除
+						<td><input type="radio" name="store_del_flg" value="0"
+							th:field="*{store_del_flg}">有効
+							<input type="radio" name="store_del_flg" value="1"
+							 th:field="*{store_del_flg}">削除
 							<!-- <span th:if="${#fields.hasErrors('store_del_flg')}"
 							th:errors="*{store_del_flg}"
 							th:errorclass="error-field">error!</span> -->
