@@ -1,5 +1,5 @@
 package com.cinemaEgrid.dao;
-//吉田　moviedao
+//吉田　ReserveDao
 public class ReserveDao {
 
 }
