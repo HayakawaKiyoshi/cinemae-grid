@@ -13,9 +13,6 @@ public class test_matsuo {
 	@Autowired
 	HttpSession session;
 
-	//ログイン関連のコントローラ
-
-	//ログイン画面に遷移するコントローラ
 	//http://localhost:10000/cinema/test
 	@RequestMapping(value = "/cinema/test", method = RequestMethod.GET)
 	private ModelAndView login( ModelAndView mav) {
