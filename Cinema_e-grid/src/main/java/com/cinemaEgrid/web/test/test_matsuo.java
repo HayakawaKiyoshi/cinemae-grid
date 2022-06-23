@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.dao.MatsuoDao;
+
 @Controller
 public class test_matsuo {
 	@Autowired
@@ -20,4 +22,19 @@ public class test_matsuo {
 
 		return mav;
 	}
+
+	//http://localhost:10000/cinema/test2
+	@RequestMapping(value = "/cinema/test2", method = RequestMethod.GET)
+	private ModelAndView Toptest( ModelAndView mav) {
+		mav.setViewName("User/Top/TopPage");
+
+		MatsuoDao.select();
+
+
+		return mav;
+	}
+
+
+
+
 }
