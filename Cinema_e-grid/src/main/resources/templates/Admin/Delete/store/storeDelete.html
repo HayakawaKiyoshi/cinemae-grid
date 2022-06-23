@@ -1,0 +1,39 @@
+<!-- iwai 編集中 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>店舗情報削除</title>
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="table-responsive">
+			以下の情報を削除しますか？
+			<table class="table table-striped table-bordered" id="store">
+				<tr>
+					<th>店舗NO.</th>
+					<th>店舗名</th>
+					<th>住所</th>
+					<th>店舗削除フラグ</th>
+				</tr>
+				<tr th:if="${store} != null" th:object="${store}">
+					<td th:text="*{store_no}"></td>
+					<td th:text="*{store_name}"></td>
+					<td th:text="*{store_location}"></td>
+					<td th:text="*{store_del_flg == 0} ? 有効:削除"></td>
+				</tr>
+			</table>
+			<a th:if="${store} != null" th:object="${store}"
+				th:href="@{/admin/store/delete/success(No=*{store_no})}">
+				<button class="btn btn-primary"
+					style="width: 200px; border-radius: 8px;">この店舗を削除する</button>
+			</a>
+			<form action="/admin/alldisplay" method="get">
+				<input type="submit" value="管理者メニューへ戻る" class="btn btn-primary"
+					style="width: 200px; border-radius: 8px;">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

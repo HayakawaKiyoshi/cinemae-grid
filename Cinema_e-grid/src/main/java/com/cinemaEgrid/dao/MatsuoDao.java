@@ -26,11 +26,11 @@ public class MatsuoDao {
 			st = conn.createStatement();
 			String sql = "SELECT * FROM movie_table";
 			rs = st.executeQuery(sql);
-			System.out.println(
-					"emp_id\temp_pass\temp_name\tgender\taddress\tbirthday");
-			while (rs.next()) {
-				System.out.print(rs.getString("movie_title") + "\t");
-			}
+//			System.out.println(
+//					"emp_id\temp_pass\temp_name\tgender\taddress\tbirthday");
+//			while (rs.next()) {
+//				System.out.print(rs.getString("movie_title") + "\t");
+//			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -62,7 +62,7 @@ public class MatsuoDao {
 	}
 
 	//全件取得メソッド
-	public static ArrayList<Movie> selectAll() throws SQLException {
+	public static ArrayList<Movie> selectAllmovie() throws SQLException {
 		ArrayList<Movie> movieList = new ArrayList<Movie>();
 
 		DBManager manager = new DBManager();
@@ -71,7 +71,7 @@ public class MatsuoDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = "SELECT *";
+			String sql = "SELECT * FROM movie_table";
 			// String sql = "SELECT E.emp_id, E.emp_pass, E.emp_name, E.gender, E.address,
 			//TO_CHAR(E.birthday, 'YYYY-MM-DD') AS birthday, E.authority, D.dept_name
 			//FROM emp_table E INNER JOIN dept_table D ON E.dept_id = D.dept_id ORDER BY E.emp_id";
