@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +31,11 @@ import com.cinemaEgrid.dao.StoreDao;
 public class storeUpdateController {
 //	@Autowired
 //	HttpSession session;
+
+	@ModelAttribute("store")
+	public Store setUpStore() {
+		return new Store();
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	private ModelAndView index(@RequestParam("No") int id,
@@ -54,7 +60,7 @@ public class storeUpdateController {
 //		if (result.hasErrors()) {
 //			mav.setViewName("Admin/Update/store/storeUpdate");
 //		} else {
-			mav.setViewName("Admin/Confirm/store/storeCheck");
+			mav.setViewName("Admin/Confirm/store/updateConfirm");
 //		}
 		return mav;
 	}
@@ -72,7 +78,7 @@ public class storeUpdateController {
 			StoreDao.updateStore(form);
 		} catch (SQLException e) {
 		}
-		mav.setViewName("Admin/Done/updateSuccess");
+		mav.setViewName("Admin/Done/updateDone");
 		return mav;
 	}
 

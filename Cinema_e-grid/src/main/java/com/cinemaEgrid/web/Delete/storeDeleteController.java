@@ -46,7 +46,7 @@ public class storeDeleteController {
 			StoreDao.deleteStore(id);
 		} catch (SQLException e) {
 		}
-		mav.setViewName("Admin/Done/deleteSuccess");
+		mav.setViewName("Admin/Done/deleteDone");
 		return mav;
 	}
 }

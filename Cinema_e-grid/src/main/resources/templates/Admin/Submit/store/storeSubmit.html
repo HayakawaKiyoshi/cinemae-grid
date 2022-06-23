@@ -9,8 +9,10 @@
 <body>
 	<div class="container">
 		<div class="table-responsive">
-			<form th:action="@{/admin/store/update}" th:object="${store}" method="post">
-			更新したい項目を書き換えてください
+			<form th:action="@{/admin/store/submit}" th:object="${store}" method="post">
+			登録する店舗情報を入力してください
+			<input type="hidden" name="store_no" th:field="*{store_no}">
+			<input type="hidden" name="store_del_flg" value="0">
 				<table class="table table-striped table-bordered" id="store">
 					<tr>
 						<td>店舗名</td>
@@ -35,16 +37,16 @@
 					<tr>
 						<td>店舗削除フラグ</td>
 						<td><input type="radio" name="store_del_flg" value="0"
-							th:field="*{store_del_flg}">有効
+							th:field="*{store_del_flg}" disabled="disabled" checked>有効
 							<input type="radio" name="store_del_flg" value="1"
-							 th:field="*{store_del_flg}">削除
+							 th:field="*{store_del_flg}" disabled="disabled">削除
 							<!-- <span th:if="${#fields.hasErrors('store_del_flg')}"
 							th:errors="*{store_del_flg}"
 							th:errorclass="error-field">error!</span> -->
 						</td>
 					</tr>
 				</table>
-				<input type="submit" value="更新する" class="btn btn-primary"
+				<input type="submit" value="登録する" class="btn btn-primary"
 					style="width: 80px; border-radius: 8px;">
 			</form>
 		</div>
