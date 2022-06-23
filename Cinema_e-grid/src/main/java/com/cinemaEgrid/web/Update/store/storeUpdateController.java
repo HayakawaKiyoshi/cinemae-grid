@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.bean.Store;
+
 // http://localhost:10000/admin/store/update
+
 /**
 * 管理者/店舗情報更新
 * @author iwai
@@ -17,14 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 public class storeUpdateController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	private ModelAndView index(ModelAndView mav) {
+	private ModelAndView index(Store form, ModelAndView mav) {
 		mav.setViewName("Admin/Update/store/storeUpdate");
 		return mav;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index2(
-			//@Validated BindingResult result,
+			//@Validated
+			Store form,
+			//BindingResult result,
 			ModelAndView mav, Model model) {
 //		if (result.hasErrors()) {
 			mav.setViewName("Admin/Update/store/storeUpdate");
