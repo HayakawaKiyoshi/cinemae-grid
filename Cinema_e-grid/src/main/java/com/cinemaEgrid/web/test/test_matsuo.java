@@ -1,5 +1,8 @@
 package com.cinemaEgrid.web.test;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.dao.MatsuoDao;
 
 @Controller
@@ -25,10 +29,14 @@ public class test_matsuo {
 
 	//http://localhost:10000/cinema/test2
 	@RequestMapping(value = "/cinema/test2", method = RequestMethod.GET)
-	private ModelAndView Toptest( ModelAndView mav) {
+	private ModelAndView Toptest( ModelAndView mav) throws SQLException {
+		
+		
 		mav.setViewName("User/Top/TopPage");
 
-		MatsuoDao.select();
+		ArrayList<Movie> movieList = MatsuoDao.selectAllmovie();
+
+		mav.addObject("list", movieList);
 
 
 		return mav;
