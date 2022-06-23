@@ -1,20 +1,23 @@
-package com.cinemaEgrid.web.Select;
+package com.cinemaEgrid.web.Select.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-// 岩井 編集中
-// http://localhost:10000/admin/alldisplay
-
+// http://localhost:10000/user/access
+/**
+ * 店舗一覧
+ * @author iwai
+ *
+ */
 @Controller
-@RequestMapping("/admin/alldisplay")
-public class AllDisplayController {
-
+@RequestMapping("/user/access")
+public class AccessController {
 	@RequestMapping(method = RequestMethod.GET)
 	private ModelAndView index(ModelAndView mav) {
-		mav.setViewName("Admin/AllDisplay");
+		mav.setViewName("User/Access/AccessDisplay");
 		return mav;
 	}
+
 }
