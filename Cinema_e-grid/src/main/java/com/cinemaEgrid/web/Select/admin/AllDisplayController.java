@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.bean.Store;
+import com.cinemaEgrid.bean.User;
 import com.cinemaEgrid.dao.StoreDao;
 
 // http://localhost:10000/admin/alldisplay
@@ -22,13 +24,19 @@ import com.cinemaEgrid.dao.StoreDao;
 public class AllDisplayController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	private ModelAndView index(Store form, ModelAndView mav) {
+	private ModelAndView index(User form, Store form2, Movie form3, ModelAndView mav) {
+		List<User> userlist = null;
+		List<Movie> movielist = null;
 		List<Store> storelist = null;
 		try {
+//			userlist =
+//			movielist =MovieDao.select();
 			storelist = StoreDao.dispStore();
 		} catch (SQLException e) {
 		}
-		mav.addObject("list", storelist);
+		mav.addObject("ulist", userlist);
+		mav.addObject("mlist", movielist);
+		mav.addObject("slist", storelist);
 		mav.setViewName("Admin/AllDisplay");
 		return mav;
 	}
