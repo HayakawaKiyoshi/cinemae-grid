@@ -39,7 +39,7 @@ public class storeDeleteController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/success", method = RequestMethod.POST)
+	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	private ModelAndView index2(@RequestParam("No") int id, Store form,
 			ModelAndView mav, Model model) {
 		try {

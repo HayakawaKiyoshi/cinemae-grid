@@ -18,14 +18,14 @@
 					<th>店舗削除フラグ</th>
 				</tr>
 				<tr th:if="${store} != null" th:object="${store}">
-					<td th:text="*{store_no}"></td>
+					<td th:text="*{Store_no}"></td>
 					<td th:text="*{store_name}"></td>
 					<td th:text="*{store_location}"></td>
 					<td th:text="*{store_del_flg == 0} ? 有効:削除"></td>
 				</tr>
 			</table>
 			<a th:if="${store} != null" th:object="${store}"
-				th:href="@{/admin/store/delete/success(No=*{store_no})}">
+				th:href="@{/admin/store/delete/success(No=*{Store_no})}">
 				<button class="btn btn-primary"
 					style="width: 200px; border-radius: 8px;">この店舗を削除する</button>
 			</a>
