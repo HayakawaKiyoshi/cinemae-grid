@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>完了画面</title>
+</head>
+<body>
+  <p th:text="${msg} + 'が完了しました。'"></p>
+  <form th:action="@{url}">
+  	<input type="submit" th:value="${btn}">
+  </form>
+</body>
+</html>
