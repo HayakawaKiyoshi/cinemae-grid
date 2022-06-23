@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Movie;
-import com.cinemaEgrid.dao.MatsuoDao;
+import com.cinemaEgrid.dao.MovieDao;
 
 @Controller
 public class test_matsuo {
@@ -34,7 +34,7 @@ public class test_matsuo {
 		
 		mav.setViewName("User/Top/TopPage");
 
-		ArrayList<Movie> movieList = MatsuoDao.selectAllmovie();
+		ArrayList<Movie> movieList = MovieDao.selectAllmovie();
 
 		mav.addObject("list", movieList);
 

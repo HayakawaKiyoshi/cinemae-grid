@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.Movie;
 
-public class MatsuoDao {
+public class MovieDao {
 	public static void main(String[] args) throws SQLException {
 
 	}
