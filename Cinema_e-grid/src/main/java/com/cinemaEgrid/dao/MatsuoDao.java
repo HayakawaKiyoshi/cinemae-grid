@@ -71,9 +71,7 @@ public class MatsuoDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = "SELECT emp_id, emp_pass, emp_name, gender, address, \r\n"
-					+ "TO_CHAR(birthday, 'YYYY-MM-DD') AS birthday, authority, dept_id\r\n"
-					+ "FROM emp_table ORDER BY emp_id";
+			String sql = "SELECT *";
 			// String sql = "SELECT E.emp_id, E.emp_pass, E.emp_name, E.gender, E.address,
 			//TO_CHAR(E.birthday, 'YYYY-MM-DD') AS birthday, E.authority, D.dept_name
 			//FROM emp_table E INNER JOIN dept_table D ON E.dept_id = D.dept_id ORDER BY E.emp_id";
