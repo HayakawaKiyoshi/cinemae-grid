@@ -1,0 +1,21 @@
+@charset "UTF-8";
+.header {
+	background-color: gray;
+	text-align: center;
+	border: 1px solid black;
+	height: 100px;
+	width: 80%;
+	margin: auto;
+}
+
+.title {
+	color: white;
+	font-family: Georgia;
+}
+
+.login{
+	padding-top: 50px;
+	text-align: center;
+	margin: 0 auto;
+
+}

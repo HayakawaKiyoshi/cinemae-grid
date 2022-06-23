@@ -5,7 +5,7 @@
 <link rel="stylesheet" media="all" th:href="@{/css/loginStyle.css}">
 <head>
 <meta charset="UTF-8">
-<title>新規会員登録</title>
+<title>会員登録確認画面</title>
 </head>
 <body>
   <div class="header">
@@ -13,18 +13,25 @@
 	<h1 class="title">シネマ イーグリッド</h1>
 	<br> <br>
   </div>
+
   <div class="login">
-  <p>入力してください。</p>
-  <form action="/login/userSubmit/check/0" method="post" th:object="${submitForm}">
-  	ID：<input type="text" name="id" th:field="*{id}"><br>
-  	パスワード：<input type="password" name= pass th:field="*{pass}"><br>
-  	名前：<input type="text" name="name" th:field="*{name}"><br>
-  	メールアドレス：<input type="email" name="email" th:field="*{mail}"><br>
+  <p>下記の内容で登録します。よろしいですか？</p>
+  <div th:object="${submitForm}">
+	ID：<span th:text="*{id}"></span><br>
+	名前：<span th:text="*{name}"></span><br>
+	メールアドレス：<span th:text="*{mail}"></span><br>
+  </div>
+
+  <form action="/login/userSubmit/completion" method="post" th:object="${submitForm}">
+  	<input type="hidden" name="id" th:field="*{id}">
+  	<input type="hidden" name= pass th:field="*{pass}">
+  	<input type="hidden" name="name" th:field="*{name}">
+  	<input type="hidden" name="email" th:field="*{mail}">
   	<input type="hidden" name="authority" th:value="*{2}">
   	<input type="hidden" name="del_flg" th:value="*{0}">
-  	<input type="submit" value="登録する">
+  	<input type="submit" value="登録">
   </form>
-  <form action="/login">
+  <form action="/login/userSubmit">
   	<input type="submit" value="戻る">
   </form>
   </div>
