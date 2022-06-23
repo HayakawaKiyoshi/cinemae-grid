@@ -18,8 +18,14 @@ public class test_yoshida {
 	//ログイン画面に遷移するコントローラ
 	//http://localhost:10000/cinema/test
 	@RequestMapping(value = "/login/schedule", method = RequestMethod.GET)
-	private ModelAndView login( ModelAndView mav) {
+	private ModelAndView schedule( ModelAndView mav) {
 		mav.setViewName("User/Reserve/MovieSchedule");
+
+		return mav;
+	}
+	@RequestMapping(value = "/login/reserveDone", method = RequestMethod.GET)
+	private ModelAndView reservedone( ModelAndView mav) {
+		mav.setViewName("User/Reserve/ReserveDone");
 
 		return mav;
 	}
