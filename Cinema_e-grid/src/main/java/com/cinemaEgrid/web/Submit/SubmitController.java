@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
  *
  */
 @Controller
+@RequestMapping("/login")
 public class SubmitController {
 
 	@RequestMapping("/userSubmit")
