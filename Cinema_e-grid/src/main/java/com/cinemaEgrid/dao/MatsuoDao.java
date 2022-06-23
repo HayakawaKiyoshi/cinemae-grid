@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import com.tokyomethod.bean.Employee;
+import com.cinemaEgrid.bean.Movie;
 
 public class MatsuoDao {
 	public static void main(String[] args) throws SQLException {
@@ -60,16 +60,17 @@ public class MatsuoDao {
 			manager.close(conn);
 		}
 	}
+
 	//全件取得メソッド
-	public static ArrayList<Employee> selectAll() throws SQLException {
-		ArrayList<Employee> empList = new ArrayList<Employee>();
+	public static ArrayList<Movie> selectAll() throws SQLException {
+		ArrayList<Movie> movieList = new ArrayList<Movie>();
 
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
 
 		try {
-			conn = manager.getConn("jdbcuser", "12345");
+			conn = manager.getConn();
 			String sql = "SELECT emp_id, emp_pass, emp_name, gender, address, \r\n"
 					+ "TO_CHAR(birthday, 'YYYY-MM-DD') AS birthday, authority, dept_id\r\n"
 					+ "FROM emp_table ORDER BY emp_id";
@@ -80,25 +81,25 @@ public class MatsuoDao {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Employee emp = new Employee();
-				emp.setEmp_id(rs.getString("emp_id"));
-				emp.setEmp_pass(rs.getString("emp_pass"));
-				emp.setEmp_name(rs.getString("emp_name"));
-				emp.setGender(rs.getInt("gender"));
-				emp.setAddress(rs.getString("address"));
-				emp.setBirthday(rs.getString("birthday"));
-				emp.setAuthority(rs.getInt("authority"));
-				emp.setDept_id(rs.getInt("dept_id"));
-				empList.add(emp);
+				Movie emp = new Movie();
+				emp.setMovie_no(rs.getInt("movie_no"));
+				emp.setMovie_title(rs.getString("movie_title"));
+				emp.setGenre1(rs.getInt("genre1"));
+				emp.setGenre2(rs.getInt("genre2"));
+				emp.setTime(rs.getString("time"));
+				emp.setAge_level(rs.getInt("age_level"));
+				emp.setRelease_day(rs.getString("release_day"));
+				emp.setMovie_del_flg(rs.getInt("movie_del_flg"));
+				movieList.add(emp);
 			}
 
-			return empList;
+			return movieList;
 
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		return empList;
+		return movieList;
 	}
 
 }
