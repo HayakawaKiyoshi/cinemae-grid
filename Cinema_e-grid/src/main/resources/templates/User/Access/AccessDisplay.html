@@ -15,9 +15,9 @@
 					<th>店舗名</th>
 					<th>住所</th>
 				</tr>
-				<tr>
-					<td>c</td>
-					<td>c</td>
+				<tr th:each="s:${list}">
+					<td th:text="*{s.store_name}"></td>
+					<td th:text="*{s.store_location}"></td>
 				</tr>
 			</table>
 		</div>

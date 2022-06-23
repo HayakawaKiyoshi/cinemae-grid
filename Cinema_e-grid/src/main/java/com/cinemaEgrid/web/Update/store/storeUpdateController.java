@@ -34,7 +34,7 @@ public class storeUpdateController {
 //		if (result.hasErrors()) {
 			mav.setViewName("Admin/Update/store/storeUpdate");
 //		} else {
-//			mav.setViewName("update/UpdateCheck");
+//			mav.setViewName("Admin/Update/store/storeCheck");
 //		}
 		return mav;
 	}
