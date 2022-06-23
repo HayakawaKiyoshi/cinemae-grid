@@ -26,11 +26,11 @@ public class MovieDao {
 			st = conn.createStatement();
 			String sql = "SELECT * FROM movie_table";
 			rs = st.executeQuery(sql);
-//			System.out.println(
-//					"emp_id\temp_pass\temp_name\tgender\taddress\tbirthday");
-//			while (rs.next()) {
-//				System.out.print(rs.getString("movie_title") + "\t");
-//			}
+			//			System.out.println(
+			//					"emp_id\temp_pass\temp_name\tgender\taddress\tbirthday");
+			//			while (rs.next()) {
+			//				System.out.print(rs.getString("movie_title") + "\t");
+			//			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -87,9 +87,13 @@ public class MovieDao {
 				emp.setTime(rs.getString("time"));
 				emp.setAge_level(rs.getInt("age_level"));
 				emp.setRelease_day(rs.getString("release_day"));
+				emp.setRemarks(rs.getString("remarks"));
 				emp.setMovie_del_flg(rs.getInt("movie_del_flg"));
 				movieList.add(emp);
 			}
+//			for (Movie i : movieList) {
+//				System.out.println(i);
+//			}
 
 			return movieList;
 
