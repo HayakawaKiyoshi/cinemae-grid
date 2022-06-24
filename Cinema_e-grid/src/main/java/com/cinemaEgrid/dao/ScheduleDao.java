@@ -47,5 +47,41 @@ public class ScheduleDao {
 		//return empList;
 		return scheduleList;
 	}
+	public static Schedule getScheduleDone(String date,String no) {
+		Schedule schedule;
+		//DBManager起動
+		DBManager manager = new DBManager();
+		try (Connection conn = manager.getConn()) {
+
+			//SELECT文を準備
+			PreparedStatement pStmt = conn.prepareStatement(ScheduleSQL.SELECTSCHEDULE);
+
+			pStmt.setString(1, date);
+			pStmt.setString(2, no);
+			//SELECTを実行し、結果票を取得
+			ResultSet rs = pStmt.executeQuery();
+
+			//結果票に格納されたレコードの内容を
+			//Employeeインスタンスに設置し、ArrayListインスタンスに追加
+			rs.next();
+				String schedule_date = rs.getString("schedule_date");
+				int schedule_no = rs.getInt("schedule_no");
+				String schedule_time = rs.getString("schedule_time");
+				String schedule_name = rs.getString("schedule_name");
+				String schedule_movie_time = rs.getString("schedule_movie_time");
+				String schedule_age_level = rs.getString("schedule_age_level");
+				String schedule_content = rs.getString("schedule_content");
+				schedule = new Schedule(schedule_date,schedule_no,schedule_time,schedule_name,schedule_movie_time, schedule_age_level, schedule_content);
+
+
+		} catch (Exception e) {
+			// TODO 自動生成された catch ブロック
+			//e.printStackTrace();
+			return null;
+		}
+		//return empList;
+		return schedule;
+
 	}
+}
 

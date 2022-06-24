@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Schedule;
@@ -26,13 +27,20 @@ public class test_yoshida {
 		//スケジュールの全権表示のSQL
 		List<Schedule> scheduleList = new ArrayList<>();
 		scheduleList = ScheduleDao.getScheduleList();
+
+		//mavに登録
 		mav.addObject("scheduleList",scheduleList);
 		mav.setViewName("User/Reserve/MovieSchedule");
 
 		return mav;
 	}
 	@RequestMapping(value = "/login/reserveDone", method = RequestMethod.GET)
-	private ModelAndView reservedone( ModelAndView mav) {
+	private ModelAndView reservedone(@RequestParam("date") String date,@RequestParam("no") String no, ModelAndView mav) {
+
+		//予約されたレコードのみを抽出
+		Schedule schedule = ScheduleDao.getScheduleDone(date,no);
+
+		mav.addObject("schedule",schedule);
 		mav.setViewName("User/Reserve/ReserveDone");
 
 		return mav;
