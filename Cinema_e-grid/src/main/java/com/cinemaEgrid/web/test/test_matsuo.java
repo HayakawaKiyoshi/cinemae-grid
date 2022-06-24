@@ -46,4 +46,18 @@ public class test_matsuo {
 	}
 
 
+	//http://localhost:10000/cinema/test2
+	@RequestMapping(value = "top/search", method = RequestMethod.GET)
+	private ModelAndView searchMovie(ModelAndView mav) throws SQLException {
+
+
+		mav.setViewName("User/Top/TopPage");
+
+		ArrayList<Movie> movieList = MovieDao.selectAllmovie();
+
+		mav.addObject("list", movieList);
+
+		return mav;
+	}
+
 }
