@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="layout/notMemberLayout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/loginStyle.css}">
+<link
+	href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
 <title>ログイン画面</title>
 </head>
 <body>
-<div layout:fragment="notMember_contents">
+  <div class="header">
+	<br>
+	<h1 class="title">Cinema e-grid</h1>
+	<br> <br>
+  </div>
   <div class="login">
 	ログインしてください
 	<p th:text="${msg}"></p>
@@ -19,6 +26,6 @@
 	<br>
 	<p>会員でない方はこちら <a href="/login/userSubmit">会員登録</a></p>
   </div>
-</div>
+  <div layout:insert="~{Part/Footer::footer}"></div>
 </body>
 </html>

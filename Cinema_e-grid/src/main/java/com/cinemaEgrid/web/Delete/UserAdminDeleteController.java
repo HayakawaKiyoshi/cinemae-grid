@@ -1,5 +1,8 @@
 package com.cinemaEgrid.web.Delete;
+import java.sql.SQLException;
+import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.User;
+import com.cinemaEgrid.dao.UserAdminDao;
 
 // http://localhost:10000/admin/user/delete
 
@@ -23,13 +27,13 @@ public class UserAdminDeleteController {
 	@RequestMapping(method = RequestMethod.GET)
 	private ModelAndView index(@RequestParam("ID") String id,
 			User form, ModelAndView mav) {
-//		List<User> Userlist = null;
-//		try {
-//			Userlist = UserDao.findOneUser(id);
-//		} catch (SQLException e) {
-//		}
-//		//beanに情報コピー
-//		BeanUtils.copyProperties(Userlist.get(0), form);
+		List<User> Userlist = null;
+		try {
+			Userlist = UserAdminDao.findOneUser(id);
+		} catch (SQLException e) {
+		}
+		//beanに情報コピー
+		BeanUtils.copyProperties(Userlist.get(0), form);
 		mav.setViewName("Admin/Delete/user/userAdminDelete");
 		return mav;
 	}
@@ -37,11 +41,16 @@ public class UserAdminDeleteController {
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	private ModelAndView index2(@RequestParam("ID") String id, User form,
 			ModelAndView mav, Model model) {
-//		try {
-//			UserDao.deleteUser(id);
-//		} catch (SQLException e) {
-//		}
-		mav.setViewName("Admin/Done/deleteDone");
+
+		if (form.getUser_del_flg().equals("1")) {
+			try {
+				UserAdminDao.deleteAdminUser(id);
+			} catch (SQLException e) {
+			}
+			mav.setViewName("Admin/Done/deleteDone");
+		} else {
+			mav.setViewName("redirect:/admin/alldisplay");
+		}
 		return mav;
 	}
 }

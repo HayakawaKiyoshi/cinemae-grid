@@ -42,11 +42,15 @@ public class storeDeleteController {
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	private ModelAndView index2(@RequestParam("No") int id, Store form,
 			ModelAndView mav, Model model) {
-		try {
-			StoreDao.deleteStore(id);
-		} catch (SQLException e) {
+		if (form.getStore_del_flg() == 1) {
+			try {
+				StoreDao.deleteStore(id);
+			} catch (SQLException e) {
+			}
+			mav.setViewName("Admin/Done/deleteDone");
+		} else {
+			mav.setViewName("redirect:/admin/alldisplay");
 		}
-		mav.setViewName("Admin/Done/deleteDone");
 		return mav;
 	}
 }
