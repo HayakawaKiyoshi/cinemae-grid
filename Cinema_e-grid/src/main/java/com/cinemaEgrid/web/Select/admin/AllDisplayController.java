@@ -13,6 +13,7 @@ import com.cinemaEgrid.bean.Store;
 import com.cinemaEgrid.bean.User;
 import com.cinemaEgrid.dao.MovieDao;
 import com.cinemaEgrid.dao.StoreDao;
+import com.cinemaEgrid.dao.UserDao;
 
 // http://localhost:10000/admin/alldisplay
 /**
@@ -30,7 +31,7 @@ public class AllDisplayController {
 		List<Movie> movielist = null;
 		List<Store> storelist = null;
 		try {
-//			userlist =
+			userlist = UserDao.findAll();
 			movielist = MovieDao.selectAllmovie();
 			storelist = StoreDao.dispStore();
 		} catch (SQLException e) {
