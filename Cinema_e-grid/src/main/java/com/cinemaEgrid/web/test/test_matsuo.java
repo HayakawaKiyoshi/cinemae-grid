@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.bean.Event;
 import com.cinemaEgrid.bean.Movie;
+import com.cinemaEgrid.dao.EventDao;
 import com.cinemaEgrid.dao.MovieDao;
 
 @Controller
@@ -35,8 +37,10 @@ public class test_matsuo {
 		mav.setViewName("User/Top/TopPage");
 
 		ArrayList<Movie> movieList = MovieDao.selectAllmovie();
+		ArrayList<Event> eventList = EventDao.selectEvent();
 
 		mav.addObject("list", movieList);
+		mav.addObject("list2", eventList);
 
 		return mav;
 	}

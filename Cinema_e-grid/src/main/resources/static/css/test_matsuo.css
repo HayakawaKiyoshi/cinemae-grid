@@ -15,8 +15,9 @@
 	color: black;
 }
 
-.divall{
+.divContent{
 	margin: auto;
+	padding-bottom: 60px;
 }
 
 .movieDisplay{
