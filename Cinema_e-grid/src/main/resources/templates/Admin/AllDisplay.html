@@ -35,10 +35,10 @@
 					<td th:text="*{u.password}"></td>
 					<td th:text="*{u.authority}"></td>
 					<td th:text="*{u.user_del_flg}"></td>
-					<td><a th:href="@{/admin/movie/update(No=*{u.user_id})}">
+					<td><a th:href="@{/admin/movie/update(ID=*{u.user_id})}">
 							<button type="button" class="btn-default">更新</button>
 					</a></td>
-					<td><a th:href="@{/admin/movie/delete(No=*{u.user_id})}">
+					<td><a th:href="@{/admin/movie/delete(ID=*{u.user_id})}">
 							<button type="button" class="btn-default">削除</button>
 					</a></td>
 				</tr>

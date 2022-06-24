@@ -1,0 +1,80 @@
+<!-- iwai 編集中 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>会員情報更新</title>
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="table-responsive">
+			<form th:action="@{/admin/user/update}" th:object="${user}" method="post">
+			更新したい項目を書き換えてください
+				<table class="table table-striped table-bordered">
+					<tr>
+						<td>ユーザーID</td>
+						<td><input type="text" name="user_id"
+							th:value="*{user_id}" th:field="*{user_id}"
+							style="width: 200px;">
+							<!-- <span th:if="${#fields.hasErrors('user_id')}"
+							th:errors="*{user_id}"
+							th:errorclass="error-field">error!</span> -->
+						</td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td>
+						<td><input type="text" name="user_mail"
+							th:value="*{user_mail}" th:field="*{user_mail}"
+							style="width: 200px;">
+							<!-- <span th:if="${#fields.hasErrors('user_mail')}"
+							th:errors="*{user_mail}"
+							th:errorclass="error-field">error!</span> -->
+						</td>
+					</tr>
+					<tr>
+						<td>名前</td>
+						<td><input type="text" name="user_name"
+							th:value="*{user_name}" th:field="*{user_name}"
+							style="width: 200px;">
+							<!-- <span th:if="${#fields.hasErrors('user_name')}"
+							th:errors="*{user_name}"
+							th:errorclass="error-field">error!</span> -->
+						</td>
+						<td>パスワード</td>
+						<td><input type="password" name="password"
+							th:value="*{password}" th:field="*{password}"
+							style="width: 200px;">
+							<!-- <span th:if="${#fields.hasErrors('password')}"
+							th:errors="*{password}"
+							th:errorclass="error-field">error!</span> -->
+						</td>
+						<td>権限</td>
+						<td><input type="radio" name="authority" value="1"
+							th:field="*{authority}">管理者
+							<input type="radio" name="authority" value="2"
+							 th:field="*{authority}">一般会員
+							<input type="radio" name="authority" value="3"
+							 th:field="*{authority}">経営者
+							<!-- <span th:if="${#fields.hasErrors('authority')}"
+							th:errors="*{authority}"
+							th:errorclass="error-field">error!</span> -->
+						</td>
+						<td>ユーザー削除フラグ</td>
+						<td><input type="radio" name="user_del_flg" value="0"
+							th:field="*{user_del_flg}">有効
+							<input type="radio" name="user_del_flg" value="1"
+							 th:field="*{user_del_flg}">削除
+							<!-- <span th:if="${#fields.hasErrors('user_del_flg')}"
+							th:errors="*{user_del_flg}"
+							th:errorclass="error-field">error!</span> -->
+						</td>
+					</tr>
+				</table>
+				<input type="submit" value="更新する" class="btn btn-primary"
+					style="width: 80px; border-radius: 8px;">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -24,17 +24,21 @@
 				<tr>
 				<tr th:each="m:${list}">
 					<td th:text="*{m.Movie_title}"></td>
-					<td th:text="*{m.Genre1}"></td>
-					<td th:text="*{m.Genre2}"></td>
+					<td th:text="*{m.Genre_name1}"></td>
+					<td th:text="*{m.Genre_name2}"></td>
 					<td th:text="*{m.Time}"></td>
 					<td th:text="*{m.Age_level}"></td>
 					<td th:text="*{m.Release_day}"></td>
-					<td th:text="*{m.Remarks}"></td>
+					<td style="white-space: normal" th:text="*{m.Remarks}"></td>
 				</tr>
 				<!-- tr th:each="e:${list}">
 				<td th:text="*{e.Genre2}></td -->
-
 			</table>
+			<br>
+			<br>
+			<h3>開催イベント</h3>
+
+
 		</div>
 	</div>
 </body>
