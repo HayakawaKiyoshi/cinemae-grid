@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout">
 <head>
 <meta charset="UTF-8">
-<title>完了画面</title>
+<title>Insert title here</title>
 </head>
 <body>
- <div layout:fragment="notMember_contents">
+  <div layout:fragment="contents">
   <div class="login">
   <p th:text="${msg} + 'が完了しました。'"></p>
   <form th:action="@{url}">
   	<input type="submit" th:value="${btn}">
   </form>
   </div>
- </div>
+  <div layout:insert="~{Part/Footer::footer}"></div>
+</div>
 </body>
 </html>

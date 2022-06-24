@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <title>新規会員登録</title>
 </head>
 <body>
+ <div layout:fragment="notMember_contents">
   <div class="login">
   <p>入力してください。</p>
   <form action="/login/userSubmit/check/0" method="post" th:object="${submitForm}">
@@ -21,5 +23,6 @@
   	<input type="submit" value="戻る">
   </form>
   </div>
+</div>
 </body>
 </html>
