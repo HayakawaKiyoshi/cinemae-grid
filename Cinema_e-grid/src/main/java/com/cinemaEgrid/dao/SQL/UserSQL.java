@@ -32,4 +32,17 @@ public class UserSQL {
 				+ "User_del_flg "
 				+ "FROM User_table";
 
+	public static final String UPDATE_ID =
+			"UPDATE USER_TABLE SET "
+				+ "User_id = ?, "
+				+ "User_mail = ?, "
+				+ "Password = ?, "
+				+ "Authority = ?, "
+				+ "User_del_flg = ?"
+				+ "WHERE User_id = ?";
+
+	public static final String DELETE_ID =
+			"DELETE FROM User_TABLE "
+				+ "WHERE USER_ID = ?";
+
 }
