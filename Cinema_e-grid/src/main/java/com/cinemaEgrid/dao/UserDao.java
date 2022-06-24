@@ -230,4 +230,37 @@ public class UserDao {
 			manager.close(conn); // 切断処理
 		}
 	}
+
+	public static void delete(String userId, String userMail, String userName,
+			String password, String authority) {
+		Connection conn = null;
+		DBManager manager = new DBManager();
+
+		try {
+			conn = manager.getConn(); // 接続する
+
+			String sql = UserSQL.DELETE_ID;
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, userId);
+			ps.setString(2, userMail);
+			ps.setString(3, userName);
+			ps.setString(4, password);
+			ps.setString(5, authority);
+			ps.setString(6, userId);
+			ps.executeUpdate();
+
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+
+		} catch (SQLException e) {
+			System.err.println("Oracleエラーコード:" + e.getErrorCode());
+			System.err.println("SQLStateコード:" + e.getSQLState());
+			System.err.println("エラーメッセージ:" + e.getMessage());
+			e.printStackTrace();
+
+		} finally {
+			manager.close(conn); // 切断処理
+		}
+	}
+
 }

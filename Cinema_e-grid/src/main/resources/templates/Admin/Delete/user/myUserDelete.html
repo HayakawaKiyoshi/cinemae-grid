@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>退会</title>
+</head>
+<body>
+<div layout:fragment="contents">
+  <p>本当に退会しますか？</p>
+  <p>退会するとこのサイトの全てのサービスが受けられなくなります。</p>
+  <form action="/login/delete">
+  	<input type="submit" value="退会する">
+  </form>
+  <form action="#">
+  	<input type="submit" value="戻る">
+  </form>
+</div>
+</body>
+</html>

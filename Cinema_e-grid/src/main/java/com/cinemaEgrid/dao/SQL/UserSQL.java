@@ -43,7 +43,13 @@ public class UserSQL {
 				+ "WHERE User_id = ?";
 
 	public static final String DELETE_ID =
-			"DELETE FROM User_TABLE "
-				+ "WHERE USER_ID = ?";
+			"UPDATE USER_TABLE SET "
+					+ "User_id = ?, "
+					+ "User_mail = ?, "
+					+ "User_name = ?, "
+					+ "Password = ?, "
+					+ "Authority = ?, "
+					+ "User_del_flg = 1"
+					+ "WHERE User_id = ?";
 
 }
