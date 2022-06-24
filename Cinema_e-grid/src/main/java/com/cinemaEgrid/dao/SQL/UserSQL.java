@@ -36,6 +36,7 @@ public class UserSQL {
 			"UPDATE USER_TABLE SET "
 				+ "User_id = ?, "
 				+ "User_mail = ?, "
+				+ "User_name = ?, "
 				+ "Password = ?, "
 				+ "Authority = ?, "
 				+ "User_del_flg = ?"

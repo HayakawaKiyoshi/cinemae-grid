@@ -56,10 +56,9 @@ public class UpdateMyInfo {
 		String id = updateUser.get(0).getUser_id();
 		String pass = updateUser.get(0).getPassword();
 		String auth = updateUser.get(0).getAuthority();
-		UserDao.update(id, form.getEmail(),
-				form.getName(), pass,
-				auth, updateUser.get(0).getUser_del_flg());
-		System.out.println(updateUser.get(0) + "aaa");
+		String del_flg = updateUser.get(0).getUser_del_flg();
+		UserDao.update(id, form.getEmail(), form.getName(), pass, auth, del_flg);
+		System.out.println(id + "aaa");
 		mav.addObject("msg", "プロフィールの変更");
 		mav.addObject("uel", "#");
 		mav.addObject("btn", "マイページへ");
