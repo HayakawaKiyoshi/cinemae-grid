@@ -2,12 +2,24 @@ package com.cinemaEgrid.bean;
 
 public class Schedule {
 
+	String schedule_date;
 	int schedule_no;
 	String schedule_time;
 	String schedule_name;
 	String schedule_movie_time;
 	String schedule_age_level;
 	String schedule_content;
+
+	public Schedule(String schedule_date,int schedule_no, String schedule_time, String schedule_name, String schedule_movie_time,
+			String schedule_age_level, String schedule_content) {
+		this.schedule_date = schedule_date;
+		this.schedule_no = schedule_no;
+		this.schedule_time = schedule_time;
+		this.schedule_name = schedule_name;
+		this.schedule_movie_time = schedule_movie_time;
+		this.schedule_age_level = schedule_age_level;
+		this.schedule_content = schedule_content;
+	}
 	public int getSchedule_no() {
 		return schedule_no;
 	}
@@ -43,5 +55,11 @@ public class Schedule {
 	}
 	public void setSchedule_content(String schedule_content) {
 		this.schedule_content = schedule_content;
+	}
+	public String getSchedule_date() {
+		return schedule_date;
+	}
+	public void setSchedule_date(String schedule_date) {
+		this.schedule_date = schedule_date;
 	}
 }
