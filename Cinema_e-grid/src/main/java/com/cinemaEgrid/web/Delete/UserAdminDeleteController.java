@@ -37,11 +37,16 @@ public class UserAdminDeleteController {
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	private ModelAndView index2(@RequestParam("ID") String id, User form,
 			ModelAndView mav, Model model) {
-//		try {
-//			UserDao.deleteUser(id);
-//		} catch (SQLException e) {
-//		}
-		mav.setViewName("Admin/Done/deleteDone");
+
+		if (form.getUser_del_flg().equals("1")) {
+//			try {
+//				UserDao.deleteUser(id);
+//			} catch (SQLException e) {
+//			}
+			mav.setViewName("Admin/Done/deleteDone");
+		} else {
+			mav.setViewName("redirect:/admin/alldisplay");
+		}
 		return mav;
 	}
 }
