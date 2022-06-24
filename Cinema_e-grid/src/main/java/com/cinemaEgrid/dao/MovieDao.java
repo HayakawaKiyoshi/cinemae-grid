@@ -77,17 +77,17 @@ public class MovieDao {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Movie emp = new Movie();
-				emp.setMovie_no(rs.getInt("movie_no"));
-				emp.setMovie_title(rs.getString("movie_title"));
-				emp.setGenre_name1(rs.getString("genre_name1"));
-				emp.setGenre_name2(rs.getString("genre_name2"));
-				emp.setTime(rs.getString("time"));
-				emp.setAge_level(rs.getInt("age_level"));
-				emp.setRelease_day(rs.getString("release_day"));
-				emp.setRemarks(rs.getString("remarks"));
-				emp.setMovie_del_flg(rs.getInt("movie_del_flg"));
-				movieList.add(emp);
+				Movie movie = new Movie();
+				movie.setMovie_no(rs.getInt("movie_no"));
+				movie.setMovie_title(rs.getString("movie_title"));
+				movie.setGenre_name1(rs.getString("genre_name1"));
+				movie.setGenre_name2(rs.getString("genre_name2"));
+				movie.setTime(rs.getString("time"));
+				movie.setAge_level(rs.getInt("age_level"));
+				movie.setRelease_day(rs.getString("release_day"));
+				movie.setRemarks(rs.getString("remarks"));
+				movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
+				movieList.add(movie);
 			}
 //			for (Movie i : movieList) {
 //				System.out.println(i);

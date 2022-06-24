@@ -21,4 +21,6 @@ public class MovieSQL {
 			+ "FROM movie_table M INNER JOIN genre_table G\r\n"
 			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
 			+ "ON M.genre2 = G2.genre_id";
+
+
 }

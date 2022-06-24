@@ -8,6 +8,7 @@ public class Movie {
 	private int genre2;
 	private String genre_name1;
 	private String genre_name2;
+
 	public String getGenre_name1() {
 		return genre_name1;
 	}
