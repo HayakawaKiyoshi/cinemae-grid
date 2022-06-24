@@ -1,7 +1,8 @@
 package com.cinemaEgrid.web.Update.store;
-
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.beans.BeanUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,13 +34,13 @@ public class UserAdminUpdateController {
 	@RequestMapping(method = RequestMethod.GET)
 	private ModelAndView index(@RequestParam("ID") String id,
 			User form, ModelAndView mav) {
-//		List<User> userlist = null;
-//		try {
-//			userlist = UserDao.(id);
-//		} catch (SQLException e) {
-//		}
-//		//beanに情報コピー
-//		BeanUtils.copyProperties(userlist.get(0), form);
+		List<User> userlist = null;
+		try {
+			userlist = UserDao.(id);
+		} catch (SQLException e) {
+		}
+		//beanに情報コピー
+		BeanUtils.copyProperties(userlist.get(0), form);
 		mav.setViewName("Admin/Update/user/userAdminUpdate");
 		return mav;
 	}

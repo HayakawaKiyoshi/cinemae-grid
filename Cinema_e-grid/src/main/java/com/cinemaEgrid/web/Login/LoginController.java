@@ -39,8 +39,8 @@ public class LoginController {
 			session.setAttribute("user", user);
 
 			if(user[1].equals("3")) {
-				//管理者の場合は管理者ログインページへ
-				mav.setViewName("/User/Login/adminLogin");
+				//管理者の場合は管理者トップページへ
+				mav.setViewName("/admin/alldisplay");
 			} else {
 				//管理者以外の場合はトップページへ
 				mav.setViewName("/login/topPage");
@@ -49,19 +49,6 @@ public class LoginController {
 			//該当する会員がいない時は、ログイン画面へ
 			mav.setViewName("/User/Login/login");
 			mav.addObject("msg", "IDまたはパスワードが違います");
-		}
-		return mav;
-	}
-
-	@RequestMapping(value="/login/adminLogin", method=RequestMethod.POST)
-	private ModelAndView adminLogin(LoginForm form, ModelAndView mav) {
-		//管理者ID(pass)が入力されたら管理者用のトップページへ
-		if(form.getAdminId().equals("pass")) {
-			mav.setViewName("/admin/alldisplay");
-		} else {
-			//管理者IDが間違えていたら戻る
-			mav.addObject("msg", "管理者用のIDが違います。");
-			mav.setViewName("/User/Login/adminLogin");
 		}
 		return mav;
 	}
