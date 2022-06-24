@@ -41,8 +41,16 @@
 					<td th:text="*{schedule.Schedule_movie_time}"></td>
 					<td th:text="*{schedule.Schedule_age_level}"></td>
 					<td th:text="*{schedule.Schedule_content}"></td>
+					<th:block th:if="*{ schedule.Schedule_status == 1}">
+					<td th:text="終了"></td>
+					</th:block>
+					<th:block th:if="*{ schedule.Schedule_status == 0}">
+					<td th:text="受付中"></td>
+					</th:block>
+					<th:block th:if="*{ schedule.Schedule_status != 1}">
 					<td><a class="btn btn-primary" th:href="@{/login/reserveDone(date=*{schedule.Schedule_date},no=*{schedule.Schedule_no})}" >予約</a>
 						</td>
+						</th:block>
 						</tr>
 
 				<!-- ボタン・リンククリック後に表示される画面の内容 -->

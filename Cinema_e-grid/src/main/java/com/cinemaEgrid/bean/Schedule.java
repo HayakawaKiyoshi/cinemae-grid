@@ -9,9 +9,10 @@ public class Schedule {
 	String schedule_movie_time;
 	String schedule_age_level;
 	String schedule_content;
+	int schedule_status;
 
 	public Schedule(String schedule_date,int schedule_no, String schedule_time, String schedule_name, String schedule_movie_time,
-			String schedule_age_level, String schedule_content) {
+			String schedule_age_level, String schedule_content, int schedule_status) {
 		this.schedule_date = schedule_date;
 		this.schedule_no = schedule_no;
 		this.schedule_time = schedule_time;
@@ -19,6 +20,7 @@ public class Schedule {
 		this.schedule_movie_time = schedule_movie_time;
 		this.schedule_age_level = schedule_age_level;
 		this.schedule_content = schedule_content;
+		this.schedule_status = schedule_status;
 	}
 	public int getSchedule_no() {
 		return schedule_no;
@@ -61,5 +63,11 @@ public class Schedule {
 	}
 	public void setSchedule_date(String schedule_date) {
 		this.schedule_date = schedule_date;
+	}
+	public int getSchedule_status() {
+		return schedule_status;
+	}
+	public void setSchedule_status(int schedule_status) {
+		this.schedule_status = schedule_status;
 	}
 }

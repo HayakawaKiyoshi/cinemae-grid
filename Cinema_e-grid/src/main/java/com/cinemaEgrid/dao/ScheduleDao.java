@@ -36,7 +36,8 @@ public class ScheduleDao {
 				String schedule_movie_time = rs.getString("schedule_movie_time");
 				String schedule_age_level = rs.getString("schedule_age_level");
 				String schedule_content = rs.getString("schedule_content");
-				Schedule schedule = new Schedule(schedule_date,schedule_no,schedule_time,schedule_name,schedule_movie_time, schedule_age_level, schedule_content);
+				int schedule_status = rs.getInt("schedule_status");
+				Schedule schedule = new Schedule(schedule_date,schedule_no,schedule_time,schedule_name,schedule_movie_time, schedule_age_level, schedule_content,schedule_status);
 				scheduleList.add(schedule);
 			}
 		} catch (Exception e) {
@@ -71,7 +72,8 @@ public class ScheduleDao {
 				String schedule_movie_time = rs.getString("schedule_movie_time");
 				String schedule_age_level = rs.getString("schedule_age_level");
 				String schedule_content = rs.getString("schedule_content");
-				schedule = new Schedule(schedule_date,schedule_no,schedule_time,schedule_name,schedule_movie_time, schedule_age_level, schedule_content);
+				int schedule_status = rs.getInt("schedule_status");
+				schedule = new Schedule(schedule_date,schedule_no,schedule_time,schedule_name,schedule_movie_time, schedule_age_level, schedule_content,schedule_status);
 
 
 		} catch (Exception e) {
