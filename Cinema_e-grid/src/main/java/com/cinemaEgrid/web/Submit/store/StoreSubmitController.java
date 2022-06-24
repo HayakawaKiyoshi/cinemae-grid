@@ -68,7 +68,7 @@ public class StoreSubmitController {
 	@RequestMapping(value = "/success", params = "exec", method = RequestMethod.POST)
 	private ModelAndView index4(Store form, ModelAndView mav) {
 		try {
-			StoreDao.registStore(form);
+			StoreDao.submitStore(form);
 		} catch (SQLException e) {
 		}
 //		mav.addObject("msg", "店舗登録");

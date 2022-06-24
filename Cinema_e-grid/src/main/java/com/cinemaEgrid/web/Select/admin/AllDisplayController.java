@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.bean.Store;
 import com.cinemaEgrid.bean.User;
+import com.cinemaEgrid.dao.MovieDao;
 import com.cinemaEgrid.dao.StoreDao;
 
 // http://localhost:10000/admin/alldisplay
@@ -30,7 +31,7 @@ public class AllDisplayController {
 		List<Store> storelist = null;
 		try {
 //			userlist =
-//			movielist =MovieDao.select();
+			movielist = MovieDao.selectAllmovie();
 			storelist = StoreDao.dispStore();
 		} catch (SQLException e) {
 		}
