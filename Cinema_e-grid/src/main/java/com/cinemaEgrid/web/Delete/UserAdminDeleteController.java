@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.User;
-import com.cinemaEgrid.dao.UserDao;
+import com.cinemaEgrid.dao.UserAdminDao;
 
 // http://localhost:10000/admin/user/delete
 
@@ -29,7 +29,7 @@ public class UserAdminDeleteController {
 			User form, ModelAndView mav) {
 		List<User> Userlist = null;
 		try {
-			Userlist = UserDao.findOneUser(id);
+			Userlist = UserAdminDao.findOneUser(id);
 		} catch (SQLException e) {
 		}
 		//beanに情報コピー
@@ -43,10 +43,10 @@ public class UserAdminDeleteController {
 			ModelAndView mav, Model model) {
 
 		if (form.getUser_del_flg().equals("1")) {
-//			try {
-//				UserDao.deleteUser(id);
-//			} catch (SQLException e) {
-//			}
+			try {
+				UserAdminDao.deleteAdminUser(id);
+			} catch (SQLException e) {
+			}
 			mav.setViewName("Admin/Done/deleteDone");
 		} else {
 			mav.setViewName("redirect:/admin/alldisplay");
