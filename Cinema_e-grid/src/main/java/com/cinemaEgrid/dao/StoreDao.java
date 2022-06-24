@@ -92,6 +92,7 @@ public class StoreDao {
 			String sql = StoreSQL.FIND_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
+			System.out.println("確認：" + id);
 			rs = ps.executeQuery();
 			//結果表に格納されたレコードの内容を表示
 			while (rs.next()) {
