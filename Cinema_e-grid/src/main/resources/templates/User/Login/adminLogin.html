@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/notMemberLayout">
 <head>
 <meta charset="UTF-8">
 <title>管理者ログイン画面</title>
 </head>
 <body>
- <div layout:fragment="notMember_contents">
+<div layout:fragment="notMember_contents">
   <div class="login">
-    <form action="#" method="post">
-  		管理者ID：<input type="text" name="adminId"><br>
-  		<input type="submit" value="ログイン">
-  	</form>
-  	</div>
+  <form action="/login/adminLogin" method="post" th:object="${loginForm}">
+  	管理者ID：<input type="text" name="adminId" th:field="*{adminId}"><br>
+  	<p th:text="${msg}"></p>
+  	<input type="submit" value="ログイン">
+  </form>
   </div>
+  <div layout:insert="~{Part/Footer::footer}"></div>
+</div>
 </body>
 </html>

@@ -213,6 +213,7 @@ public class UserDao {
 			ps.setString(4, password);
 			ps.setString(5, authority);
 			ps.setString(6, userDelFlg);
+			ps.setString(7, userId);
 
 			ps.executeUpdate();
 
