@@ -35,44 +35,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>09:00~</td>
-					<td>xx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td><a class="btn btn-primary" href="/login/reserveDone?no=1" role="button"
-						data-toggle="modal" data-target="#testModal">予約</a>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>12:00~</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td><a class="btn btn-primary" href="/login/reserveDone?no=2"
-						role="button" data-toggle="modal" data-target="#testModal">予約</a></td>
-				</tr>
-				<tr>
-					<th scope="row">3</th>
-					<td>15:00~</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td><a class="btn btn-primary" href="/login/reserveDone?no=3"role="button">予約</a></td>
-				</tr>
-				<tr>
-					<th scope="row">4</th>
-					<td>18:00~</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td>xxx</td>
-					<td><a class="btn btn-primary" href="/login/reserveDone?no=4" role="button">予約</a></td>
-				</tr>
+				<tr th:each="schedule:${scheduleList}">
+					<td th:text="*{schedule.Schedule_date}" scope="row"></td>
+					<td th:text="*{schedule.Schedule_time}"></td>
+					<td th:text="*{schedule.Schedule_name}"></td>
+					<td th:text="*{schedule.Schedule_movie_time}"></td>
+					<td th:text="*{schedule.Schedule_age_level}"></td>
+					<td th:text="*{schedule.Schedule_content}"></td>
+					<td><a class="btn btn-primary" th:href="@{/login/reserveDone(date=*{schedule.Schedule_date},no=*{schedule.Schedule_no})}" >予約</a>
+						</td>
+						</tr>
 
 				<!-- ボタン・リンククリック後に表示される画面の内容 -->
 				<div class="modal fade" id="testModal" tabindex="-1" role="dialog"
