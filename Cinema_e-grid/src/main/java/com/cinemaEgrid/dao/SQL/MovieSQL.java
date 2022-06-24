@@ -1,0 +1,23 @@
+package com.cinemaEgrid.dao.SQL;
+
+/**
+* 映画SQL
+* @author matsuo
+*
+*/
+public class MovieSQL {
+
+
+	public static final String SELECT_MOVIE =  "SELECT\r\n"
+			+ "M.movie_no,\r\n"
+			+ "M.movie_title, \r\n"
+			+ "G.genre_name, \r\n"
+			+ "G2.genre_name,\r\n"
+			+ "M.time,\r\n"
+			+ "M.age_level, \r\n"
+			+ "TO_CHAR(M.release_day, 'YYYY-MM-DD') AS release_day,\r\n"
+			+ "M.remarks\r\n"
+			+ "FROM movie_table M INNER JOIN genre_table G\r\n"
+			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
+			+ "ON M.genre2 = G2.genre_id";
+}

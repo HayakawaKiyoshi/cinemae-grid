@@ -71,10 +71,18 @@ public class MovieDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = "SELECT * FROM movie_table";
-			// String sql = "SELECT E.emp_id, E.emp_pass, E.emp_name, E.gender, E.address,
-			//TO_CHAR(E.birthday, 'YYYY-MM-DD') AS birthday, E.authority, D.dept_name
-			//FROM emp_table E INNER JOIN dept_table D ON E.dept_id = D.dept_id ORDER BY E.emp_id";
+			String sql = "SELECT\r\n"
+					+ "M.movie_no,\r\n"
+					+ "M.movie_title, \r\n"
+					+ "G.genre_name, \r\n"
+					+ "G2.genre_name,\r\n"
+					+ "M.time,\r\n"
+					+ "M.age_level, \r\n"
+					+ "TO_CHAR(M.release_day, 'YYYY-MM-DD') AS release_day,\r\n"
+					+ "M.remarks\r\n"
+					+ "FROM movie_table M INNER JOIN genre_table G\r\n"
+					+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
+					+ "ON M.genre2 = G2.genre_id";
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
