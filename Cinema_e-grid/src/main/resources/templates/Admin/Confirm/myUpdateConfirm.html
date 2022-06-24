@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>プロフィール編集確認</title>
+</head>
+<body>
+  <div layout:fragment="contents">
+   <div class="login">
+   <p>下記の内容で変更します。よろしいですか？</p>
+ 	<form action="/login/myPage/userUpdate/done" method="post" th:object="${updateForm}">
+ 	  名前：<span th:text="*{name}"></span><br>
+ 	  メールアドレス：<span th:text="*{email}"></span><br>
+ 	  <input type="submit" value="上記の内容で変更する">
+ 	</form>
+ 	<form action="/login/myPage/userUpdate/1" method="get" th:object="${updateForm}">
+ 	  <input type="hidden" name="name" th:field="*{name}">
+ 	  <input type="hidden" name="email" th:field="*{email}">
+ 	  <input type="submit" value="戻る">
+ 	</form>
+  </div>
+ </div>
+</body>
+</html>
