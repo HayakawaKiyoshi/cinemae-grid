@@ -48,13 +48,16 @@ public class test_matsuo {
 	//http://localhost:10000/cinema/test2
 	@RequestMapping(value = "top/search", method = RequestMethod.GET)
 	private ModelAndView searchMovie(@RequestParam("searchTitle") String title,
-			@RequestParam("searchGenre") String genre, ModelAndView mav) throws SQLException {
+			@RequestParam("searchGenre") String genre, @RequestParam("searchGenre") String genre2, ModelAndView mav)
+			throws SQLException {
 
 		mav.setViewName("User/Top/TopPage");
 
-		ArrayList<Movie> movieList = MovieDao.selectAllmovie();
+		ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
+		ArrayList<Event> eventList = EventDao.selectEvent();
 
 		mav.addObject("list", movieList);
+		mav.addObject("list2", eventList);
 
 		return mav;
 	}
