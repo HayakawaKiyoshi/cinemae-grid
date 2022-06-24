@@ -46,5 +46,4 @@ public class UserSQL {
 			"DELETE FROM User_TABLE "
 				+ "WHERE USER_ID = ?";
 
-
 }
