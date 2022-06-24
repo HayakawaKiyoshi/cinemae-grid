@@ -23,6 +23,7 @@
 			<li><a href="#movie" class="nav-link">映画一覧</a></li>
 			<li><a href="#store" class="nav-link">店舗一覧</a></li>
 		</ul>
+		<span id="errormsg" th:text="${msg}">error!</span>
 		<hr />
 		<div class="table-responsive">
 			<h5 id="user">会員一覧</h5>
@@ -77,8 +78,8 @@
 				<tr th:each="m:${mlist}">
 					<td th:text="*{m.movie_no}"></td>
 					<td th:text="*{m.movie_title}"></td>
-					<td th:text="*{m.genre1}"></td>
-					<td th:text="*{m.genre2}"></td>
+					<td th:text="*{m.genre_name1}"></td>
+					<td th:text="*{m.genre_name2}"></td>
 					<td th:text="*{m.time}"></td>
 					<td th:text="*{m.age_level}"></td>
 					<td th:text="*{m.release_day}"></td>

@@ -42,16 +42,4 @@ public class AllDisplayController {
 		mav.setViewName("Admin/AllDisplay");
 		return mav;
 	}
-
-//	@RequestMapping(method = RequestMethod.POST)
-//	private ModelAndView index2(StoreForm form, ModelAndView mav, Model model) {
-//		List<StoreForm> storelist = null;
-//		try {
-//			storelist = StoreDao.storeDisp();
-//		} catch (SQLException e) {
-//		}
-//		mav.addObject("list", storelist);
-//		mav.setViewName("Admin/AllDisplay");
-//		return mav;
-//	}
 }
