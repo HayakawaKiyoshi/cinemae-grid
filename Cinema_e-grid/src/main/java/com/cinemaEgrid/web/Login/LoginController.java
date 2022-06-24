@@ -39,8 +39,9 @@ public class LoginController {
 			session.setAttribute("user", user);
 
 			if(user[1].equals("3")) {
-				//管理者の場合は管理者トップページへ
-				mav.setViewName("/admin/alldisplay");
+				//管理者の場合は管理者ログインページへ
+				mav.setViewName("/User/Login/adminLogin");
+//				mav.setViewName("/admin/alldisplay");
 			} else {
 				//管理者以外の場合はトップページへ
 				mav.setViewName("/login/topPage");
