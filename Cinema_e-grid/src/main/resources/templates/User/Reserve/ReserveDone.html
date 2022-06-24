@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/layout">
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/loginStyle.css}">
 <head>
@@ -9,29 +10,30 @@
 <!-- 吉田　作成途中 -->
 </head>
 <body>
-	<h2>以下の内容でチケットを予約しますか？</h2>
-	<div layout:fragment="contents">
-		<div layout : fragment="contents">
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">日付</th>
-						<th scope="col">時間</th>
-						<th scope="col">作品名</th>
-						<th scope="col">上映時間</th>
-						<th scope="col">年齢制限</th>
-						<th scope="col">備考</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:object="${session.schedule}">
-					<td th:text="*{schedule_date}"></td>
-					<td th:text="*{schedule_time}"></td>
-					<td th:text="*{schedule_name}"></td>
-					<td th:text="*{schedule_movie_time}"></td>
-					<td th:text="*{schedule_age_level}"></td>
-					<td th:text="*{schedule_content}"></td>
-					</tr>
-				</tbody>
+				<div layout:fragment="contents">
+			<h2>以下の内容でチケットを予約しますか？</h2>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">日付</th>
+								<th scope="col">時間</th>
+								<th scope="col">作品名</th>
+								<th scope="col">上映時間</th>
+								<th scope="col">年齢制限</th>
+								<th scope="col">備考</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:object="${schedule}">
+								<td th:text="*{schedule_date}"></td>
+								<td th:text="*{schedule_time}"></td>
+								<td th:text="*{schedule_name}"></td>
+								<td th:text="*{schedule_movie_time}"></td>
+								<td th:text="*{schedule_age_level}"></td>
+								<td th:text="*{schedule_content}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 </body>
 </html>

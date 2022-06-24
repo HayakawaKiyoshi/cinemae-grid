@@ -3,10 +3,10 @@ package com.cinemaEgrid.dao.SQL;
 public class ScheduleSQL {
 
 	//スケジュール全件表示
-	public final static String ALLSCHEDULE ="SELECT * FROM schedule_table";
+	public final static String ALLSCHEDULE ="SELECT TO_CHAR(schedule_date,'YYYY-MM-DD') as schedule_date, schedule_no, schedule_time, schedule_name, schedule_movie_time, schedule_age_level, schedule_content FROM schedule_table";
 
 	//スケジュール選択後確認画面
-	public final static String SELECTSCHEDULE = "SELECT * FROM schedule_table　WHERE schedule_date = ?,schedule_no = ?";
+	public final static String SELECTSCHEDULE = "SELECT TO_CHAR(schedule_date,'YYYY-MM-DD') as schedule_date, schedule_no, schedule_time, schedule_name, schedule_movie_time, schedule_age_level, schedule_content FROM schedule_table　WHERE schedule_date = ? AND schedule_no = ?";
 
 
 }
