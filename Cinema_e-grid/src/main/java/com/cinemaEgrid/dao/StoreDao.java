@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.Store;
+import com.cinemaEgrid.dao.SQL.StoreSQL;
 
 /**
 * 店舗情報
@@ -33,7 +34,7 @@ public class StoreDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql ="SELECT * FROM store_table";
+			String sql = StoreSQL.SELECT_STORE;
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			//結果表に格納されたレコードの内容を表示
@@ -88,7 +89,7 @@ public class StoreDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql ="SELECT * FROM store_table WHERE store_no = ?";
+			String sql = StoreSQL.FIND_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
@@ -129,7 +130,7 @@ public class StoreDao {
 	 * 登録のメソッド
 	 * @throws SQLException
 	 */
-	public static void registStore(Store store) throws SQLException {
+	public static void submitStore(Store store) throws SQLException {
 
 		// DBManagerのインスタンスを生成
 		DBManager manager = new DBManager();
@@ -142,8 +143,7 @@ public class StoreDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql ="INSERT INTO store_table"
-					+ " VALUES (store_seq.nextval, ?, ?, ?)";
+			String sql = StoreSQL.SUBMIT_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, store.getStore_name());
 			ps.setString(2, store.getStore_location());
@@ -187,9 +187,7 @@ public class StoreDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql ="UPDATE store_table"
-					+ " SET store_name = ?, store_location = ?, store_del_flg = ?"
-					+ " WHERE store_no = ?";
+			String sql = StoreSQL.UPDATE_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, store.getStore_name());
 			ps.setString(2, store.getStore_location());
@@ -234,7 +232,7 @@ public class StoreDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql ="DELETE FROM store_table WHERE store_no = ?";
+			String sql = StoreSQL.DELETE_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
 			count = ps.executeUpdate();
