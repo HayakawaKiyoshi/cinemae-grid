@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.Movie;
+import com.cinemaEgrid.dao.SQL.MovieSQL;
 
 public class MovieDao {
 	public static void main(String[] args) throws SQLException {
@@ -71,18 +72,7 @@ public class MovieDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = "SELECT\r\n"
-					+ "M.movie_no,\r\n"
-					+ "M.movie_title, \r\n"
-					+ "G.genre_name, \r\n"
-					+ "G2.genre_name,\r\n"
-					+ "M.time,\r\n"
-					+ "M.age_level, \r\n"
-					+ "TO_CHAR(M.release_day, 'YYYY-MM-DD') AS release_day,\r\n"
-					+ "M.remarks\r\n"
-					+ "FROM movie_table M INNER JOIN genre_table G\r\n"
-					+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
-					+ "ON M.genre2 = G2.genre_id";
+			String sql = MovieSQL.SELECT_MOVIE;
 			ps = conn.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -90,8 +80,8 @@ public class MovieDao {
 				Movie emp = new Movie();
 				emp.setMovie_no(rs.getInt("movie_no"));
 				emp.setMovie_title(rs.getString("movie_title"));
-				emp.setGenre1(rs.getInt("genre1"));
-				emp.setGenre2(rs.getInt("genre2"));
+				emp.setGenre_name1(rs.getString("genre_name1"));
+				emp.setGenre_name2(rs.getString("genre_name2"));
 				emp.setTime(rs.getString("time"));
 				emp.setAge_level(rs.getInt("age_level"));
 				emp.setRelease_day(rs.getString("release_day"));

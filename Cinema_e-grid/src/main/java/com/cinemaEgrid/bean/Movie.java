@@ -6,6 +6,24 @@ public class Movie {
 	private String movie_title;
 	private int genre1;
 	private int genre2;
+	private String genre_name1;
+	private String genre_name2;
+	public String getGenre_name1() {
+		return genre_name1;
+	}
+
+	public void setGenre_name1(String genre_name1) {
+		this.genre_name1 = genre_name1;
+	}
+
+	public String getGenre_name2() {
+		return genre_name2;
+	}
+
+	public void setGenre_name2(String genre_name2) {
+		this.genre_name2 = genre_name2;
+	}
+
 	private String time;
 	private int age_level;
 	private String release_day;
