@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Event;
@@ -23,7 +24,7 @@ public class test_matsuo {
 
 	//http://localhost:10000/cinema/test
 	@RequestMapping(value = "/cinema/test", method = RequestMethod.GET)
-	private ModelAndView login( ModelAndView mav) {
+	private ModelAndView login(ModelAndView mav) {
 		mav.setViewName("Layout/Layout");
 
 		return mav;
@@ -31,8 +32,7 @@ public class test_matsuo {
 
 	//http://localhost:10000/cinema/test2
 	@RequestMapping(value = "/cinema/test2", method = RequestMethod.GET)
-	private ModelAndView Toptest( ModelAndView mav) throws SQLException {
-
+	private ModelAndView Toptest(ModelAndView mav) throws SQLException {
 
 		mav.setViewName("User/Top/TopPage");
 
@@ -45,11 +45,10 @@ public class test_matsuo {
 		return mav;
 	}
 
-
 	//http://localhost:10000/cinema/test2
 	@RequestMapping(value = "top/search", method = RequestMethod.GET)
-	private ModelAndView searchMovie(ModelAndView mav) throws SQLException {
-
+	private ModelAndView searchMovie(@RequestParam("searchTitle") String title,
+			@RequestParam("searchGenre") String genre, ModelAndView mav) throws SQLException {
 
 		mav.setViewName("User/Top/TopPage");
 
