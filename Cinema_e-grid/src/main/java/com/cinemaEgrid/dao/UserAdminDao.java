@@ -33,6 +33,7 @@ public class UserAdminDao {
 			String sql = UserAdminSQL.FIND_ONE_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
+			System.out.println("選択：" + id);
 			rs = ps.executeQuery();
 			//結果表に格納されたレコードの内容を表示
 			while (rs.next()) {

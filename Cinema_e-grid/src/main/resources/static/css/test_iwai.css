@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+.title{
+    color: white;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 60px;
+	margin : 35px;
+}
+
+.header {
+	background-color: midnightblue;
+	text-align: center;
+	border: 1px solid midnightblue;
+	height: 160px;
+}
+
+hr{
+	color: white;
+	border: 1px solid midnightblue;
+}
+
 /***追従するトップへ戻るボタン***/
 #page-top {
     position: fixed;
@@ -9,9 +28,9 @@
     text-decoration: none;
     font-weight: bold;
     transform: rotate(90deg);
-    font-size: 90%;
+    font-size: 110%;
     line-height: 1.5rem;
-    color: orange;
+    color: darkblue;
     padding: 0 0 0 35px;
     border-top: solid 1px;
 }

@@ -41,8 +41,7 @@ public class UserAdminDeleteController {
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	private ModelAndView index2(@RequestParam("ID") String id, User form,
 			ModelAndView mav, Model model) {
-
-		if (form.getUser_del_flg().equals("1")) {
+		if (form.getUser_del_flg() == "1") {
 			try {
 				UserAdminDao.deleteAdminUser(id);
 			} catch (SQLException e) {

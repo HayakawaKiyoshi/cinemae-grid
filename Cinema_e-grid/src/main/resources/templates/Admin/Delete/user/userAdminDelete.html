@@ -25,16 +25,16 @@
 					<td th:text="*{user_name}"></td>
 					<td th:text="*{password}"></td>
 					<td th:text="*{authority}"></td>
-					<td th:text="*{user_del_flg == 0} ? 有効:削除"></td>
+					<td th:text="*{user_del_flg}"></td>
 				</tr>
 			</table>
 			<a th:if="${user} != null" th:object="${user}"
 				th:href="@{/admin/user/delete/success(ID=*{user_id})}">
-				<button class="btn btn-primary"
+				<button class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">この会員を削除する</button>
 			</a>
 			<form action="/admin/alldisplay" method="get">
-				<input type="submit" value="管理者メニューへ戻る" class="btn btn-primary"
+				<input type="submit" value="管理者メニューへ戻る" class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">
 			</form>
 		</div>

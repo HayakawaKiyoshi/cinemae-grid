@@ -7,16 +7,13 @@
 <title>管理者メニュー画面</title>
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" media="all" th:href="@{/css/test_iwai.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/loginStyle.css}">
 <link
 	href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300"
 	rel="stylesheet">
 </head>
 <body>
 	<div class="header">
-		<br>
 		<h1 class="title">Cinema e-grid</h1>
-		<br> <br>
 	</div>
 	<div class="container">
 		<hr />
@@ -28,7 +25,7 @@
 		</ul>
 		<hr />
 		<div class="table-responsive">
-		<h5 id="user">会員一覧</h5>
+			<h5 id="user">会員一覧</h5>
 			<table class="table table-hover table-sm " id="user">
 				<tr class="table-light">
 					<th>ユーザーID</th>
@@ -46,21 +43,23 @@
 					<td th:text="*{u.user_name}"></td>
 					<td th:text="*{u.password}"></td>
 					<td th:text="*{u.authority}"></td>
-					<td th:text="*{u.user_del_flg}"></td>
-					<td><a th:href="@{/admin/movie/update(ID=*{u.user_id})}">
+					<td th:text="*{u.user_del_flg == '0'} ? 有効:削除"></td>
+					<td><a th:href="@{/admin/user/update(ID=*{u.user_id})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">更新</button>
 					</a></td>
-					<td><a th:href="@{/admin/movie/delete(ID=*{u.user_id})}">
+					<td><a th:href="@{/admin/user/delete(ID=*{u.user_id})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">削除</button>
 					</a></td>
 				</tr>
 			</table>
 		</div>
-		<hr />
+	</div>
+	<div class="container">
+	<hr />
 		<div class="table-responsive">
-			<h4 id="movie">映画一覧</h4>
+			<h5 id="movie">映画一覧</h5>
 			<table class="table table-hover table-sm">
 				<tr class="table-light">
 					<th>映画NO.</th>
@@ -84,7 +83,7 @@
 					<td th:text="*{m.age_level}"></td>
 					<td th:text="*{m.release_day}"></td>
 					<td th:text="*{m.remarks}"></td>
-					<td th:text="*{m.movie_del_flg}"></td>
+					<td th:text="*{m.movie_del_flg == 0} ? 有効:削除"></td>
 					<td><a th:href="@{/admin/movie/update(No=*{m.movie_no})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">更新</button>
@@ -96,9 +95,11 @@
 				</tr>
 			</table>
 		</div>
-		<hr />
+	</div>
+	<div class="container">
+	<hr />
 		<div class="table-responsive">
-			<h4 id="store">店舗一覧</h4>
+			<h5 id="store">店舗一覧</h5>
 			<table class="table table-hover table-sm">
 				<tr class="table-light">
 					<th>店舗NO.</th>
@@ -112,7 +113,7 @@
 					<td th:text="*{s.store_no}"></td>
 					<td th:text="*{s.store_name}"></td>
 					<td th:text="*{s.store_location}"></td>
-					<td th:text="*{s.store_del_flg}"></td>
+					<td th:text="*{s.store_del_flg == 0} ? 有効:削除"></td>
 					<td><a th:href="@{/admin/store/update(No=*{s.store_no})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">更新</button>

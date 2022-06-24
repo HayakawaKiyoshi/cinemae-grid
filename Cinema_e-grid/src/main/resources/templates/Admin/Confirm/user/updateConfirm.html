@@ -3,28 +3,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>店舗情報確認</title>
+<title>会員情報確認</title>
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
 	<div class="container">
 		<div class="table-responsive">
-			この内容で店舗情報を更新しますか？
+			この内容で会員情報を更新しますか？
 			<table class="table table-striped table-bordered">
 				<tr>
-					<td>店舗NO.</td>
-					<td>店舗名</td>
-					<td>住所</td>
-					<td>店舗削除フラグ</td>
+					<th>ユーザーID</th>
+					<th>メールアドレス</th>
+					<th>名前</th>
+					<th>パスワード</th>
+					<th>権限</th>
+					<th>ユーザー削除フラグ</th>
 				</tr>
-				<tr th:if="${store} != null" th:object="${store}">
-					<td th:text="*{store_no}"></td>
-					<td th:text="*{store_name}"></td>
-					<td th:text="*{store_location}"></td>
-					<td th:text="*{store_del_flg == 0} ? 有効:削除"></td>
+				<tr th:if="${user} != null" th:object="${user}">
+					<td th:text="*{user_id}"></td>
+					<td th:text="*{user_mail}"></td>
+					<td th:text="*{user_name}"></td>
+					<td th:text="*{password}"></td>
+					<td th:text="*{authority}"></td>
+					<td th:text="*{user_del_flg}"></td>
 				</tr>
 			</table>
-			<form th:action="@{/admin/store/update/success}" th:object="${store}" method="post">
+			<form th:action="@{/admin/user/update/success}" th:object="${user}" method="post">
 				<input type="submit" name="exec" th:value="変更確定"
 					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
 				<input type="submit" name="back" value="戻る" class="btn btn-outline-secondary"
