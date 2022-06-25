@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>イベント編集</title>
+</head>
+<body>
+  <div layout:fragment="contents" class="divContent">
+	<p>編集してください</p>
+	<form action="/login/eventUpdate/check" method="post"
+		th:object="${eventForm}" name="myFORM">
+		イベントタイトル：
+		<input type="text" name="eventTitle" th:field="*{eventTitle}"><br>
+		イベント内容<br>
+		<textarea name="eventContent" th:field="*{eventContent}"
+			cols="80" rows="10"></textarea><br>
+		更新日：<input type="text" name="updateDate" readonly="readonly"><br>
+		<script type="text/javascript">
+			document.myFORM.updateDate.value = updateDay();
+			function updateDay() {
+				var now = new Date();
+				var year = now.getFullYear();
+				var month = now.getMonth() + 1;
+				var day = now.getDate();
+				var nowday = year + "/" + month + "/" + day;
+				return nowday;
+			}
+		</script>
+		<input type="submit" value="編集完了">
+	</form>
+  </div>
+</body>
+</html>
