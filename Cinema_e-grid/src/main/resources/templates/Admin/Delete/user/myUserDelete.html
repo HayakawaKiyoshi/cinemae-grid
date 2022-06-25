@@ -8,12 +8,12 @@
 </head>
 <body>
 <div layout:fragment="contents">
-  <p>本当に退会しますか？</p>
-  <p>退会するとこのサイトの全てのサービスが受けられなくなります。</p>
-  <form action="/login/delete">
+  <p>退会しますか？<br>
+  退会するとこのサイトの全てのサービスが受けられなくなります。</p>
+  <form action="/login/delete" method="post">
   	<input type="submit" value="退会する">
   </form>
-  <form action="#">
+  <form action="#" method="post">
   	<input type="submit" value="戻る">
   </form>
 </div>
