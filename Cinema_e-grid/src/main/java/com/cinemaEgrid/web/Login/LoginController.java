@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.dao.UserDao;
@@ -64,6 +65,15 @@ public class LoginController {
 			mav.setViewName("/User/Login/adminLogin");
 		}
 		return mav;
+	}
+
+
+	@RequestMapping(value="/logout", method=RequestMethod.POST)
+	private String userLogout(SessionStatus sessionStatus) {
+		// セッション廃棄
+		sessionStatus.setComplete();
+		session.removeAttribute("user");
+		return "redirect:/login";
 	}
 
 }
