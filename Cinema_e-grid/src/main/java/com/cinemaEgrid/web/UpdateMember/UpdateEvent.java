@@ -24,6 +24,7 @@ public class UpdateEvent {
 	//	http://localhost:10000/login/eventUpdate/0
 
 	//イベントの番号をurlで送るように
+	//後にpostに変更するように
 
 	@RequestMapping("/eventUpdate/{type}")
 	private String eventUpdate(@PathVariable int type, EventForm form) {

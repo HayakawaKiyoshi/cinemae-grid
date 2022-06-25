@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/notMemberLayout">
+<head>
+<meta charset="UTF-8">
+<title>新規会員登録</title>
+</head>
+<body>
+  <div layout:fragment="notMember_contents">
+  <div class="login">
+  <p>登録する会員の情報を入力してください。</p>
+  <form action="/login/userSubmit/check/1" method="post" th:object="${submitForm}">
+  	ID：<input type="text" name="id" th:field="*{id}">
+  	<span th:text="${msg}"></span><br>
+  	パスワード：<input type="password" name= pass th:field="*{pass}"><br>
+  	名前：<input type="text" name="name" th:field="*{name}"><br>
+  	メールアドレス：<input type="email" name="email" th:field="*{mail}"><br>
+  	管理者 <input type="radio" name="authority" th:value="*{1}">　
+  	一般会員 <input type="radio" name="authority" th:value="*{2}">　
+  	経営者 <input type="radio" name="authority" th:value="*{3}">　
+  	<input type="hidden" name="del_flg" th:value="*{0}"><br>
+  	<input type="submit" value="登録する">
+  </form>
+  <form action="#">
+  	<input type="submit" value="戻る">
+  </form>
+  </div>
+</div>
+</body>
+</html>

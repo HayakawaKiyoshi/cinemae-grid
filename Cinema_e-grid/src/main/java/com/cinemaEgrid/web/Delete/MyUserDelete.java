@@ -24,6 +24,9 @@ public class MyUserDelete {
 	@Autowired
 	HttpSession session;
 
+	//ログインからでないと確認できないので、仮の値を入れています。
+	//後にpostに変更するように
+
 //	http://localhost:10000/login/delete
 
 	@RequestMapping("/delete")

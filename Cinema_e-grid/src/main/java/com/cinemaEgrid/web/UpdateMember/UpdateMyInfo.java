@@ -22,6 +22,9 @@ public class UpdateMyInfo {
 	@Autowired
 	HttpSession session;
 
+	//ログインしてからでないと確認できないので、仮の値を入れています。
+	//マイページ完成後にpostに変更するように
+
 //	http://localhost:10000/login/myPage/userUpdate/0
 
 	@RequestMapping(value="/myPage/userUpdate/{type}")
