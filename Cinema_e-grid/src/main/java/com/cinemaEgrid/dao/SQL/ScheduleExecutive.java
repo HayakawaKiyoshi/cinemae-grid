@@ -4,7 +4,7 @@ public class ScheduleExecutive {
 
 	public static final String SELECT_ID =
 			"SELECT "
-				+ "_id, "
+				+ "Shedule_date, "
 				+ "Update_title, "
 				+ "Event_content, "
 				+ "Update_date "

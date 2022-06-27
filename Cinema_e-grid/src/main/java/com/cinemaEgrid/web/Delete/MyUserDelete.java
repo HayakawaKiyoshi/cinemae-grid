@@ -35,7 +35,7 @@ public class MyUserDelete {
 
 	}
 
-	@RequestMapping(value="/delete", method=RequestMethod.POST)
+	@RequestMapping(value="/delete/done", method=RequestMethod.POST)
 	private String myUserDelete() {
 //		String[] user = (String[]) session.getAttribute("user");
 //		ArrayList<User> userList = UserDao.search(user[0]);

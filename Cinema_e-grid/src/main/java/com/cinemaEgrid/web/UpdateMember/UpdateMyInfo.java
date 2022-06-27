@@ -63,7 +63,7 @@ public class UpdateMyInfo {
 		UserDao.update(id, form.getEmail(), form.getName(), pass, auth, del_flg);
 		mav.addObject("title", "プロフィール変更完了");
 		mav.addObject("msg", "プロフィールの変更");
-		mav.addObject("uel", "#");
+		mav.addObject("uel", "/cinena/maypage/top");
 		mav.addObject("btn", "マイページへ");
 		mav.setViewName("/Admin/Done/myUpdateDone");
 		return mav;
