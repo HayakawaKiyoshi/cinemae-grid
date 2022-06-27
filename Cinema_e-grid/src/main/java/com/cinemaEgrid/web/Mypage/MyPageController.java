@@ -16,6 +16,8 @@ public class MyPageController {
 	//http://localhost:10000/mypage/history
 	@RequestMapping(value = "/mypage/history", method = RequestMethod.GET)
 	private ModelAndView login(ModelAndView mav) {
+		
+		
 		mav.setViewName("User/MyPage/ReserveHistory");
 
 		return mav;
