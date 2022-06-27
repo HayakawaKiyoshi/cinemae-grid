@@ -29,7 +29,7 @@ public class MyUserDelete {
 
 //	http://localhost:10000/login/delete
 
-	@RequestMapping("/delete")
+	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	private String myUserDeleteCheck() {
 		return "/Admin/Delete/user/myUserDelete";
 

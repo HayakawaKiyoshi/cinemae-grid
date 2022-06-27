@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout">
+<head>
+<meta charset="UTF-8">
+<title>上映情報変更</title>
+</head>
+<body>
+  <div layout:fragment="contents" class="divContent">
+  	<p>編集してください</p>
+  	<form action="/login/scheduleUpdate/0" method="post" th:object="${scheduleForm}">
+  	  公開日：
+  	  <input type="text" name="date" th:field="*{date}"><br>
+  	  映画タイトル：
+  	  <input type="text" name="name" th:field="*{name}"><br>
+  	  時間：
+  	  <input type="text" name="movieTime" th:field="*{movieTime}"><br>
+  	  年齢制限：
+  	  <input type="text" name="ageLevel" th:field="*{ageLevel}"><br>
+  	  内容<br>
+  	  <textarea name="content" th:field="*{content}" cols="80" rows="10">
+  	  </textarea><br>
+  	  予約受付中<input type="radio" name="status" th:value="*{0}">　
+  	  予約受付終了<input type="radio" name="status" th:value="*{1}"><br>
+  	</form>
+  </div>
+</body>
+</html>
