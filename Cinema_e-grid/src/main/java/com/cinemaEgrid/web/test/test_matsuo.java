@@ -51,12 +51,20 @@ public class test_matsuo {
 			@RequestParam("searchGenre") String genre, @RequestParam("searchGenre") String genre2, ModelAndView mav)
 			throws SQLException {
 
+		System.out.println(title);
+
 		mav.setViewName("User/Top/TopPage");
 
-		ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
+		//if (title != null) {
+
+			ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
+			mav.addObject("list", movieList);
+
+		//}
 		ArrayList<Event> eventList = EventDao.selectEvent();
 
-		mav.addObject("list", movieList);
+		System.out.println(movieList);
+
 		mav.addObject("list2", eventList);
 
 		return mav;

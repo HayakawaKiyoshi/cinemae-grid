@@ -12,9 +12,9 @@
 	<div layout:fragment="contents" class="divContent">
 		<div class="container">
 			<br>
-			<form action="top/search" method="get">
+			<form action="/top/search" method="get">
 				<p>
-					タイトル検索：<input type="text" name="serchTitle">
+					タイトル検索：<input type="text" name="searchTitle">
 				</p>
 				<p>
 					ジャンル検索： <select name="searchGenre">
@@ -42,8 +42,9 @@
 						<option value="21">スリラー</option>
 						<option value="22">戦争</option>
 						<option value="23">西部劇</option>
-					</select>
+					</select> <a th:href="@{/top/search}"><button class="btn btn-secondary">検索</button></a>
 			</form>
+
 			<h3>映画一覧</h3>
 			<table id="memberTable"
 				class="table table-striped table-bordered table-dark">
@@ -75,8 +76,7 @@
 					<td th:text="*{e.Event_title}"></td>
 				</tr>
 				<tr>
-					<td th:text="*{e.Event_content}">
-				</td>
+					<td th:text="*{e.Event_content}"></td>
 				</tr>
 			</table>
 
