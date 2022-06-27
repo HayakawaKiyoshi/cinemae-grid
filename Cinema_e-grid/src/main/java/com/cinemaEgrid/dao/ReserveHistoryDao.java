@@ -15,7 +15,7 @@ import com.cinemaEgrid.dao.SQL.ReserveHistorySQL;
 *
 */
 
-public class ReserveHistory {
+public class ReserveHistoryDao {
 
 	//予約履歴取得メソッド
 	public static ArrayList<Reserve> selectReserve() throws SQLException {
@@ -40,6 +40,7 @@ public class ReserveHistory {
 				reserve.setBook_code(rs.getString("book_code"));
 				reserveList.add(reserve);
 			}
+
 			//			for (Movie i : movieList) {
 			//				System.out.println(i);
 			//			}
