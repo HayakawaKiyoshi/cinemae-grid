@@ -19,8 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cinemaEgrid.bean.Store;
 import com.cinemaEgrid.dao.StoreDao;
 
-// http://localhost:10000/admin/store/submit
-
 /**
 * 管理者/店舗情報登録
 * @author iwai
