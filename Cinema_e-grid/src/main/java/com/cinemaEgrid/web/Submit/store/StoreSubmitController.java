@@ -45,16 +45,14 @@ public class StoreSubmitController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	private ModelAndView index2(
-			//@Validated
-			Store form,
-			//BindingResult result,
+	private ModelAndView index2(@Validated Store form,
+			BindingResult result,
 			ModelAndView mav, Model model) {
-		//		if (result.hasErrors()) {
-		//			mav.setViewName("Admin/Submit/store/storeSubmit");
-		//		} else {
-		mav.setViewName("Admin/Confirm/store/submitConfirm");
-		//		}
+		if (result.hasErrors()) {
+			mav.setViewName("Admin/Submit/store/storeSubmit");
+		} else {
+			mav.setViewName("Admin/Confirm/store/submitConfirm");
+		}
 		return mav;
 	}
 
