@@ -52,16 +52,14 @@ public class storeUpdateController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	private ModelAndView index2(
-			//@Validated
-			Store form,
-			//BindingResult result,
+	private ModelAndView index2(@Validated Store form,
+			BindingResult result,
 			ModelAndView mav, Model model) {
-//		if (result.hasErrors()) {
-//			mav.setViewName("Admin/Update/store/storeUpdate");
-//		} else {
+		if (result.hasErrors()) {
+			mav.setViewName("Admin/Update/store/storeUpdate");
+		} else {
 			mav.setViewName("Admin/Confirm/store/updateConfirm");
-//		}
+		}
 		return mav;
 	}
 

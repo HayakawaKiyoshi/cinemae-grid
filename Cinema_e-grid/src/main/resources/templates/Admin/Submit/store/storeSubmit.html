@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>店舗情報登録</title>
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/Style.css}" />
 </head>
 <body>
 	<div class="container">
@@ -26,7 +27,7 @@
 					</tr>
 					<tr>
 						<td>住所</td>
-						<td><input type="text" name="storeLocation"
+						<td><input type="text" name="store_location"
 							th:value="*{store_location}" th:field="*{store_location}"
 							style="width: 200px;">
 							<span th:if="${#fields.hasErrors('store_location')}"
