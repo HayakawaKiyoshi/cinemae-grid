@@ -34,11 +34,12 @@ public class UpdateSchedule {
 //	http://localhost:10000/login/scheduleUpdate/0
 	//公開日、スケジュールナンバー、上映時間を取得すること
 
-	@RequestMapping("/scheduleUpdate/{type}")
-	private String scheduleUpdate(@PathVariable int type, ScheduleForm form) {
+	@RequestMapping(value="/scheduleUpdate/{type}", method = RequestMethod.POST)
+	private String scheduleUpdate(@PathVariable int type, @ModelAttribute("day") String day,
+			@ModelAttribute("time") String time, @ModelAttribute("no") String no, ScheduleForm form) {
 		if (type == 0) {
 			//最初に入ってきた場合
-			ArrayList<ScheduleExecutive> eventList = ScheduleExecutiveDao.search("1", "09:00~", "2022/07/01");
+			ArrayList<ScheduleExecutive> eventList = ScheduleExecutiveDao.search(no, time, day);
 			form.setDate(eventList.get(0).getSchedule_date());
 			form.setNo(eventList.get(0).getSchedule_no());
 			form.setTime(eventList.get(0).getSchedule_time());
@@ -47,6 +48,8 @@ public class UpdateSchedule {
 			form.setAgeLevel(eventList.get(0).getSchedule_age_level());
 			form.setContent(eventList.get(0).getSchedule_content());
 			form.setStatusSchedule(eventList.get(0).getSchedule_status());
+			String[] schedule = {day, time, no};
+			session.setAttribute("schedule", schedule);
 			session.setAttribute("day", eventList.get(0).getSchedule_date());
 		}
 		return "/Executive/Schedule/scheduleChange";
