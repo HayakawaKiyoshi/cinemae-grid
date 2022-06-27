@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.cinemaEgrid.bean.Movie;
+import com.cinemaEgrid.bean.Reserve;
 import com.cinemaEgrid.dao.SQL.ReserveHistorySQL;
 
 /**
@@ -18,8 +18,8 @@ import com.cinemaEgrid.dao.SQL.ReserveHistorySQL;
 public class ReserveHistory {
 
 	//予約履歴取得メソッド
-	public static ArrayList<Movie> selectAllmovie() throws SQLException {
-		ArrayList<Movie> movieList = new ArrayList<Movie>();
+	public static ArrayList<Reserve> selectReserve() throws SQLException {
+		ArrayList<Reserve> reserveList = new ArrayList<Reserve>();
 
 		DBManager manager = new DBManager();
 		Connection conn = null;
@@ -32,29 +32,25 @@ public class ReserveHistory {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				Movie movie = new Movie();
-				movie.setMovie_no(rs.getInt("movie_no"));
-				movie.setMovie_title(rs.getString("movie_title"));
-				movie.setGenre_name1(rs.getString("genre_name1"));
-				movie.setGenre_name2(rs.getString("genre_name2"));
-				movie.setTime(rs.getString("time"));
-				movie.setAge_level(rs.getInt("age_level"));
-				movie.setRelease_day(rs.getString("release_day"));
-				movie.setRemarks(rs.getString("remarks"));
-				movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
-				movieList.add(movie);
+				Reserve reserve = new Reserve();
+				reserve.setSchedule_date(rs.getString("schedule_date"));
+				reserve.setUser_id(rs.getString("user_id"));
+				reserve.setSchedule_no(rs.getInt("schedule_no"));
+				reserve.setBook_date(rs.getString("book_date"));
+				reserve.setBook_code(rs.getString("book_code"));
+				reserveList.add(reserve);
 			}
 			//			for (Movie i : movieList) {
 			//				System.out.println(i);
 			//			}
 
-			return movieList;
+			return reserveList;
 
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		return movieList;
+		return reserveList;
 	}
 
 
