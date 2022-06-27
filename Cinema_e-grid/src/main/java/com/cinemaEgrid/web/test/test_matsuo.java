@@ -57,8 +57,8 @@ public class test_matsuo {
 
 		//if (title != null) {
 
-			ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
-			mav.addObject("list", movieList);
+		ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
+		mav.addObject("list", movieList);
 
 		//}
 		ArrayList<Event> eventList = EventDao.selectEvent();
@@ -66,6 +66,15 @@ public class test_matsuo {
 		System.out.println(movieList);
 
 		mav.addObject("list2", eventList);
+
+		return mav;
+	}
+
+	//http://localhost:10000/cinema/mypage/top
+	@RequestMapping(value = "/cinema/mypage/top", method = RequestMethod.GET)
+	private ModelAndView myPage(ModelAndView mav) throws SQLException {
+
+		mav.setViewName("User/MyPage/MyPage");
 
 		return mav;
 	}
