@@ -4,19 +4,28 @@ public class ScheduleExecutive {
 
 	public static final String SELECT_ID =
 			"SELECT "
-				+ "Shedule_date, "
-				+ "Update_title, "
-				+ "Event_content, "
-				+ "Update_date "
-				+ "FROM Event_table "
-				+ "WHERE Event_id = ?";
+				+ "Schedule_date, "
+				+ "Schedule_no, "
+				+ "Schedule_time, "
+				+ "Schedule_name, "
+				+ "Schedule_movie_time, "
+				+ "Schedule_age_level, "
+				+ "Schedule_content, "
+				+ "Schedule_status "
+				+ "FROM Schedule_table "
+				+ "WHERE Schedule_no = ? AND Schedule_time = ?";
 
 	public static final String UPDATE_ID =
-			"UPDATE Event_table SET "
-				+ "Event_id = ?, "
-				+ "Update_title = ?, "
-				+ "Event_content = ?, "
-				+ "Update_date = ?"
-				+ "WHERE Event_id = ?";
+			"UPDATE Schedule_table SET "
+				+ "Schedule_date, "
+				+ "Schedule_no, "
+				+ "Schedule_time, "
+				+ "Schedule_name, "
+				+ "Schedule_movie_time, "
+				+ "Schedule_age_level, "
+				+ "Schedule_content, "
+				+ "Schedule_status "
+				+ "WHERE Schedule_no = ? AND Schedule_time = ?";
+;
 
 }
