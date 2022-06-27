@@ -6,13 +6,3 @@
 .err {
 	color: red;
 }
-
-ul {
-	border: solid 2px green;
-}
-
-table, th, td {
-	border: solid 1px black;
-	border-collapse: collapse;
-	text-align: center;
-}
