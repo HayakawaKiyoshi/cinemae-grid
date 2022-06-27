@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Schedule;
+import com.cinemaEgrid.dao.ReserveDao;
 import com.cinemaEgrid.dao.ScheduleDao;
+import com.cinemaEgrid.web.Reserve.AlphaNumericStringGenerator;
 //yoshida テスト用コントローラ
 @Controller
 public class test_yoshida {
@@ -39,9 +41,24 @@ public class test_yoshida {
 
 		//予約されたレコードのみを抽出
 		Schedule schedule = ScheduleDao.getScheduleDone(date,no);
+		session.setAttribute("schedule", schedule);
 
 		mav.addObject("schedule",schedule);
 		mav.setViewName("User/Reserve/ReserveDone");
+
+		return mav;
+	}
+	@RequestMapping(value = "/login/reserveResult", method = RequestMethod.GET)
+	private ModelAndView reserveresult(ModelAndView mav) {
+
+		String code = AlphaNumericStringGenerator.getRandomString(15);  //ランダムなコード発行
+		Schedule schedule = (Schedule) session.getAttribute("schedule"); //スケジュールのセッションを取得
+		String[] user = (String[]) session.getAttribute("user");		  //ユーザーのセッションを取得
+		ReserveDao.addReserve(schedule, "1",code);
+
+		mav.addObject("code",code);
+		mav.addObject("schedule",schedule);
+		mav.setViewName("User/Reserve/ReserveResult");
 
 		return mav;
 	}
