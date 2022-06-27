@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="Layout/Layout">
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/test_matsuo.css}">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div layout:fragment="contents" class="divContent">
+		<div class="container">
+			<br>
+			<h1>チケット予約履歴</h1>
+			<table th:object="${session.仮session}"
+				class="table table-striped table-bordered">
+				<tr>
+					<th>予約日</th>
+					<th>作品
+					<th>上映時間</th>
+				</tr>
+				<tr th:each="h.${list}">
+
+				</tr>
+		</div>
+	</div>
+</body>
+</html>
