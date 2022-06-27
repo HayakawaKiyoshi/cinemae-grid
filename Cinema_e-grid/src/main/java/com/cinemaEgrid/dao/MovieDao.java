@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.dao.SQL.MovieSQL;
 
-public class MovieDao {
-	public static void main(String[] args) throws SQLException {
+/**
+* 映画関係
+* @author matsuo
+* */
 
-	}
+public class MovieDao {
 
 	public static void select() {
 		Connection conn = null;
@@ -89,9 +91,9 @@ public class MovieDao {
 				movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
 				movieList.add(movie);
 			}
-//			for (Movie i : movieList) {
-//				System.out.println(i);
-//			}
+			//			for (Movie i : movieList) {
+			//				System.out.println(i);
+			//			}
 
 			return movieList;
 
@@ -120,7 +122,6 @@ public class MovieDao {
 
 			ResultSet rs = ps.executeQuery();
 
-
 			while (rs.next()) {
 				Movie movie = new Movie();
 				movie.setMovie_no(rs.getInt("movie_no"));
@@ -134,9 +135,9 @@ public class MovieDao {
 				movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
 				movieList.add(movie);
 			}
-//			for (Movie i : movieList) {
-//				System.out.println(i);
-//			}
+			//			for (Movie i : movieList) {
+			//				System.out.println(i);
+			//			}
 
 			//System.out.println(genre);
 
@@ -165,7 +166,6 @@ public class MovieDao {
 
 			ResultSet rs = ps.executeQuery();
 
-
 			while (rs.next()) {
 				Movie movie = new Movie();
 				movie.setMovie_no(rs.getInt("movie_no"));
@@ -179,9 +179,9 @@ public class MovieDao {
 				movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
 				movieList.add(movie);
 			}
-//			for (Movie i : movieList) {
-//				System.out.println(i);
-//			}
+			//			for (Movie i : movieList) {
+			//				System.out.println(i);
+			//			}
 
 			//System.out.println(genre);
 
@@ -193,6 +193,5 @@ public class MovieDao {
 		}
 		return movieList;
 	}
-
 
 }

@@ -39,8 +39,8 @@ public class test_matsuo {
 		ArrayList<Movie> movieList = MovieDao.selectAllmovie();
 		ArrayList<Event> eventList = EventDao.selectEvent();
 
-		mav.addObject("list", movieList);
-		mav.addObject("list2", eventList);
+		mav.addObject("movieList", movieList);
+		mav.addObject("eventList", eventList);
 
 		return mav;
 	}
