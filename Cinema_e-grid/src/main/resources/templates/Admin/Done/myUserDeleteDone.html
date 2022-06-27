@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/notMemberlayout">
 <head>
 <meta charset="UTF-8">
 <title>退会完了</title>
 </head>
 <body>
+<div layout:fragment="notMember_contents">
+ <div class="login">
   <p>退会しました。ログアウトします。</p>
-  <form action="">
+  <form action="/logout" method="post">
    	<input type="submit" value="ログアウト">
   </form>
+ </div>
+</div>
 </body>
 </html>

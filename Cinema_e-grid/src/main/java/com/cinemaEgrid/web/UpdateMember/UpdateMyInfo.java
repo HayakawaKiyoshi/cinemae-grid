@@ -22,6 +22,9 @@ public class UpdateMyInfo {
 	@Autowired
 	HttpSession session;
 
+	//ログインしてからでないと確認できないので、仮の値を入れています。
+	//マイページ完成後にpostに変更するように
+
 //	http://localhost:10000/login/myPage/userUpdate/0
 
 	@RequestMapping(value="/myPage/userUpdate/{type}")
@@ -58,6 +61,7 @@ public class UpdateMyInfo {
 		String auth = updateUser.get(0).getAuthority();
 		String del_flg = updateUser.get(0).getUser_del_flg();
 		UserDao.update(id, form.getEmail(), form.getName(), pass, auth, del_flg);
+		mav.addObject("title", "プロフィール変更完了");
 		mav.addObject("msg", "プロフィールの変更");
 		mav.addObject("uel", "#");
 		mav.addObject("btn", "マイページへ");

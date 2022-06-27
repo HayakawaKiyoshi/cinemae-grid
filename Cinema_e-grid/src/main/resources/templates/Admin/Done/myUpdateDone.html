@@ -4,7 +4,7 @@
 	  layout:decorate="layout/layout">
 <head>
 <meta charset="UTF-8">
-<title>プロフィール変更完了</title>
+<title th:text="${title}"></title>
 </head>
 <body>
   <div layout:fragment="contents">
@@ -14,7 +14,6 @@
   	<input type="submit" th:value="${btn}">
   </form>
   </div>
-  <div layout:insert="~{Part/Footer::footer}"></div>
 </div>
 </body>
 </html>
