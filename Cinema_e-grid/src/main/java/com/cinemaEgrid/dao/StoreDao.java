@@ -192,8 +192,7 @@ public class StoreDao {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, store.getStore_name());
 			ps.setString(2, store.getStore_location());
-			ps.setInt(3, store.getStore_del_flg());
-			ps.setInt(4, store.getStore_no());
+			ps.setInt(3, store.getStore_no());
 			count = ps.executeUpdate();
 			System.out.println("更新：" + count + "件");
 		} catch (Exception e) {
@@ -217,10 +216,10 @@ public class StoreDao {
 	}
 
 	/**
-	* 削除のメソッド
+	* 論理削除のメソッド
 	* @throws SQLException
 	 */
-	public static void deleteStore(int id) throws SQLException {
+	public static void deleteStore(Store store) throws SQLException {
 
 		// DBManagerのインスタンスを生成
 		DBManager manager = new DBManager();
@@ -235,7 +234,9 @@ public class StoreDao {
 			// SQL構文構築
 			String sql = StoreSQL.DELETE_STORE;
 			ps = conn.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, store.getStore_name());
+			ps.setString(2, store.getStore_location());
+			ps.setInt(3, store.getStore_no());
 			count = ps.executeUpdate();
 			System.out.println("削除：" + count + "件");
 		} catch (Exception e) {

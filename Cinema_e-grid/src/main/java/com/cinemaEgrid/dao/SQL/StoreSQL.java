@@ -31,13 +31,16 @@ public class StoreSQL {
 	 */
 	public static final String UPDATE_STORE =
 			"UPDATE store_table"
-			+ " SET store_name = ?, store_location = ?, store_del_flg = ?"
+			+ " SET store_name = ?, store_location = ?, store_del_flg = 0"
 			+ " WHERE store_no = ?";
 
 	/**
 	 * 削除
 	 */
 	public static final String DELETE_STORE =
-			"DELETE FROM store_table WHERE store_no = ?";
+			"UPDATE store_table "
+			+ " SET store_name = ?, store_location = ?, store_del_flg = 1"
+			+ " WHERE store_no = ?";
+//			"DELETE FROM store_table WHERE store_no = ?";
 
 }

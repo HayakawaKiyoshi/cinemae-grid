@@ -24,11 +24,10 @@
 					<td th:text="*{store_del_flg == 0} ? 有効:削除"></td>
 				</tr>
 			</table>
-			<a th:if="${store} != null" th:object="${store}"
-				th:href="@{/admin/store/delete/success(No=*{store_no})}">
-				<button class="btn btn-outline-secondary"
-					style="width: 200px; border-radius: 8px;">この店舗を削除する</button>
-			</a>
+			<form th:action="@{/admin/store/delete/success}" th:object="${store}" method="post">
+				<input type="submit" th:value="この店舗を削除する"
+					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
+			</form>
 			<form action="/admin/alldisplay" method="get">
 				<input type="submit" value="管理者メニューへ戻る" class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">

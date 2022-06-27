@@ -23,6 +23,16 @@
 			<li><a href="#movie" class="nav-link">映画一覧</a></li>
 			<li><a href="#store" class="nav-link">店舗一覧</a></li>
 		</ul>
+		<br />
+		<a th:href="@{#}">
+				<button type="button" class="btn btn-outline-secondary btn-sm"
+				style="border-radius: 8px;">会員登録</button></a>
+		<a th:href="@{#}">
+				<button type="button" class="btn btn-outline-secondary btn-sm"
+				style="border-radius: 8px;">映画登録</button></a>
+		<a th:href="@{/admin/store/submit/destroy}">
+				<button type="button" class="btn btn-outline-secondary btn-sm"
+				style="border-radius: 8px;">店舗登録</button></a>
 		<span id="errormsg" th:text="${msg}">error!</span>
 		<hr />
 		<div class="table-responsive">
@@ -75,7 +85,7 @@
 					<th>変更</th>
 					<th>削除</th>
 				</tr>
-				<tr th:each="m:${mlist}">
+				<tr th:each="m:${mlist}" th:if="*{m.movie_del_flg} != 1">
 					<td th:text="*{m.movie_no}"></td>
 					<td th:text="*{m.movie_title}"></td>
 					<td th:text="*{m.genre_name1}"></td>
@@ -110,7 +120,7 @@
 					<th>変更</th>
 					<th>削除</th>
 				</tr>
-				<tr th:each="s:${slist}">
+				<tr th:each="s:${slist}" th:if="*{s.store_del_flg} != 1">
 					<td th:text="*{s.store_no}"></td>
 					<td th:text="*{s.store_name}"></td>
 					<td th:text="*{s.store_location}"></td>
