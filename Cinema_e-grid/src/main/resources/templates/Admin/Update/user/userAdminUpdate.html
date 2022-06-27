@@ -11,6 +11,7 @@
 		<div class="table-responsive">
 			<form th:action="@{/admin/user/update}" th:object="${user}" method="post">
 			更新したい項目を書き換えてください
+			<input type="hidden" name="user_del_flg" value="0">
 				<table class="table table-striped table-bordered">
 					<tr>
 						<td>メールアドレス</td>
@@ -58,9 +59,9 @@
 					<tr>
 						<td>ユーザー削除フラグ</td>
 						<td><input type="radio" name="user_del_flg" value="0"
-							th:field="*{user_del_flg}">有効
+							th:field="*{user_del_flg}" disabled="disabled" checked>有効
 							<input type="radio" name="user_del_flg" value="1"
-							 th:field="*{user_del_flg}">削除
+							 th:field="*{user_del_flg}" disabled="disabled">削除
 							<!-- <span th:if="${#fields.hasErrors('user_del_flg')}"
 							th:errors="*{user_del_flg}"
 							th:errorclass="error-field">error!</span> -->

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-.title{
-    color: white;
+.title {
+	color: white;
 	font-family: 'Alegreya Sans SC', sans-serif;
 	font-size: 60px;
-	margin : 35px;
+	margin: 35px;
 }
 
 .header {
@@ -14,35 +14,63 @@
 	height: 160px;
 }
 
-hr{
+hr {
 	color: white;
 	border: 1px solid midnightblue;
 }
 
+/***メニュー・登録ボタン***/
+.nav ul {
+	display: table;
+	margin: 0 auto;
+	padding: 0;
+	width: 80%;
+	text-align: center;
+}
+
+.nav li {
+	display: table-cell;
+	min-width: 50px;
+}
+
+.nav a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	color: darkblue;
+	padding-bottom: 5px;
+}
+
+.nav li:hover {
+	border-bottom: 3px solid #F0E475;
+}
+/***メニュー・登録ボタンここまで***/
+
 /***追従するトップへ戻るボタン***/
 #page-top {
-    position: fixed;
-    right: 5px;
-    bottom: 20px;
-    height: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    transform: rotate(90deg);
-    font-size: 110%;
-    line-height: 1.5rem;
-    color: darkblue;
-    padding: 0 0 0 35px;
-    border-top: solid 1px;
+	position: fixed;
+	right: 5px;
+	bottom: 20px;
+	height: 50px;
+	text-decoration: none;
+	font-weight: bold;
+	transform: rotate(90deg);
+	font-size: 110%;
+	line-height: 1.5rem;
+	color: darkblue;
+	padding: 0 0 0 35px;
+	border-top: solid 1px;
 }
+
 #page-top::before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: -1px;
-    left: 0px;
-    width: 15px;
-    border-top: solid 1px;
-    transform: rotate(35deg);
-    transform-origin: left top;
+	content: "";
+	display: block;
+	position: absolute;
+	top: -1px;
+	left: 0px;
+	width: 15px;
+	border-top: solid 1px;
+	transform: rotate(35deg);
+	transform-origin: left top;
 }
 /***トップへ戻るボタンここまで***/

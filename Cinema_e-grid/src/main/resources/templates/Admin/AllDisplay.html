@@ -12,27 +12,28 @@
 	rel="stylesheet">
 </head>
 <body>
-	<div class="header">
-		<h1 class="title">Cinema e-grid</h1>
-	</div>
 	<div class="container">
+		<div class="header">
+			<h1 class="title">Cinema e-grid</h1>
+		</div>
 		<hr />
 		<h2>管理者メニュー</h2>
-		<ul class="nav flex-column">
-			<li><a href="#user" class="nav-link active">会員一覧</a></li>
-			<li><a href="#movie" class="nav-link">映画一覧</a></li>
-			<li><a href="#store" class="nav-link">店舗一覧</a></li>
-		</ul>
 		<br />
-		<a th:href="@{#}">
-				<button type="button" class="btn btn-outline-secondary btn-sm"
-				style="border-radius: 8px;">会員登録</button></a>
-		<a th:href="@{#}">
-				<button type="button" class="btn btn-outline-secondary btn-sm"
-				style="border-radius: 8px;">映画登録</button></a>
-		<a th:href="@{/admin/store/submit/destroy}">
-				<button type="button" class="btn btn-outline-secondary btn-sm"
-				style="border-radius: 8px;">店舗登録</button></a>
+		<h5>一覧</h5>
+			<ul class="nav">
+				<li><a href="#user" class="nav-link active">会員一覧</a></li>
+				<li><a href="#movie" class="nav-link">映画一覧</a></li>
+				<li><a href="#store" class="nav-link">店舗一覧</a></li>
+			</ul>
+		<br />
+		<h5>登録</h5>
+			<ul class="nav">
+				<li><a th:href="@{/login/userAdminSubmit}"
+				 class="nav-link active">会員登録</a></li>
+				<li><a th:href="@{#}" class="nav-link">映画登録</a></li>
+				<li><a th:href="@{/admin/store/submit/destroy}"
+				 class="nav-link">店舗登録</a></li>
+			</ul>
 		<span id="errormsg" th:text="${msg}">error!</span>
 		<hr />
 		<div class="table-responsive">
