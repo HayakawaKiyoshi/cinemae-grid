@@ -49,7 +49,7 @@ public class UpdateEvent {
 		System.out.println();
 		mav.addObject("title", "イベント更新完了");
 		mav.addObject("msg", "イベントの更新");
-		mav.addObject("uel", "/cinena/maypage/top");
+		mav.addObject("uel", "/cinena/mypage/top");
 		mav.addObject("btn", "マイページへ");
 		mav.setViewName("/Admin/Done/myUpdateDone");
 		return mav;
