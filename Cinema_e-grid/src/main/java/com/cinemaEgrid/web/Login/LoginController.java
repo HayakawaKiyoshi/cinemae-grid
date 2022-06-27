@@ -44,7 +44,7 @@ public class LoginController {
 				mav.setViewName("/User/Login/adminLogin");
 			} else {
 				//管理者以外の場合はトップページへ
-				mav.setViewName("/login/topPage");
+				mav.setViewName("/cinema/test2");
 			}
 		} else {
 			//該当する会員がいない時は、ログイン画面へ

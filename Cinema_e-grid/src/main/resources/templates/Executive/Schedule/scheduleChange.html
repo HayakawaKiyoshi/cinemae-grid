@@ -4,12 +4,12 @@
 	  layout:decorate="layout/layout">
 <head>
 <meta charset="UTF-8">
-<title>上映情報変更</title>
+<title>上映情報更新</title>
 </head>
 <body>
   <div layout:fragment="contents" class="divContent">
   	<p>編集してください</p>
-  	<form action="/login/scheduleUpdate/0" method="post" th:object="${scheduleForm}">
+  	<form action="/login/scheduleUpdate/check" method="post" th:object="${scheduleForm}">
   	  公開日：
   	  <input type="text" name="date" th:field="*{date}"><br>
   	  映画タイトル：
@@ -21,8 +21,14 @@
   	  内容<br>
   	  <textarea name="content" th:field="*{content}" cols="80" rows="10">
   	  </textarea><br>
-  	  予約受付中<input type="radio" name="status" th:value="*{0}">　
-  	  予約受付終了<input type="radio" name="status" th:value="*{1}"><br>
+  	  予約受付中<input type="radio" name="statusSchedule" th:value="*{0}">　
+  	  予約受付終了<input type="radio" name="statusSchedule" th:value="*{1}"><br>
+  	  <input type="hidden" name="no" th:field="*{no}">
+  	  <input type="hidden" name="time" th:field="*{time}">
+  	  <input type="submit" value="更新">
+  	</form>
+  	<form action="#" method="post">
+  	  <input type="submit" value="戻る">
   	</form>
   </div>
 </body>

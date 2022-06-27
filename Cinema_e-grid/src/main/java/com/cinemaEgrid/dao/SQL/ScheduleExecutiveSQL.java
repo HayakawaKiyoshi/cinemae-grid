@@ -1,6 +1,6 @@
 package com.cinemaEgrid.dao.SQL;
 
-public class ScheduleExecutive {
+public class ScheduleExecutiveSQL {
 
 	public static final String SELECT_ID =
 			"SELECT "
@@ -13,7 +13,8 @@ public class ScheduleExecutive {
 				+ "Schedule_content, "
 				+ "Schedule_status "
 				+ "FROM Schedule_table "
-				+ "WHERE Schedule_no = ? AND Schedule_time = ?";
+				+ "WHERE Schedule_no = ? AND Schedule_time = ? "
+				+ "AND Schedule_date = ?";
 
 	public static final String UPDATE_ID =
 			"UPDATE Schedule_table SET "
@@ -25,7 +26,12 @@ public class ScheduleExecutive {
 				+ "Schedule_age_level = ?, "
 				+ "Schedule_content = ?, "
 				+ "Schedule_status = ? "
-				+ "WHERE Schedule_no = ? AND Schedule_time = ?";
-;
+				+ "WHERE Schedule_no = ? AND Schedule_time = ? "
+				+ "AND Schedule_date = ?";
 
+	public static final String UPDATE_ID1 =
+			"UPDATE Schedule_table SET "
+					+ "Schedule_status = ? "
+					+ "WHERE Schedule_no = ? AND Schedule_time = ? "
+					+ "AND Schedule_date = ?";
 }

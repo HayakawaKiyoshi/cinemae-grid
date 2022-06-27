@@ -7,7 +7,9 @@ public class ScheduleForm {
 	private String movieTime;
 	private String ageLevel;
 	private String content;
-	private String status;
+	private String statusSchedule;
+	private String no;
+	private String time;
 
 
 	public String getDate() {
@@ -40,11 +42,23 @@ public class ScheduleForm {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getStatus() {
-		return status;
+	public String getStatusSchedule() {
+		return statusSchedule;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusSchedule(String status) {
+		this.statusSchedule = status;
+	}
+	public String getNo() {
+		return no;
+	}
+	public void setNo(String no) {
+		this.no = no;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 
