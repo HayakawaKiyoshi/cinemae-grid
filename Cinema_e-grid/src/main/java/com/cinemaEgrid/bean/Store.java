@@ -11,23 +11,15 @@ public class Store {
 
 	private int store_no;
 
-	@NotEmpty(message = "{0}が未入力です。")
+	@NotEmpty(message = "{0}を入力してください。")
 	private String store_name;
 
-	@NotEmpty(message = "{0}が未入力です。")
+	@NotEmpty(message = "{0}を入力してください。")
 	private String store_location;
 
 	private int store_del_flg;
 
 	public Store(){}
-
-//	public Store(int store_no, String store_name,
-//			String store_location, int store_del_flg){
-//		this.store_no = store_no;
-//		this.store_name = store_name;
-//		this.store_location = store_location;
-//		this.store_del_flg = store_del_flg;
-//	}
 
 	public int getStore_no() {
 		return store_no;
