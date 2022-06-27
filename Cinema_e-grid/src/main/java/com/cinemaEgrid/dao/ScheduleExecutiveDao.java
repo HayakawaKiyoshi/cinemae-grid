@@ -32,7 +32,7 @@ public class ScheduleExecutiveDao {
 
 			while (rs.next()) {
 				value = true;
-				String date = rs.getString("Schedule_date");
+				Date date = rs.getDate("Schedule_date");
 				String no = rs.getString("Schedule_no");
 				String time = rs.getString("Schedule_time");
 				String name = rs.getString("Schedule_name");
@@ -67,7 +67,7 @@ public class ScheduleExecutiveDao {
 	}
 
 	public static void update(Date date, String no, String time,
-			String name, String movie, String age, String content, String statusS) {
+			String name, String movie, String age, String content, String statusS, String day) {
 
 		Connection conn = null;
 		DBManager manager = new DBManager();
@@ -88,7 +88,7 @@ public class ScheduleExecutiveDao {
 			ps.setString(8, statusS);
 			ps.setString(9, no);
 			ps.setString(10, time);
-			ps.setDate(11, date);
+			ps.setString(11, day);
 
 			ps.executeUpdate();
 
