@@ -26,7 +26,7 @@ public class MyUserDelete {
 
 	@RequestMapping(value="/delete", method=RequestMethod.POST)
 	private String myUserDeleteCheck() {
-		return "/Admin/Delete/user/myUserDelete";
+		return "/User/Delete/myUserDelete";
 
 	}
 

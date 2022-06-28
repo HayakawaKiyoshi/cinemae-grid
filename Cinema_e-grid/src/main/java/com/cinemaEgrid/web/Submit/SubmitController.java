@@ -32,7 +32,7 @@ public class SubmitController {
 	@RequestMapping(value="/userSubmit", method=RequestMethod.POST)
 	private String newUserSubmit(SubmitForm form) {
 		//新規会員登録
-		return "/Admin/Submit/user/newUserSubmit";
+		return "/User/Submit/newUserSubmit";
 	}
 
 	@RequestMapping(value="/userAdminSubmit", method=RequestMethod.POST)
