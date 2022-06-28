@@ -36,12 +36,6 @@ public class StoreSubmitController {
 		return new Store();
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	private ModelAndView index(Store form, ModelAndView mav) {
-		mav.setViewName("Admin/Submit/store/storeSubmit");
-		return mav;
-	}
-
 	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index2(@Validated Store form,
 			BindingResult result,

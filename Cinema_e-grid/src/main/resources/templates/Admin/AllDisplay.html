@@ -29,12 +29,15 @@
 		<br />
 		<h5>登録</h5>
 			<ul class="nav">
-				<li><a th:href="@{/login/userAdminSubmit}"
-				 class="nav-link active">会員登録</a></li>
-				<li><a th:href="@{#}"
-				 class="nav-link">映画登録</a></li>
-				<li><a th:href="@{/admin/store/submit/destroy}"
-				 class="nav-link">店舗登録</a></li>
+				<li><form method="post" name="formUser" action="/login/userAdminSubmit">
+				<a href="javascript:formUser.submit()" class="nav-link active">会員登録</a>
+				</form></li>
+				<li><form method="post" name="formMovie" action="#">
+				<a href="javascript:formMovie.submit()" class="nav-link">映画登録</a>
+				</form></li>
+				<li><form method="post" name="formStore" action="/admin/store/submit/destroy">
+				<a href="javascript:formStore.submit()" class="nav-link">店舗登録</a>
+				</form></li>
 			</ul>
 		<span id="errormsg" th:text="${msg}">error!</span>
 		<hr />
