@@ -1,6 +1,8 @@
 <!-- iwai 編集中 -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="Layout/notMemberLayout">
 <head>
 <meta charset="UTF-8">
 <title>店舗情報更新</title>
@@ -8,10 +10,12 @@
 <link rel="stylesheet" media="all" th:href="@{/css/Style.css}" />
 </head>
 <body>
+<div class="divContent" layout:fragment="notMember_contents">
 	<div class="container">
 		<div class="table-responsive">
 			<form th:action="@{/admin/store/update}" th:object="${store}" method="post">
-			更新したい項目を書き換えてください
+			<br>
+			<p>更新したい項目を書き換えてください</p>
 				<table class="table table-striped table-bordered" id="store">
 					<tr>
 						<td>店舗名</td>
@@ -39,5 +43,6 @@
 			</form>
 		</div>
 	</div>
+</div>
 </body>
 </html>
