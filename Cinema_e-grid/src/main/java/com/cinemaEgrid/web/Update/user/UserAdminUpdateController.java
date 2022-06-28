@@ -73,7 +73,10 @@ public class UserAdminUpdateController {
 			UserAdminDao.updateAdminUser(form);
 		} catch (SQLException e) {
 		}
-		mav.setViewName("Admin/Done/updateDone");
+		mav.setViewName("/Admin/Done/memberDone");
+		mav.addObject("msg", "会員更新");
+		mav.addObject("url", "/admin/alldisplay");
+		mav.addObject("btn", "管理者トップページへ");
 		return mav;
 	}
 

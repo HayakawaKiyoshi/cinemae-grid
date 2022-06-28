@@ -76,7 +76,10 @@ public class storeUpdateController {
 			StoreDao.updateStore(form);
 		} catch (SQLException e) {
 		}
-		mav.setViewName("Admin/Done/updateDone");
+		mav.setViewName("/Admin/Done/memberDone");
+		mav.addObject("msg", "店舗更新");
+		mav.addObject("url", "/admin/alldisplay");
+		mav.addObject("btn", "管理者トップページへ");
 		return mav;
 	}
 

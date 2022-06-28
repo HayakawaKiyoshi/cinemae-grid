@@ -49,15 +49,14 @@ public class storeDeleteController {
 
 	@RequestMapping(value = "/success", method = RequestMethod.POST)
 	private ModelAndView index2(Store form, ModelAndView mav, Model model) {
-//		if (form.getStore_del_flg() == 1) {
 			try {
 				StoreDao.deleteStore(form);
 			} catch (SQLException e) {
 			}
-			mav.setViewName("Admin/Done/deleteDone");
-//		} else {
-//			mav.setViewName("redirect:/admin/alldisplay");
-//		}
+			mav.setViewName("/Admin/Done/memberDone");
+			mav.addObject("msg", "店舗削除");
+			mav.addObject("url", "/admin/alldisplay");
+			mav.addObject("btn", "管理者トップページへ");
 		return mav;
 	}
 }

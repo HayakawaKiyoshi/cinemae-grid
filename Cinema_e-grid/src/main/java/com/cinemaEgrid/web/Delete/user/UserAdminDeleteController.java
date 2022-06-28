@@ -52,7 +52,10 @@ public class UserAdminDeleteController {
 				UserAdminDao.deleteAdminUser(id);
 			} catch (SQLException e) {
 			}
-			mav.setViewName("Admin/Done/deleteDone");
+			mav.setViewName("/Admin/Done/memberDone");
+			mav.addObject("msg", "会員削除");
+			mav.addObject("url", "/admin/alldisplay");
+			mav.addObject("btn", "管理者トップページへ");
 		} else {
 			mav.addObject("msg", "ユーザー削除フラグが機能しています");
 			mav.setViewName("redirect:/admin/alldisplay");
