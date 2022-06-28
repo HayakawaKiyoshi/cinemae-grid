@@ -28,12 +28,14 @@ public class MyPageController {
 
 		return mav;
 	}
+
 	//予約履歴表示コントローラ
 	//http://localhost:10000/mypage/history
 	@RequestMapping(value = "/mypage/history", method = RequestMethod.GET)
 	private ModelAndView login(ModelAndView mav) throws SQLException {
 
-		String id = (String) session.getAttribute("ユーザーセッション");
+		String id = null;
+		// (String) session.getAttribute("ユーザーセッション");
 
 		//ユーザーごとの予約履歴取得
 		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve(id);
