@@ -89,4 +89,30 @@ public class ReserveLogDao {
 		return reserve;
 	}
 
+
+
+	//予約削除メソッド
+	public static void reserveCancelDone() throws SQLException {
+
+		DBManager manager = new DBManager();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		Reserve reserve = new Reserve();
+
+		try {
+			conn = manager.getConn();
+			String sql = ReserveLogSQL.RESERVE_DELETE;
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, "a1b2c3d4e5f6g7h");
+
+			int count = ps.executeUpdate();
+
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+	}
+
 }

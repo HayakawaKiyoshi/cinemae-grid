@@ -11,8 +11,11 @@
 <body>
 	<div layout:fragment="contents" class="divContent">
 		<div class="container">
-			<h3>この予約をキャンセルしますか？</h3>
-			<div th:object="${reserveCancel}">
+			<div class=" d-flex align-items-center justify-content-center">
+				<h3>この予約をキャンセルしますか？</h3>
+			</div>
+			<div th:object="${reserveCancel}"
+				class="d-flex justify-content-center">
 
 				<span>予約日:</span>
 				<h5 th:text="*{book_date}"></h5>
@@ -26,10 +29,12 @@
 				<h5 th:text="*{book_code}"></h5>
 			</div>
 			<form action="/mypage/reservelog/cancel/done" method="post">
-				<input type="submit" class="btn btn-info btn-lg mypage"
+				<input type="submit" class="btn btn-warning btn-lg mypage"
 					value="キャンセルする">
 			</form>
-
+			<form action="/mypage/reservelog" method="get">
+				<input type="submit" class="btn btn-info btn-lg mypage" value="戻る">
+			</form>
 		</div>
 	</div>
 </body>

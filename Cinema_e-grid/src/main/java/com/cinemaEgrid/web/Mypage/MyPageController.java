@@ -64,4 +64,21 @@ public class MyPageController {
 			return mav;
 		}
 
+
+		//予約キャンセルコントローラ
+				//http://localhost:10000/mypage/history
+				@RequestMapping(value = "/mypage/reservelog/cancel/done", method = RequestMethod.POST)
+				private ModelAndView reserveCancelDone(ModelAndView mav) throws SQLException {
+
+
+					ReserveLogDao.reserveCancelDone();
+
+					String id = null;
+					// (String) session.getAttribute("ユーザーセッション");
+
+					mav.setViewName("User/Reserve/ReserveCancelDone");
+
+					//System.out.println("test" +  reserveList);
+					return mav;
+				}
 }
