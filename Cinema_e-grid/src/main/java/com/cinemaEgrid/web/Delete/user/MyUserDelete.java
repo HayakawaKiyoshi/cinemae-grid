@@ -1,4 +1,4 @@
-package com.cinemaEgrid.web.Delete;
+package com.cinemaEgrid.web.Delete.user;
 
 import java.util.ArrayList;
 

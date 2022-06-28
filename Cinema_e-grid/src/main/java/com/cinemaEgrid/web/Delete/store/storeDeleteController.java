@@ -1,4 +1,4 @@
-package com.cinemaEgrid.web.Delete;
+package com.cinemaEgrid.web.Delete.store;
 
 import java.sql.SQLException;
 import java.util.List;
