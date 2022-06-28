@@ -41,7 +41,7 @@ public class UpdateMyInfo {
 			form.setName(userList.get(0).getUser_name());
 			form.setEmail(userList.get(0).getUser_mail());
 		}
-		return "/Admin/Update/memberUpdate";
+		return "/User/Update/memberUpdate";
 	}
 
 	@RequestMapping(value = "/myPage/userUpdate/check", method = RequestMethod.POST)
@@ -49,7 +49,7 @@ public class UpdateMyInfo {
 			BindingResult result, ModelAndView mav) {
 		if (result.hasErrors()) {
 			//エラーチェック
-			mav.setViewName("/Admin/Update/memberUpdate");
+			mav.setViewName("/User/Update/memberUpdate");
 		} else {
 			mav.setViewName("/Admin/Confirm/user/myUpdateConfirm");
 		}
