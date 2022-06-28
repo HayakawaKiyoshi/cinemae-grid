@@ -10,7 +10,7 @@ public class ReserveLogSQL {
 			+ " schedule_no, "
 			+ " TO_CHAR(book_date, 'YYYY-MM-DD') AS bookDate, "
 			+ " book_code "
-			+ " FROM reserve_table WHERE user_id = ? ";
+			+ " FROM reserve_table WHERE user_id = ? ORDER BY book_date";
 
 	//予約キャンセル確認情報取得SQL
 	public static final String RESERVE_CANCEL = "SELECT\r\n"
@@ -23,6 +23,6 @@ public class ReserveLogSQL {
 
 	//予約キャンセル(データ削除)SQL
 	public static final String RESERVE_DELETE = "DELETE"
-			+ " FROM reserve_table WHERE book_code = ?";
+			+ " FROM reserve_table WHERE user_id = ? AND book_code = ?";
 
 }

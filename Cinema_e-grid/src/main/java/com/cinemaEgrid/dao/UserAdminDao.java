@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.User;
 import com.cinemaEgrid.dao.SQL.UserAdminSQL;
@@ -15,16 +14,14 @@ public class UserAdminDao {
 	* 更新・削除選択のメソッド
 	* @throws SQLException
 	 */
-	public static ArrayList<User> findOneUser(String id) throws SQLException {
+	public static User findOneUser(String id) {
 
 		// DBManagerのインスタンスを生成
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-
-		//データ格納配列変数
-		ArrayList<User> userList = new ArrayList<User>();
+		User user = new User();
 
 		try {
 			// 接続する
@@ -36,38 +33,21 @@ public class UserAdminDao {
 			System.out.println("選択：" + id);
 			rs = ps.executeQuery();
 			//結果表に格納されたレコードの内容を表示
-			while (rs.next()) {
-				User user = new User();
+			rs.next();
+
 				user.setUser_id(rs.getString("user_id"));
 				user.setUser_mail(rs.getString("user_mail"));
 				user.setUser_name(rs.getString("user_name"));
 				user.setPassword(rs.getString("password"));
 				user.setAuthority(rs.getString("authority"));
 				user.setUser_del_flg(rs.getString("user_del_flg"));
-				userList.add(user);
-			}
-		} catch (ClassNotFoundException e) {
+
+				return user;
+
+		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-		} catch (Exception e) {
-			System.out.println("DB文字列検索操作中にエラーが発生しました。");
-		} finally {
-			// ResultSetをクローズ
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-					return null;
-				}
-			}
-			// Statementをクローズ
-			if (ps != null) {
-				ps.close();
-			}
-			// 切断処理
-			manager.close(conn);
+			return null;
 		}
-		return userList;
 	}
 
 	/**

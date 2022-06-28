@@ -23,7 +23,7 @@
 					<th>権限</th>
 					<th>ユーザー削除フラグ</th>
 				</tr>
-				<tr th:if="${user} != null" th:object="${user}">
+				<tr th:object="${session.user}">
 					<td th:text="*{user_id}"></td>
 					<td th:text="*{user_mail}"></td>
 					<td th:text="*{user_name}"></td>
@@ -32,7 +32,7 @@
 					<td th:text="*{user_del_flg}"></td>
 				</tr>
 			</table>
-			<a th:if="${user} != null" th:object="${user}"
+			<a th:object="${session.user}"
 				th:href="@{/admin/user/delete/success(ID=*{user_id})}">
 				<button class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">この会員を削除する</button>
