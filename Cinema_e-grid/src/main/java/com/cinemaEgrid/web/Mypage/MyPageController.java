@@ -19,13 +19,24 @@ public class MyPageController {
 	@Autowired
 	HttpSession session;
 
+	//マイページトップ表示コントローラ
+	//http://localhost:10000/mypage
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	private ModelAndView myPage(ModelAndView mav) throws SQLException {
 
-	//予約履歴表示画面
+		mav.setViewName("User/MyPage/MyPage");
+
+		return mav;
+	}
+	//予約履歴表示コントローラ
 	//http://localhost:10000/mypage/history
 	@RequestMapping(value = "/mypage/history", method = RequestMethod.GET)
 	private ModelAndView login(ModelAndView mav) throws SQLException {
 
-		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve();
+		String id = (String) session.getAttribute("ユーザーセッション");
+
+		//ユーザーごとの予約履歴取得
+		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve(id);
 
 		mav.setViewName("User/MyPage/ReserveLog");
 		mav.addObject("reserveList", reserveList);

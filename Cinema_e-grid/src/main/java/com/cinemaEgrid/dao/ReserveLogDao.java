@@ -18,7 +18,7 @@ import com.cinemaEgrid.dao.SQL.ReserveLogSQL;
 public class ReserveLogDao {
 
 	//予約履歴取得メソッド
-	public static ArrayList<Reserve> selectReserve() throws SQLException {
+	public static ArrayList<Reserve> selectReserve(String id) throws SQLException {
 		ArrayList<Reserve> reserveList = new ArrayList<Reserve>();
 
 		DBManager manager = new DBManager();
@@ -29,6 +29,7 @@ public class ReserveLogDao {
 			conn = manager.getConn();
 			String sql = ReserveLogSQL.RESERVE_LOG;
 			ps = conn.prepareStatement(sql);
+			//ps.setString(1, id);
 			ps.setString(1, "1");
 
 			ResultSet rs = ps.executeQuery();

@@ -62,7 +62,12 @@
 					<td th:text="*{m.Genre_name1}"></td>
 					<td th:text="*{m.Genre_name2}"></td>
 					<td th:text="*{m.Time}"></td>
-					<td th:text="*{m.Age_level}"></td>
+					<td><th:block th:if="*{m.Age_level} eq 1"> G</th:block> <th:block
+							th:if="*{m.Age_level} eq 2"> PG12</th:block> <th:block
+							th:if="*{m.Age_level} eq 3">R15+
+					</th:block> <th:block th:if="*{m.Age_level} eq 4">R18+
+					</th:block></td>
+					<!-- td th:text="*{m.Age_level}"></td -->
 					<td th:text="*{m.Release_day}"></td>
 					<td style="white-space: normal" th:text="*{m.Remarks}"></td>
 				</tr>
