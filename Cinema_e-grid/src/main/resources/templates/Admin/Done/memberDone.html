@@ -10,7 +10,7 @@
  <div layout:fragment="notMember_contents">
   <div class="login">
   <p th:text="${msg} + 'が完了しました。'"></p>
-  <form th:action="@{url}" method="get">
+  <form th:action="@{${url}}" method="post">
   	<input type="submit" th:value="${btn}">
   </form>
   </div>
