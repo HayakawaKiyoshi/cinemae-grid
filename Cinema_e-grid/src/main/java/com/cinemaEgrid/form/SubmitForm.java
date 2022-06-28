@@ -1,12 +1,31 @@
 package com.cinemaEgrid.form;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class SubmitForm {
 
+	@NotEmpty
+	@Size(max = 20)
 	private String id;
+
+	@NotEmpty
+	@Size(max = 60)
 	private String mail;
+
+	@NotEmpty
+	@Size(max = 60)
 	private String name;
+
+	@NotEmpty
+	@Size(max = 60)
 	private String pass;
+
+	@NotEmpty
 	private String authority;
+
+	@NotEmpty
 	private String del_flg;
 
 

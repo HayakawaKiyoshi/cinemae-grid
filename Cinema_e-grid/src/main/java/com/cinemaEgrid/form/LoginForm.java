@@ -1,14 +1,17 @@
 package com.cinemaEgrid.form;
 
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class LoginForm {
 
 	@NotEmpty
-
+	@Size(max = 20)
 	private String id;
 
 	@NotEmpty
+	@Size(max = 60)
 	private String pass;
 
 	private String adminId;

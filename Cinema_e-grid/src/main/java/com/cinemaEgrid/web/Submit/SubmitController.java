@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,31 +46,39 @@ public class SubmitController {
 
 	@RequestMapping(value="/userSubmit/check/{type}", method=RequestMethod.POST)
 	private ModelAndView newUserSubmitCheck(@PathVariable int type,
-			SubmitForm form, ModelAndView mav) {
+			@Validated SubmitForm form, BindingResult result, ModelAndView mav) {
 
-		session.setAttribute("type", type);
-
-		//IDが同じものがないか確認
-		ArrayList<User> userList = UserDao.findAll();
-		for(int i = 0; i < userList.size(); i++) {
-			if(userList.get(i).getUser_id().equals(form.getId())) {
-				//同じものがあったら戻る
-				mav.addObject("msg", "このIDは既に存在します。");
-				if(type == 0) {
-					mav.setViewName("/Admin/Submit/user/newUserSubmit");
-				} else {
-					mav.setViewName("/Admin/Submit/user/userAdminSubmit");
-				}
-				return mav;
+		if(result.hasErrors()) {
+			if(type == 0) {
+				mav.setViewName("/Admin/Submit/user/newUserSubmit");
+			} else {
+				mav.setViewName("/Admin/Submit/user/userAdminSubmit");
 			}
-		}
-
-		if(type == 0) {
-			//ユーザーによる新規会員登録の場合
-			mav.setViewName("/Admin/Confirm/user/newUserSubmitConfirm");
 		} else {
-			//管理者による新規会員登録の場合
-			mav.setViewName("/Admin/Confirm/user/userAdminSubmitConfirm");
+			session.setAttribute("type", type);
+
+			//IDが同じものがないか確認
+			ArrayList<User> userList = UserDao.findAll();
+			for(int i = 0; i < userList.size(); i++) {
+				if(userList.get(i).getUser_id().equals(form.getId())) {
+					//同じものがあったら戻る
+					mav.addObject("msg", "このIDは既に存在します。");
+					if(type == 0) {
+						mav.setViewName("/Admin/Submit/user/newUserSubmit");
+					} else {
+						mav.setViewName("/Admin/Submit/user/userAdminSubmit");
+					}
+					return mav;
+				}
+			}
+
+			if(type == 0) {
+				//ユーザーによる新規会員登録の場合
+				mav.setViewName("/Admin/Confirm/user/newUserSubmitConfirm");
+			} else {
+				//管理者による新規会員登録の場合
+				mav.setViewName("/Admin/Confirm/user/userAdminSubmitConfirm");
+			}
 		}
 
 		return mav;

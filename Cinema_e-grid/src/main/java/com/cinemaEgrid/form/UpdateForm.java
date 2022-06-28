@@ -1,8 +1,13 @@
 package com.cinemaEgrid.form;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class UpdateForm {
 
+	@NotEmpty
 	private String name;
+
+	@NotEmpty
 	private String email;
 
 
