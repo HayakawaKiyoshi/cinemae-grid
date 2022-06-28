@@ -50,7 +50,7 @@
 					<th:block th:if="*{ schedule.Schedule_status != 1}">
 					<td><a class="btn btn-primary" th:href="@{/login/reserveDone(date=*{schedule.Schedule_date},no=*{schedule.Schedule_no})}" >予約</a>
 						</td>
-					<td th:if="${session.user[1] == 3}">
+					<td th:if="${session.user[1]}  == 3">
 						<form action="/login/scheduleUpdate/0" method="post">
 						<input type="hidden" name="day" th:value="*{schedule.Schedule_date}">
 						<input type="hidden" name="time" th:value="*{schedule.Schedule_time}">
