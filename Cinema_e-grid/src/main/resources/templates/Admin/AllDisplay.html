@@ -93,7 +93,12 @@
 					<td th:text="*{m.genre_name1}"></td>
 					<td th:text="*{m.genre_name2}"></td>
 					<td th:text="*{m.time}"></td>
-					<td th:text="*{m.age_level}"></td>
+					<th:block th:switch = "*{m.age_level}">
+					<td th:case=1>G</td>
+					<td th:case=2>PG12</td>
+					<td th:case=3>R16</td>
+					<td th:case=4>R18</td>
+					</th:block>
 					<td th:text="*{m.release_day}"></td>
 					<td th:text="*{m.remarks}"></td>
 					<td th:text="*{m.movie_del_flg == 0} ? 有効:削除済"></td>
