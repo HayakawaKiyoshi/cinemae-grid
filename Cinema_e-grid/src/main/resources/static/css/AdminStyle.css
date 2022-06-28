@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+.header {
+	background-color: midnightblue;
+	text-align: center;
+	border: 1px solid midnightblue;
+	height: 180px;
+}
+
 .title {
 	color: white;
 	font-family: 'Alegreya Sans SC', sans-serif;
@@ -7,11 +14,10 @@
 	margin: 35px;
 }
 
-.header {
-	background-color: midnightblue;
+.login{
+	padding-top: 50px;
 	text-align: center;
-	border: 1px solid midnightblue;
-	height: 180px;
+	margin: 0 auto;
 }
 
 hr {
