@@ -24,7 +24,7 @@ public class ReserveController {
 	//
 	//上映予定を表示するテストコントローラ
 
-	@RequestMapping(value = "/login/schedule", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/schedule", method = RequestMethod.POST)
 	private ModelAndView schedule( ModelAndView mav) {
 		//スケジュールの全権表示のSQL
 		List<Schedule> scheduleList = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ReserveController {
 
 		return mav;
 	}
-	@RequestMapping(value = "/login/reserveDone", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/reserveDone", method = RequestMethod.POST)
 	private ModelAndView reservedone(@RequestParam("date") String date,@RequestParam("no") String no, ModelAndView mav) {
 
 		//予約されたレコードのみを抽出
@@ -48,7 +48,7 @@ public class ReserveController {
 
 		return mav;
 	}
-	@RequestMapping(value = "/login/reserveResult", method = RequestMethod.GET)
+	@RequestMapping(value = "/login/reserveResult", method = RequestMethod.POST)
 	private ModelAndView reserveresult(ModelAndView mav) {
 
 		Schedule schedule = (Schedule) session.getAttribute("schedule");
