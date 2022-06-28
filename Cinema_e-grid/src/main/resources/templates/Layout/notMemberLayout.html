@@ -11,11 +11,7 @@
 </head>
 <body>
 <div class="container">
-  <div class="header">
-	<br>
-	<h1 class="title">Cinema e-grid</h1>
-	<br> <br>
-  </div>
+  <div layout:insert="~{Part/AdminHeader::admin_header}"></div>
   <div layout:fragment="notMember_contents"></div>
   <div layout:insert="~{Part/Footer::footer}"></div>
 </div>

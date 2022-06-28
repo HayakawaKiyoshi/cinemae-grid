@@ -1,6 +1,8 @@
 <!-- iwai 編集中 -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="Layout/notMemberLayout">
 <head>
 <meta charset="UTF-8">
 <title>店舗情報登録</title>
@@ -8,9 +10,11 @@
 <link rel="stylesheet" media="all" th:href="@{/css/Style.css}" />
 </head>
 <body>
+<div class="divContent" layout:fragment="notMember_contents">
 	<div class="container">
 		<div class="table-responsive">
 			<form th:action="@{/admin/store/submit}" th:object="${store}" method="post">
+			<br>
 			登録する店舗情報を入力してください
 			<input type="hidden" name="store_no" th:field="*{store_no}">
 			<input type="hidden" name="store_del_flg" value="0">
@@ -56,5 +60,6 @@
 			</form>
 		</div>
 	</div>
+</div>
 </body>
 </html>
