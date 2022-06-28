@@ -53,5 +53,5 @@ public class MovieSQL {
 			+ " WHERE movie_no = ?";
 
 	//削除・更新するデータを抽出する
-	public static final String MOVIE_SELECT = "SELECT * FROM movie_table WHERE movie_no ?";
+	public static final String MOVIE_SELECT = "SELECT M.movie_no, M.movie_title, G.genre_name AS genre_name1, G2.genre_name AS genre_name2, M.time, M.age_level, M.release_day, M.remarks, M.movie_del_flg FROM movie_table M INNER JOIN genre_table G ON M.genre1 = G.genre_id INNER JOIN genre_table G2 ON M.genre2 = G2.genre_id WHERE movie_no = ?";
 }
