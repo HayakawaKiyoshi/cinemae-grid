@@ -52,4 +52,6 @@ public class MovieSQL {
 			+ " SET movie_title = ?, genre1 = ?, genre2 = ?, time = ?, age_level = ?, release_day = ?, remarks = ?"
 			+ " WHERE movie_no = ?";
 
+	//削除・更新するデータを抽出する
+	public static final String MOVIE_SELECT = "SELECT * FROM movie_table WHERE movie_no ?";
 }
