@@ -145,7 +145,6 @@ public class MovieDao {
 		}
 		return movieList;
 	}
-	//yoshida 編集中
 
 	//movieを削除するdeleteMovie
 	public static void deleteMovie(int no) {
