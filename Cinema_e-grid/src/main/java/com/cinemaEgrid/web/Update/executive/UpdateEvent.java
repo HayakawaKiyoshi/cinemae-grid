@@ -24,11 +24,6 @@ import com.cinemaEgrid.form.EventForm;
 @RequestMapping("/login")
 public class UpdateEvent {
 
-	//	http://localhost:10000/login/eventUpdate/0
-
-	//イベントの番号をurlで送るように
-	//後にpostに変更するように
-
 	@RequestMapping(value = "/eventUpdate/{type}", method = RequestMethod.POST)
 	private String eventUpdate(@PathVariable int type,
 			@ModelAttribute("eventId") String eventId, EventForm form) {
@@ -57,8 +52,8 @@ public class UpdateEvent {
 		System.out.println();
 		mav.addObject("title", "イベント更新完了");
 		mav.addObject("msg", "イベントの更新");
-		mav.addObject("uel", "/cinena/mypage/top");
-		mav.addObject("btn", "マイページへ");
+		mav.addObject("url", "/toppage");
+		mav.addObject("btn", "トップページへ");
 		mav.setViewName("/Admin/Done/myUpdateDone");
 		return mav;
 	}
