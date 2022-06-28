@@ -12,7 +12,7 @@
   <form action="/login/adminLogin" method="post" th:object="${loginForm}">
   	管理者ID：<input type="text" name="adminId" th:field="*{adminId}"><br>
   	<p th:text="${msg}"></p>
-  	<input type="submit" value="ログイン">
+  	<input type="submit" value="ログイン" class="btn btn-outline-secondary btn-sm">
   </form>
   </div>
   <div layout:insert="~{Part/Footer::footer}"></div>

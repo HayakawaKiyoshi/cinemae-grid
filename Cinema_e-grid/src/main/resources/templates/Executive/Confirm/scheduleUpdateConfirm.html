@@ -31,7 +31,7 @@
   	  <input type="hidden" name="statusSchedule" th:field="*{statusSchedule}">
   	  <input type="hidden" name="no" th:field="*{no}">
   	  <input type="hidden" name="time" th:field="*{time}">
-  	  <input type="submit" value="更新">
+  	  <input type="submit" value="更新" class="btn btn-outline-secondary btn-sm">
   	</form>
   	<form action="/login/scheduleUpdate/1" method="post" th:object="${scheduleForm}">
   	  <input type="hidden" name="date" th:field="*{date}">
@@ -42,7 +42,7 @@
   	  <input type="hidden" name="statusSchedule" th:field="*{statusSchedule}">
   	  <input type="hidden" name="no" th:field="*{no}">
   	  <input type="hidden" name="time" th:field="*{time}">
-  	  <input type="submit" value="戻る">
+  	  <input type="submit" value="戻る" class="btn btn-outline-secondary btn-sm">
   	</form>
   </div>
 </body>

@@ -27,7 +27,7 @@ public class SubmitController {
 	@Autowired
 	HttpSession session;
 
-	//管理者のトップページのurlを記入すること
+	//トップページのurlを記入すること
 	//後にpostに変更するように(特に管理者)
 
 	@RequestMapping("/userSubmit")

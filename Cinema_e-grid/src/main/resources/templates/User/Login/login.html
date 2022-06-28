@@ -14,7 +14,7 @@
 	<form action="/login" method="post" th:object="${loginForm}">
 		ID：<input type="text" name="id" th:field="*{id}"><br>
 		パスワード：<input type="password" name="pass" th:field="*{pass}"><br>
-		<input type="submit" value="ログイン">
+		<input type="submit" value="ログイン" class="btn btn-outline-secondary btn-sm">
 	</form>
 	<br>
 	<p>会員でない方はこちら <a href="/login/userSubmit">会員登録</a></p>

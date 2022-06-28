@@ -11,7 +11,7 @@
   <div class="login">
   <p th:text="${msg} + 'が完了しました。'"></p>
   <form th:action="@{${url}}" method="post">
-  	<input type="submit" th:value="${btn}">
+  	<input type="submit" th:value="${btn}" class="btn btn-outline-secondary btn-sm">
   </form>
   </div>
  </div>
