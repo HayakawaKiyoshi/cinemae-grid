@@ -82,7 +82,16 @@
 					<td th:text="*{e.Event_title}"></td>
 				</tr>
 				<tr>
-					<td th:text="*{e.Event_content}"></td>
+					<td th:text="*{e.Event_content}">
+					</td>
+				</tr>
+				<tr>
+					<td th:if="${session.user[1]} == 3">
+						<form action="/login/eventUpdate/0" method="post">
+						  <input type="hidden" name="eventId" th:value="*{e.Event_id}">
+						  <input type="submit" value="編集">
+						</form>
+					</td>
 				</tr>
 			</table>
 
