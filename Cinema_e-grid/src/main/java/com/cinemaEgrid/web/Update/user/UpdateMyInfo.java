@@ -51,7 +51,7 @@ public class UpdateMyInfo {
 			//エラーチェック
 			mav.setViewName("/User/Update/memberUpdate");
 		} else {
-			mav.setViewName("/Admin/Confirm/user/myUpdateConfirm");
+			mav.setViewName("/User/Confirm/myUpdateConfirm");
 		}
 		return mav;
 

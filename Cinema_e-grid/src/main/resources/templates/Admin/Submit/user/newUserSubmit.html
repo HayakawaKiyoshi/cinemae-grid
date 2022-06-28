@@ -40,7 +40,7 @@
       <tr>
       	<td>メールアドレス</td>
       	<td>
-      	  <input type="email" name="email" th:field="*{mail}" th:errorclass="fieldError">
+      	  <input type="email" name="mail" th:field="*{mail}" th:errorclass="fieldError">
       	  <span th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"
 			th:errorclass="error-field">error!</span>
       	</td>

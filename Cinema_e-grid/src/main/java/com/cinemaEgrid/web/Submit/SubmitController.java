@@ -29,7 +29,7 @@ public class SubmitController {
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping("/userSubmit")
+	@RequestMapping(value="/userSubmit", method=RequestMethod.POST)
 	private String newUserSubmit(SubmitForm form) {
 		//新規会員登録
 		return "/Admin/Submit/user/newUserSubmit";
@@ -70,7 +70,7 @@ public class SubmitController {
 
 			if(type == 0) {
 				//ユーザーによる新規会員登録の場合
-				mav.setViewName("/Admin/Confirm/user/newUserSubmitConfirm");
+				mav.setViewName("/User/Confirm/newUserSubmitConfirm");
 			} else {
 				//管理者による新規会員登録の場合
 				mav.setViewName("/Admin/Confirm/user/userAdminSubmitConfirm");

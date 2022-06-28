@@ -25,7 +25,9 @@
 		<input type="submit" value="ログイン" class="btn btn-outline-secondary btn-sm">
 	</form>
 	<br>
-	<p>会員でない方はこちら <a href="/login/userSubmit">会員登録</a></p>
+	<form action="/login/userSubmit" method="post" name="memberForm">
+		<p>会員でない方はこちら <a href="javascript:memberForm.submit()">会員登録</a></p>
+	</form>
   </div>
 </div>
 </body>
