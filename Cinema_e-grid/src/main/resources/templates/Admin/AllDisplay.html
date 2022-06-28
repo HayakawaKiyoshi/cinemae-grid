@@ -55,7 +55,11 @@
 					<td th:text="*{u.user_mail}"></td>
 					<td th:text="*{u.user_name}"></td>
 					<td th:text="*{u.password}"></td>
-					<td th:text="*{u.authority}"></td>
+					<th:block th:switch = "*{u.authority}">
+					<td th:case=1>管理者</td>
+					<td th:case=2>一般会員</td>
+					<td th:case=3>経営者</td>
+					</th:block>
 					<td th:text="*{u.user_del_flg == '0'} ? 有効:削除済"></td>
 					<td><a th:href="@{/admin/user/update(ID=*{u.user_id})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
