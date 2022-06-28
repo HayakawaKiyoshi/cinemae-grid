@@ -29,8 +29,6 @@ public class SubmitController {
 	@Autowired
 	HttpSession session;
 
-	//トップページのurlを記入すること
-
 	@RequestMapping("/userSubmit")
 	private String newUserSubmit(SubmitForm form) {
 		//新規会員登録

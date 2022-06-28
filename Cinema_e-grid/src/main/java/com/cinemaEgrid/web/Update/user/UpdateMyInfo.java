@@ -17,6 +17,11 @@ import com.cinemaEgrid.bean.User;
 import com.cinemaEgrid.dao.UserDao;
 import com.cinemaEgrid.form.UpdateForm;
 
+/**
+ * プロフィール変更
+ * @author aishikawa
+ *
+ */
 @Controller
 @RequestMapping("/login")
 public class UpdateMyInfo {
@@ -24,20 +29,18 @@ public class UpdateMyInfo {
 	@Autowired
 	HttpSession session;
 
-	//ログインしてからでないと確認できないので、仮の値を入れています。
 	//マイページ完成後にpostに変更するように
 
-//	http://localhost:10000/login/myPage/userUpdate/0
+	//	http://localhost:10000/login/myPage/userUpdate/0
 
-	@RequestMapping(value="/myPage/userUpdate/{type}")
+	@RequestMapping(value = "/myPage/userUpdate/{type}")
 	private String newUserUpdate(@PathVariable int type, UpdateForm form) {
 		//マイページからプロフィール編集画面へ
-		if(type == 0) {
+		if (type == 0) {
 			//最初に入る時
-//		String[] user = (String[]) session.getAttribute("user");
-//		System.out.println(user[0] + "aa");
-//		ArrayList<User> userList = UserDao.search(user[0]);
-			ArrayList<User> userList = UserDao.search("123");
+			String[] user = (String[]) session.getAttribute("user");
+			System.out.println(user[0] + "aa");
+			ArrayList<User> userList = UserDao.search(user[0]);
 			session.setAttribute("updateUser", userList);
 			form.setName(userList.get(0).getUser_name());
 			form.setEmail(userList.get(0).getUser_mail());
@@ -45,10 +48,10 @@ public class UpdateMyInfo {
 		return "/Admin/Update/memberUpdate";
 	}
 
-	@RequestMapping(value="/myPage/userUpdate/check", method=RequestMethod.POST)
+	@RequestMapping(value = "/myPage/userUpdate/check", method = RequestMethod.POST)
 	private ModelAndView newUserUpdateCheck(@Validated UpdateForm form,
 			BindingResult result, ModelAndView mav) {
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			//エラーチェック
 			mav.setViewName("/Admin/Update/memberUpdate");
 		} else {
@@ -58,11 +61,10 @@ public class UpdateMyInfo {
 
 	}
 
-	@RequestMapping(value="/myPage/userUpdate/done", method=RequestMethod.POST)
+	@RequestMapping(value = "/myPage/userUpdate/done", method = RequestMethod.POST)
 	private ModelAndView newUserUpdateDone(UpdateForm form,
 			ModelAndView mav) {
-		ArrayList<User> updateUser =
-				(ArrayList<User>) session.getAttribute("updateUser");
+		ArrayList<User> updateUser = (ArrayList<User>) session.getAttribute("updateUser");
 		String id = updateUser.get(0).getUser_id();
 		String pass = updateUser.get(0).getPassword();
 		String auth = updateUser.get(0).getAuthority();
@@ -70,7 +72,7 @@ public class UpdateMyInfo {
 		UserDao.update(id, form.getEmail(), form.getName(), pass, auth, del_flg);
 		mav.addObject("title", "プロフィール変更完了");
 		mav.addObject("msg", "プロフィールの変更");
-		mav.addObject("uel", "/cinema/mypage/top");
+		mav.addObject("url", "/mypage");
 		mav.addObject("btn", "マイページへ");
 		mav.setViewName("/Admin/Done/myUpdateDone");
 		return mav;

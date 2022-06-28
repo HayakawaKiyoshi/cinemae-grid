@@ -26,6 +26,7 @@ public class LoginController {
 	HttpSession session;
 
 	//	http://localhost:10000/login
+	//ログアウトを可能であればpostに変更する事
 
 	@RequestMapping("/login")
 	private String userLogin(LoginForm form) {
@@ -75,7 +76,7 @@ public class LoginController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	private String userLogout(SessionStatus sessionStatus) {
 		// セッション廃棄
 		sessionStatus.setComplete();

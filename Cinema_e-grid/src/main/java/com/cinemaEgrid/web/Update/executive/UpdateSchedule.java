@@ -33,9 +33,6 @@ public class UpdateSchedule {
 	@Autowired
 	HttpSession session;
 
-//	http://localhost:10000/login/scheduleUpdate/0
-	//公開日、スケジュールナンバー、上映時間を取得すること
-
 	@RequestMapping(value="/scheduleUpdate/{type}", method = RequestMethod.POST)
 	private String scheduleUpdate(@PathVariable int type, @ModelAttribute("day") String day,
 			@ModelAttribute("time") String time, @ModelAttribute("no") String no, ScheduleForm form) {
