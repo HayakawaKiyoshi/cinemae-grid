@@ -107,10 +107,12 @@
 					<td th:text="*{m.release_day}"></td>
 					<td th:text="*{m.remarks}"></td>
 					<td th:text="*{m.movie_del_flg == 0} ? 有効:削除済"></td>
+					<th:block th:if="*{m.movie_del_flg != 1}">
 					<td><a th:href="@{/admin/movie/update(No=*{m.movie_no})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">更新</button>
 					</a></td>
+					</th:block>
 					<td><a th:href="@{/admin/movie/delete(No=*{m.movie_no})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">削除</button>
