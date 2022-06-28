@@ -29,11 +29,7 @@ public class MovieDao {
 			st = conn.createStatement();
 			String sql = "SELECT * FROM movie_table";
 			rs = st.executeQuery(sql);
-			//			System.out.println(
-			//					"emp_id\temp_pass\temp_name\tgender\taddress\tbirthday");
-			//			while (rs.next()) {
-			//				System.out.print(rs.getString("movie_title") + "\t");
-			//			}
+
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
