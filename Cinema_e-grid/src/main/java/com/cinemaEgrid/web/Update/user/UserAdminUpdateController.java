@@ -34,17 +34,21 @@ public class UserAdminUpdateController {
 			User form, ModelAndView mav) {
 		User menber = UserAdminDao.findOneUser(id);
 		session.setAttribute("user", menber);
+		// セッションよりデータを取得して設定
+		User menbers = (User) session.getAttribute("user");
+		mav.addObject("user", menbers);
 		mav.setViewName("Admin/Update/user/userAdminUpdate");
 		return mav;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	private ModelAndView index2(@Validated User form,
-			BindingResult result,
+	private ModelAndView index2(@Validated User form, BindingResult result,
 			ModelAndView mav, Model model) {
 		if (result.hasErrors()) {
-			mav.setViewName("Admin/Update/user/storeUpdate");
+			mav.setViewName("Admin/Update/user/userAdminUpdate");
 		} else {
+			// セッション設定
+			session.setAttribute("user", form);
 			mav.setViewName("Admin/Confirm/user/updateConfirm");
 		}
 		return mav;
@@ -53,14 +57,20 @@ public class UserAdminUpdateController {
 	@RequestMapping(value = "/success", params = "back", method = RequestMethod.POST)
 	private ModelAndView index3(@Validated User form, BindingResult result,
 			ModelAndView mav, Model model) {
+		// セッションよりデータを取得して設定
+		User menbers = (User) session.getAttribute("user");
+		mav.addObject("user", menbers);
 		mav.setViewName("Admin/Update/user/userAdminUpdate");
 		return mav;
 	}
 
 	@RequestMapping(value = "/success", params = "exec", method = RequestMethod.POST)
 	private ModelAndView index4(User form, ModelAndView mav) {
+		// セッションよりデータを取得して設定
+		User menbers = (User) session.getAttribute("user");
+		mav.addObject("user", menbers);
 		try {
-			UserAdminDao.updateAdminUser(form);
+			UserAdminDao.updateAdminUser(menbers);
 		} catch (SQLException e) {
 		}
 		mav.setViewName("/Admin/Done/memberDone");
