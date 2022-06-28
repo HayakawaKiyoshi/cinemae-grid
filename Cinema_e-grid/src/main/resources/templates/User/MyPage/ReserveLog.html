@@ -18,13 +18,19 @@
 					<th>予約日</th>
 					<th>作品</th>
 					<th>上映時間</th>
+					<th>予約コード</th>
 				</tr>
 				<tr th:each="h:${reserveList}">
-				<td th:text="*{h.book_date}"></td>
-				<!-- td th:text="*{h._date}"></td>
-				<td th:text="*{h.book_date}"></td -->
+					<td th:text="*{h.Book_date}"></td>
+					<td th:text="*{h.Reserve_name}"></td>
+					<td th:text="*{h.Schedule_no}"></td>
+					<td th:text="*{h.Book_code}"></td>
 				</tr>
-				</div>
-				</div>
+			</table>
+
+			<a href="/mypage"
+				class="btn btn-default btn-outline-secondary btn-lg mypage">マイページに戻る</a>
+		</div>
+	</div>
 </body>
 </html>

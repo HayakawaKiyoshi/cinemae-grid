@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.Reserve;
-import com.cinemaEgrid.dao.SQL.ReserveHistorySQL;
+import com.cinemaEgrid.dao.SQL.ReserveLogSQL;
 
 /**
 * 予約履歴関係
@@ -15,7 +15,7 @@ import com.cinemaEgrid.dao.SQL.ReserveHistorySQL;
 *
 */
 
-public class ReserveHistoryDao {
+public class ReserveLogDao {
 
 	//予約履歴取得メソッド
 	public static ArrayList<Reserve> selectReserve() throws SQLException {
@@ -27,16 +27,18 @@ public class ReserveHistoryDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = ReserveHistorySQL.RESERVE_HISTORY;
+			String sql = ReserveLogSQL.RESERVE_LOG;
 			ps = conn.prepareStatement(sql);
+			ps.setString(1, "1");
+
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
 				Reserve reserve = new Reserve();
-				reserve.setSchedule_date(rs.getString("schedule_date"));
-				reserve.setUser_id(rs.getString("user_id"));
+				reserve.setSchedule_date(rs.getString("scheduleDate"));
+				reserve.setReserve_name(rs.getString("reserve_name"));
 				reserve.setSchedule_no(rs.getInt("schedule_no"));
-				reserve.setBook_date(rs.getString("book_date"));
+				reserve.setBook_date(rs.getString("bookDate"));
 				reserve.setBook_code(rs.getString("book_code"));
 				reserveList.add(reserve);
 			}

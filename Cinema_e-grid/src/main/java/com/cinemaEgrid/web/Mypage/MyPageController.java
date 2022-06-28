@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Reserve;
-import com.cinemaEgrid.dao.ReserveHistoryDao;
+import com.cinemaEgrid.dao.ReserveLogDao;
 
 @Controller
 public class MyPageController {
@@ -25,9 +25,9 @@ public class MyPageController {
 	@RequestMapping(value = "/mypage/history", method = RequestMethod.GET)
 	private ModelAndView login(ModelAndView mav) throws SQLException {
 
-		ArrayList<Reserve> reserveList = ReserveHistoryDao.selectReserve();
+		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve();
 
-		mav.setViewName("User/MyPage/ReserveHistory");
+		mav.setViewName("User/MyPage/ReserveLog");
 		mav.addObject("reserveList", reserveList);
 		//System.out.println("test" +  reserveList);
 		return mav;
