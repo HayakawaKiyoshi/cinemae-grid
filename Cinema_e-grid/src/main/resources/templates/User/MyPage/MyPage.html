@@ -17,9 +17,13 @@
 			</div>
 			<br>
 			<div class="d-flex align-items-center justify-content-center">
-				<a href="/mypage/reservelog" class="btn btn-info btn-lg mypage">チケット予約履歴</a> <a
-					href="/login/myPage/userUpdate/0" class="btn btn-info btn-lg mypage">プロフィール編集</a> <a
-					href="/logout" class="btn btn-info btn-lg mypage">ログアウト</a>
+				<a href="/mypage/reservelog" class="btn btn-info btn-lg mypage">チケット予約履歴</a>
+				<form action="/login/myPage/userUpdate/0" method="post" name="myUpdateForm">
+				  <a href="javascript:myUpdateForm.submit()" class="btn btn-info btn-lg mypage">プロフィール編集</a>
+				</form>
+				<form action="/logout" method="post" name="logoutForm">
+				  <a href="javascript:logoutForm.submit()" class="btn btn-info btn-lg mypage">ログアウト</a>
+				</form>
 			</div>
 			<br> <br>
 			<div class="d-flex align-items-center justify-content-center">

@@ -29,11 +29,7 @@ public class UpdateMyInfo {
 	@Autowired
 	HttpSession session;
 
-	//マイページ完成後にpostに変更するように
-
-	//	http://localhost:10000/login/myPage/userUpdate/0
-
-	@RequestMapping(value = "/myPage/userUpdate/{type}")
+	@RequestMapping(value = "/myPage/userUpdate/{type}", method = RequestMethod.POST)
 	private String newUserUpdate(@PathVariable int type, UpdateForm form) {
 		//マイページからプロフィール編集画面へ
 		if (type == 0) {

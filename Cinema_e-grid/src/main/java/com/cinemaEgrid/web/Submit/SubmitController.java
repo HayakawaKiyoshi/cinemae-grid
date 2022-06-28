@@ -44,7 +44,6 @@ public class SubmitController {
 	@RequestMapping(value="/userSubmit/check/{type}", method=RequestMethod.POST)
 	private ModelAndView newUserSubmitCheck(@PathVariable int type,
 			@Validated SubmitForm form, BindingResult result, ModelAndView mav) {
-
 		if(result.hasErrors()) {
 			if(type == 0) {
 				mav.setViewName("/Admin/Submit/user/newUserSubmit");
@@ -83,7 +82,6 @@ public class SubmitController {
 
 	@RequestMapping(value="/userSubmit/completion", method=RequestMethod.POST)
 	private ModelAndView newUserSubmit(SubmitForm form, ModelAndView mav) {
-
 		//登録
 		ArrayList<User> userList =
 				UserDao.submit(form.getId(), form.getName(), form.getMail(),
