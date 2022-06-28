@@ -1,4 +1,4 @@
-package com.cinemaEgrid.web.UpdateMember;
+package com.cinemaEgrid.web.Update.executive;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
