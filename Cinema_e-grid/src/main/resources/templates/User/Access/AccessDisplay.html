@@ -19,7 +19,7 @@
 							<th>店舗名</th>
 							<th>住所</th>
 						</tr>
-						<tr th:each="s:${list}">
+						<tr th:each="s:${list}" th:if="*{s.store_del_flg} != 1">
 							<td th:text="*{s.store_name}"></td>
 							<td th:text="*{s.store_location}"></td>
 						</tr>
