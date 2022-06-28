@@ -29,8 +29,8 @@ public class ReserveLogDao {
 			conn = manager.getConn();
 			String sql = ReserveLogSQL.RESERVE_LOG;
 			ps = conn.prepareStatement(sql);
-			//ps.setString(1, id);
-			ps.setString(1, "1");
+			ps.setString(1, id);
+			//ps.setString(1, "1");
 
 			ResultSet rs = ps.executeQuery();
 
@@ -67,8 +67,8 @@ public class ReserveLogDao {
 			ps = conn.prepareStatement(sql);
 			//ps.setString(1, id);
 			//ps.setString(1, "1");
-			//ps.setString(2, code);
-			ps.setString(1, "a1b2c3d4e5f6g7h");
+			ps.setString(1, code);
+			//ps.setString(1, "a1b2c3d4e5f6g7h");
 
 			ResultSet rs = ps.executeQuery();
 
@@ -92,18 +92,18 @@ public class ReserveLogDao {
 
 
 	//予約削除メソッド
-	public static void reserveCancelDone() throws SQLException {
+	public static void reserveCancelDone(String id, String code) throws SQLException {
 
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
-		Reserve reserve = new Reserve();
 
 		try {
 			conn = manager.getConn();
 			String sql = ReserveLogSQL.RESERVE_DELETE;
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, "a1b2c3d4e5f6g7h");
+			ps.setString(1, id);
+			ps.setString(2, code);
 
 			int count = ps.executeUpdate();
 

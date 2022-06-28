@@ -35,11 +35,10 @@ public class MyPageController {
 	@RequestMapping(value = "/mypage/reservelog", method = RequestMethod.GET)
 	private ModelAndView reserveLog(ModelAndView mav) throws SQLException {
 
-		String id = null;
-		// (String) session.getAttribute("ユーザーセッション");
+		String[] user = (String[]) session.getAttribute("user");
 
 		//ユーザーごとの予約履歴取得
-		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve(id);
+		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve(user[0]);
 
 		mav.setViewName("User/MyPage/ReserveLog");
 		mav.addObject("reserveList", reserveList);
@@ -48,37 +47,37 @@ public class MyPageController {
 	}
 
 	//予約キャンセルコントローラ
-		//http://localhost:10000/mypage/history
-		@RequestMapping(value = "/mypage/reservelog/cancel", method = RequestMethod.GET)
-		private ModelAndView reserveCancel(@RequestParam("code") String code, ModelAndView mav) throws SQLException {
+	//http://localhost:10000/mypage/history
+	@RequestMapping(value = "/mypage/reservelog/cancel", method = RequestMethod.GET)
+	private ModelAndView reserveCancel(@RequestParam("code") String code, ModelAndView mav) throws SQLException {
 
+		Reserve reserve = ReserveLogDao.reserveCancel(code);
 
-			Reserve reserve = ReserveLogDao.reserveCancel(code);
+		String id = null;
+		// (String) session.getAttribute("ユーザーセッション");
 
-			String id = null;
-			// (String) session.getAttribute("ユーザーセッション");
+		mav.setViewName("User/Reserve/ReserveCancel");
+		mav.addObject("reserveCancel", reserve);
+		//System.out.println("test" +  reserveList);
+		return mav;
+	}
 
-			mav.setViewName("User/Reserve/ReserveCancel");
-			mav.addObject("reserveCancel", reserve);
-			//System.out.println("test" +  reserveList);
-			return mav;
-		}
+	//予約キャンセルコントローラ
+	//http://localhost:10000/mypage/history
+	@RequestMapping(value = "/mypage/reservelog/cancel/done", method = RequestMethod.POST)
+	private ModelAndView reserveCancelDone(@RequestParam("code") String code, ModelAndView mav) throws SQLException {
 
+		System.out.println(code);
+		String[] user = (String[]) session.getAttribute("user");
 
-		//予約キャンセルコントローラ
-				//http://localhost:10000/mypage/history
-				@RequestMapping(value = "/mypage/reservelog/cancel/done", method = RequestMethod.POST)
-				private ModelAndView reserveCancelDone(ModelAndView mav) throws SQLException {
+		ReserveLogDao.reserveCancelDone(user[0], code);
 
+		String id = null;
+		// (String) session.getAttribute("ユーザーセッション");
 
-					ReserveLogDao.reserveCancelDone();
+		mav.setViewName("User/Reserve/ReserveCancelDone");
 
-					String id = null;
-					// (String) session.getAttribute("ユーザーセッション");
-
-					mav.setViewName("User/Reserve/ReserveCancelDone");
-
-					//System.out.println("test" +  reserveList);
-					return mav;
-				}
+		//System.out.println("test" +  reserveList);
+		return mav;
+	}
 }
