@@ -36,7 +36,24 @@ public class MovieSQL {
 			+ "FROM movie_table M INNER JOIN genre_table G\r\n"
 			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
 			+ "ON M.genre2 = G2.genre_id WHERE M.movie_title LIKE ? OR M.genre1 = ?"
-			+ "OR M.genre2 = ?";
+			+ "OR M.genre2 = ? ORDER BY M.release_day";
+
+	public static final String SEARCH_GENRE_MOVIE = "SELECT\r\n"
+			+ "M.movie_no,\r\n"
+			+ "M.movie_title,\r\n"
+			+ "G.genre_name AS \"genre_name1\",\r\n"
+			+ "G2.genre_name AS \"genre_name2\",\r\n"
+			+ "M.time,\r\n"
+			+ "M.age_level,\r\n"
+			+ "TO_CHAR(M.release_day, 'YYYY-MM-DD') AS release_day,\r\n"
+			+ "M.remarks,\r\n"
+			+ "M.movie_del_flg\r\n"
+			+ "FROM movie_table M INNER JOIN genre_table G\r\n"
+			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
+			+ "ON M.genre2 = G2.genre_id WHERE M.genre1 = ?"
+			+ "OR M.genre2 = ? ORDER BY M.release_day";
+
+
 
 	//yoshida 編集中
 	//映画を登録する

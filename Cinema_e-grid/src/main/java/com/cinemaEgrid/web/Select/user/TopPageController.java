@@ -22,13 +22,6 @@ public class TopPageController {
 	@Autowired
 	HttpSession session;
 
-	//http://localhost:10000/test
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	private ModelAndView login(ModelAndView mav) {
-		mav.setViewName("Layout/Layout");
-
-		return mav;
-	}
 
 	//http://localhost:10000/toppage
 	@RequestMapping(value = "/toppage", method = RequestMethod.POST)
@@ -45,27 +38,29 @@ public class TopPageController {
 		return mav;
 	}
 
-	//http://localhost:10000/cinema/test2
+	//http://localhost:10000/top/search
 	@RequestMapping(value = "top/search", method = RequestMethod.GET)
 	private ModelAndView searchMovie(@RequestParam("searchTitle") String title,
 			@RequestParam("searchGenre") String genre, @RequestParam("searchGenre") String genre2, ModelAndView mav)
 			throws SQLException {
 
-		System.out.println(title);
-
 		mav.setViewName("User/Top/TopPage");
+		if(title.equals("") && genre != "") {
+			ArrayList<Movie> movieList = MovieDao.searchGenreMovie(genre, genre2);
+			mav.addObject("movieList", movieList);
 
-		//if (title != null) {
+		} else if(genre.equals("")) {
+			ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
+			mav.addObject("movieList", movieList);
+		} else if(genre.equals("") && title.equals("")) {
+			ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
+			mav.addObject("movieList", movieList);
+		}
 
-		ArrayList<Movie> movieList = MovieDao.searchSelectMovie(title, genre, genre2);
-		mav.addObject("list", movieList);
 
-		//}
 		ArrayList<Event> eventList = EventDao.selectEvent();
 
-		System.out.println(movieList);
-
-		mav.addObject("list2", eventList);
+		mav.addObject("eventList", eventList);
 
 		return mav;
 	}
