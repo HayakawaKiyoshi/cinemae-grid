@@ -5,3 +5,54 @@
 .err {
 	color: red;
 }
+
+.header {
+	background-color: midnightblue;
+	text-align: center;
+	border: 1px solid black;
+	height: 180px;
+}
+
+.title {
+	color: white;
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 60px;
+}
+
+.pill1{
+	color: black;
+}
+
+.divContent{
+	margin: auto;
+	padding-bottom: 60px;
+}
+
+.movieDisplay{
+	border: 1px solid black;
+}
+
+.contents{
+	padding-bottom: 60px;
+}
+
+.mypageTitle{
+	font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+.mypage{
+	margin: 7px;
+}
+
+.mypage:hover{
+	box-shadow: 0px 12px 24px rgba(20, 146, 175, 0.38);
+    transform: translateY(-4px);
+}
+
+.pillslink{
+	color: white;
+}
+
+.topTable{
+overflow: auto;
+}
