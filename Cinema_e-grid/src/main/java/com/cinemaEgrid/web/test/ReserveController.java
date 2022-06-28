@@ -18,7 +18,7 @@ import com.cinemaEgrid.dao.ScheduleDao;
 import com.cinemaEgrid.web.Reserve.AlphaNumericStringGenerator;
 //yoshida テスト用コントローラ
 @Controller
-public class test_yoshida {
+public class ReserveController {
 	@Autowired
 	HttpSession session;
 	//
@@ -64,4 +64,5 @@ public class test_yoshida {
 
 		return mav;
 	}
+	
 }

@@ -7,7 +7,7 @@ package com.cinemaEgrid.dao.SQL;
 */
 public class MovieSQL {
 
-
+	//一覧表示
 	public static final String SELECT_MOVIE =  "SELECT\r\n"
 			+ "M.movie_no,\r\n"
 			+ "M.movie_title, \r\n"
@@ -22,6 +22,7 @@ public class MovieSQL {
 			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
 			+ "ON M.genre2 = G2.genre_id ORDER BY M.release_day";
 
+	//検索した映画
 	public static final String SEARCH_SELECT_MOVIE = "SELECT\r\n"
 			+ "M.movie_no,\r\n"
 			+ "M.movie_title,\r\n"
@@ -36,5 +37,19 @@ public class MovieSQL {
 			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
 			+ "ON M.genre2 = G2.genre_id WHERE M.movie_title LIKE ? OR M.genre1 = ?"
 			+ "OR M.genre2 = ?";
+
+	//yoshida 編集中
+	//映画を登録する
+	public static final String SUBMIT_MOVIE= "INSERT INTO movie_table VALUES(movie_seq.nextval,?,?,?,?,?,?,?,?,0)";
+
+	//選択した映画を削除するSQL
+	public static final String DELETE_MOVIE = "UPDATE movie_table SET movie_del_flg = 1 WHERE movie_no = ?";
+//			"DELETE FROM movie_table WHERE movie_no = ?";
+
+	//選択した映画を変更するSQL
+	public static final String UPDATE_MOVIE =
+			"UPDATE movie_table"
+			+ " SET movie_title = ?, genre1 = ?, genre2 = ?, time = ?, age_level = ?, release_day = ?, remarks = ?"
+			+ " WHERE movie_no = ?";
 
 }

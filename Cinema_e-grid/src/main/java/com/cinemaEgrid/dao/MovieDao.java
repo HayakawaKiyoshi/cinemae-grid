@@ -149,49 +149,45 @@ public class MovieDao {
 		}
 		return movieList;
 	}
+	//yoshida 編集中
 
-//	//タイトル検索取得メソッド
-//	public static ArrayList<Movie> titleSelectMovie(String title) throws SQLException {
-//		ArrayList<Movie> movieList = new ArrayList<Movie>();
-//
-//		DBManager manager = new DBManager();
-//		Connection conn = null;
-//		PreparedStatement ps = null;
-//
-//		try {
-//			conn = manager.getConn();
-//			String sql = MovieSQL.SEARCH_TITLE_MOVIE;
-//			ps = conn.prepareStatement(sql);
-//			ps.setString(1, title);
-//
-//			ResultSet rs = ps.executeQuery();
-//
-//			while (rs.next()) {
-//				Movie movie = new Movie();
-//				movie.setMovie_no(rs.getInt("movie_no"));
-//				movie.setMovie_title(rs.getString("movie_title"));
-//				movie.setGenre_name1(rs.getString("genre_name1"));
-//				movie.setGenre_name2(rs.getString("genre_name2"));
-//				movie.setTime(rs.getString("time"));
-//				movie.setAge_level(rs.getInt("age_level"));
-//				movie.setRelease_day(rs.getString("release_day"));
-//				movie.setRemarks(rs.getString("remarks"));
-//				movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
-//				movieList.add(movie);
-//			}
-//			//			for (Movie i : movieList) {
-//			//				System.out.println(i);
-//			//			}
-//
-//			//System.out.println(genre);
-//
-//			return movieList;
-//
-//		} catch (SQLException | ClassNotFoundException e) {
-//			// TODO 自動生成された catch ブロック
-//			e.printStackTrace();
-//		}
-//		return movieList;
-//	}
+	//movieを削除するdeleteMovie
+	public static void deleteMovie(int no) {
+		DBManager manager = new DBManager();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			//接続する
+			conn = manager.getConn();
+			//選択された映画noのデータを削除する
+			ps = conn.prepareStatement(MovieSQL.DELETE_MOVIE);
+			ps.setInt(1, no);
 
+			System.out.println(ps.executeUpdate()+"件のデータを削除しました。");
+
+		} catch(SQLException | ClassNotFoundException e){
+			e.printStackTrace();
+		}
+	}
+	public static void updateMovie(Movie movie) {
+		DBManager manager = new DBManager();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			//接続する
+			conn = manager.getConn();
+			//選択された映画を更新する
+			ps = conn.prepareStatement(MovieSQL.UPDATE_MOVIE);
+			ps.setString(1, movie.getMovie_title());
+			ps.setString(2,movie.getGenre_name1());
+			ps.setString(3, movie.getGenre_name2());
+			ps.setString(4, movie.getTime());
+			ps.setInt(5, movie.getAge_level());
+			ps.setString(6,movie.getRelease_day());
+			ps.setString(7, movie.getRemarks());
+			System.out.println("更新：" +  ps.executeUpdate() + "件");
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
