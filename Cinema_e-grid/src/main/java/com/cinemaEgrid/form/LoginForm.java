@@ -1,9 +1,16 @@
 package com.cinemaEgrid.form;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class LoginForm {
 
+	@NotEmpty
+
 	private String id;
+
+	@NotEmpty
 	private String pass;
+
 	private String adminId;
 
 

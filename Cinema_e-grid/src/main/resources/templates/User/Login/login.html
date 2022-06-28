@@ -12,8 +12,16 @@
 	ログインしてください
 	<p th:text="${msg}"></p>
 	<form action="/login" method="post" th:object="${loginForm}">
-		ID：<input type="text" name="id" th:field="*{id}"><br>
-		パスワード：<input type="password" name="pass" th:field="*{pass}"><br>
+		ID：<input type="text" name="id" th:field="*{id}"
+			th:errorclass="fieldError">
+		<span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
+			th:errorclass="error-field">error!</span>
+		<br>
+		パスワード：<input type="password" name="pass" th:field="*{pass}"
+			th:errorclass="fieldError">
+		<span th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"
+			th:errorclass="error-field">error!</span>
+		<br>
 		<input type="submit" value="ログイン" class="btn btn-outline-secondary btn-sm">
 	</form>
 	<br>
