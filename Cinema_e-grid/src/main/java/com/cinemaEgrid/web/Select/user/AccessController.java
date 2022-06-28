@@ -20,7 +20,7 @@ import com.cinemaEgrid.dao.StoreDao;
 @Controller
 @RequestMapping("/user/access")
 public class AccessController {
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(Store form, ModelAndView mav) {
 		List<Store> storelist = null;
 		try {
