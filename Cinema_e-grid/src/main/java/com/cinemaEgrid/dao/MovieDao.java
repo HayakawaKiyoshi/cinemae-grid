@@ -163,7 +163,7 @@ public class MovieDao {
 			ps = conn.prepareStatement(MovieSQL.DELETE_MOVIE);
 			ps.setInt(1, no);
 
-			System.out.println("削除:" + ps.executeUpdate()+"削除しました。");
+			ps.executeUpdate();
 
 		} catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();
