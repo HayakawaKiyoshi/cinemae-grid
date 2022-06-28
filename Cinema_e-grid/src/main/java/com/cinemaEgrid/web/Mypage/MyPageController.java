@@ -21,7 +21,7 @@ public class MyPageController {
 
 	//マイページトップ表示コントローラ
 	//http://localhost:10000/mypage
-	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage", method = RequestMethod.POST)
 	private ModelAndView myPage(ModelAndView mav) throws SQLException {
 
 		mav.setViewName("User/MyPage/MyPage");
