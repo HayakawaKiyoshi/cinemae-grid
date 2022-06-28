@@ -20,7 +20,7 @@
   		<input type="hidden" name="updateDate" th:field="*{updateDate}">
   		<input type="submit" value="はい" class="btn btn-outline-secondary btn-sm">
   	</form>
-  	<form action="/login/eventUpdate/1" method="get" th:object="${eventForm}">
+  	<form action="/login/eventUpdate/1" method="post" th:object="${eventForm}">
   		<input type="hidden" name="eventTitle" th:field="*{eventTitle}">
   		<input type="hidden" name="eventContent" th:field="*{eventContent}">
   		<input type="hidden" name="updateDate" th:field="*{updateDate}">
