@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="Layout/Layout">
+<link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" media="all" th:href="@{/css/test_matsuo.css}">
+<head>
+<meta charset="UTF-8">
+<title>シネマイーグリッド トップページ</title>
+</head>
+<body>
+	<div layout:fragment="contents" class="divContent">
+		<div class="container">
+			<h3>この予約をキャンセルしますか？</h3>
+			<div th:object="${reserveCancel}">
+
+				<span>予約日:</span>
+				<h5 th:text="*{book_date}"></h5>
+				<span>作品名:</span>
+				<h5 th:text="*{reserve_name}"></h5>
+				<span>指定日:</span>
+				<h5 th:text="*{schedule_date}"></h5>
+				<span>時間:</span>
+				<h5 th:text="*{schedule_no}"></h5>
+				<span>予約コード:</span>
+				<h5 th:text="*{book_code}"></h5>
+			</div>
+			<form action="/mypage/reservelog/cancel/done" method="post">
+				<input type="submit" class="btn btn-info btn-lg mypage"
+					value="キャンセルする">
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

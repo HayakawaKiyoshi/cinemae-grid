@@ -44,10 +44,6 @@ public class ReserveLogDao {
 				reserveList.add(reserve);
 			}
 
-			//			for (Movie i : movieList) {
-			//				System.out.println(i);
-			//			}
-
 			return reserveList;
 
 		} catch (SQLException | ClassNotFoundException e) {
@@ -57,5 +53,40 @@ public class ReserveLogDao {
 		return reserveList;
 	}
 
+	//予約履歴取得メソッド(キャンセル)
+	public static Reserve reserveCancel(String code) throws SQLException {
+
+		DBManager manager = new DBManager();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		Reserve reserve = new Reserve();
+
+		try {
+			conn = manager.getConn();
+			String sql = ReserveLogSQL.RESERVE_CANCEL;
+			ps = conn.prepareStatement(sql);
+			//ps.setString(1, id);
+			//ps.setString(1, "1");
+			//ps.setString(2, code);
+			ps.setString(1, "a1b2c3d4e5f6g7h");
+
+			ResultSet rs = ps.executeQuery();
+
+			rs.next();
+				reserve.setSchedule_date(rs.getString("scheduleDate"));
+				reserve.setReserve_name(rs.getString("reserve_name"));
+				reserve.setSchedule_no(rs.getInt("schedule_no"));
+				reserve.setBook_date(rs.getString("bookDate"));
+				reserve.setBook_code(rs.getString("book_code"));
+
+
+			return reserve;
+
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return reserve;
+	}
 
 }

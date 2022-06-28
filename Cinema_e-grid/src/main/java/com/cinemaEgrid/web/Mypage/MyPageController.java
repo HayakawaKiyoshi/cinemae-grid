@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Reserve;
@@ -31,8 +32,8 @@ public class MyPageController {
 
 	//予約履歴表示コントローラ
 	//http://localhost:10000/mypage/history
-	@RequestMapping(value = "/mypage/history", method = RequestMethod.GET)
-	private ModelAndView login(ModelAndView mav) throws SQLException {
+	@RequestMapping(value = "/mypage/reservelog", method = RequestMethod.GET)
+	private ModelAndView reserveLog(ModelAndView mav) throws SQLException {
 
 		String id = null;
 		// (String) session.getAttribute("ユーザーセッション");
@@ -45,4 +46,22 @@ public class MyPageController {
 		//System.out.println("test" +  reserveList);
 		return mav;
 	}
+
+	//予約キャンセルコントローラ
+		//http://localhost:10000/mypage/history
+		@RequestMapping(value = "/mypage/reservelog/cancel", method = RequestMethod.GET)
+		private ModelAndView reserveCancel(@RequestParam("code") String code, ModelAndView mav) throws SQLException {
+
+
+			Reserve reserve = ReserveLogDao.reserveCancel(code);
+
+			String id = null;
+			// (String) session.getAttribute("ユーザーセッション");
+
+			mav.setViewName("User/Reserve/ReserveCancel");
+			mav.addObject("reserveCancel", reserve);
+			//System.out.println("test" +  reserveList);
+			return mav;
+		}
+
 }
