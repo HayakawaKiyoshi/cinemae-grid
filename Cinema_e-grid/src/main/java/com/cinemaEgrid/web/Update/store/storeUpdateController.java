@@ -58,7 +58,10 @@ public class storeUpdateController {
 		if (result.hasErrors()) {
 			mav.setViewName("Admin/Update/store/storeUpdate");
 		} else {
-			mav.setViewName("Admin/Confirm/store/updateConfirm");
+			mav.setViewName("Admin/Confirm/store/storeconfirm");
+			mav.addObject("msg", "店舗");
+			mav.addObject("url", "/admin/store/update/success");
+			mav.addObject("btn", "変更確定");
 		}
 		return mav;
 	}

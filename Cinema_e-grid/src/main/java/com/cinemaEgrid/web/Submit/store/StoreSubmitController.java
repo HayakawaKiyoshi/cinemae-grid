@@ -49,7 +49,10 @@ public class StoreSubmitController {
 		if (result.hasErrors()) {
 			mav.setViewName("Admin/Submit/store/storeSubmit");
 		} else {
-			mav.setViewName("Admin/Confirm/store/submitConfirm");
+			mav.setViewName("Admin/Confirm/store/storeconfirm");
+			mav.addObject("msg", "店舗");
+			mav.addObject("url", "/admin/store/submit/success");
+			mav.addObject("btn", "登録確定");
 		}
 		return mav;
 	}
