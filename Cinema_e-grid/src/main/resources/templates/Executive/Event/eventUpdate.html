@@ -12,11 +12,19 @@
 	<form action="/login/eventUpdate/check" method="post"
 		th:object="${eventForm}" name="myFORM">
 		イベントタイトル：
-		<input type="text" name="eventTitle" th:field="*{eventTitle}"><br>
-		イベント内容<br>
+		<input type="text" name="eventTitle" th:field="*{eventTitle}" th:errorclass="fieldError">
+		<span th:if="${#fields.hasErrors('eventTitle')}" th:errors="*{eventTitle}"
+				th:errorclass="error-field">error!</span>
+
+		<br>
+		イベント内容：
+		<span th:if="${#fields.hasErrors('eventContent')}" th:errors="*{eventContent}"
+				th:errorclass="error-field">error!</span><br>
 		<textarea name="eventContent" th:field="*{eventContent}"
-			cols="80" rows="10"></textarea><br>
-		更新日：<input type="text" name="updateDate" readonly="readonly"><br>
+			cols="80" rows="10" th:errorclass="fieldError"></textarea><br>
+		更新日：<input type="text" name="updateDate" readonly="readonly" th:errorclass="fieldError">
+		<span th:if="${#fields.hasErrors('updateDate')}" th:errors="*{updateDate}"
+				th:errorclass="error-field">error!</span><br>
 		<script type="text/javascript">
 			document.myFORM.updateDate.value = updateDay();
 			function updateDay() {

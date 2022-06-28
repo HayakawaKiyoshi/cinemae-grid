@@ -1,9 +1,20 @@
 package com.cinemaEgrid.form;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class EventForm {
 
+	@NotEmpty
+	@Size(max = 25)
 	private String eventTitle;
+
+	@NotEmpty
+	@Size(max = 150)
 	private String eventContent;
+
+	@NotEmpty
 	private String updateDate;
 
 

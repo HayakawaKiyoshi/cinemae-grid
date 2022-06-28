@@ -11,18 +11,30 @@
   	<p>編集してください</p>
   	<form action="/login/scheduleUpdate/check" method="post" th:object="${scheduleForm}">
   	  公開日：
-  	  <input type="text" name="date" th:field="*{date}"><br>
+  	  <input type="text" name="date" th:field="*{date}" th:errorclass="fieldError">
+  	  <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"
+			th:errorclass="error-field">error!</span><br>
   	  映画タイトル：
-  	  <input type="text" name="name" th:field="*{name}"><br>
+  	  <input type="text" name="name" th:field="*{name}" th:errorclass="fieldError">
+  	  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+			th:errorclass="error-field">error!</span><br>
   	  時間：
-  	  <input type="text" name="movieTime" th:field="*{movieTime}"><br>
+  	  <input type="text" name="movieTime" th:field="*{movieTime}" th:errorclass="fieldError">
+  	  <span th:if="${#fields.hasErrors('movieTime')}" th:errors="*{movieTime}"
+			th:errorclass="error-field">error!</span><br>
   	  年齢制限：
-  	  <input type="text" name="ageLevel" th:field="*{ageLevel}"><br>
+  	  <input type="text" name="ageLevel" th:field="*{ageLevel}" th:errorclass="fieldError">
+  	  <span th:if="${#fields.hasErrors('ageLevel')}" th:errors="*{ageLevel}"
+			th:errorclass="error-field">error!</span><br>
   	  内容<br>
-  	  <textarea name="content" th:field="*{content}" cols="80" rows="10">
-  	  </textarea><br>
+  	  <textarea name="content" th:field="*{content}" cols="80" rows="10" th:errorclass="fieldError">
+  	  </textarea>
+  	  <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"
+			th:errorclass="error-field">error!</span><br>
   	  予約受付中<input type="radio" name="statusSchedule" th:value="*{0}">　
-  	  予約受付終了<input type="radio" name="statusSchedule" th:value="*{1}"><br>
+  	  予約受付終了<input type="radio" name="statusSchedule" th:value="*{1}" th:errorclass="fieldError">
+  	  <span th:if="${#fields.hasErrors('statusSchedule')}" th:errors="*{statusSchedule}"
+			th:errorclass="error-field">error!</span><br>
   	  <input type="hidden" name="no" th:field="*{no}">
   	  <input type="hidden" name="time" th:field="*{time}">
   	  <input type="submit" value="更新">

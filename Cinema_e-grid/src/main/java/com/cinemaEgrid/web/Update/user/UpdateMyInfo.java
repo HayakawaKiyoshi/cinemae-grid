@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,9 +46,14 @@ public class UpdateMyInfo {
 	}
 
 	@RequestMapping(value="/myPage/userUpdate/check", method=RequestMethod.POST)
-	private ModelAndView newUserUpdateCheck(UpdateForm form,
-			ModelAndView mav) {
-		mav.setViewName("/Admin/Confirm/user/myUpdateConfirm");
+	private ModelAndView newUserUpdateCheck(@Validated UpdateForm form,
+			BindingResult result, ModelAndView mav) {
+		if(result.hasErrors()) {
+			//エラーチェック
+			mav.setViewName("/Admin/Update/memberUpdate");
+		} else {
+			mav.setViewName("/Admin/Confirm/user/myUpdateConfirm");
+		}
 		return mav;
 
 	}
