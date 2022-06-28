@@ -33,13 +33,13 @@ public class SubmitController {
 	@RequestMapping("/userSubmit")
 	private String newUserSubmit(SubmitForm form) {
 		//新規会員登録
-		return "/Admin/Submit/newUserSubmit";
+		return "/Admin/Submit/user/newUserSubmit";
 	}
 
 	@RequestMapping("/userAdminSubmit")
 	private String newUserAdminSubmit(SubmitForm form) {
 		//管理者会員登録
-		return "/Admin/Submit/userAdminSubmit";
+		return "/Admin/Submit/user/userAdminSubmit";
 	}
 
 	@RequestMapping(value="/userSubmit/check/{type}", method=RequestMethod.POST)
@@ -65,10 +65,10 @@ public class SubmitController {
 
 		if(type == 0) {
 			//ユーザーによる新規会員登録の場合
-			mav.setViewName("/Admin/Confirm/newUserSubmitConfirm");
+			mav.setViewName("/Admin/Confirm/user/newUserSubmitConfirm");
 		} else {
 			//管理者による新規会員登録の場合
-			mav.setViewName("/Admin/Confirm/userAdminSubmitConfirm");
+			mav.setViewName("/Admin/Confirm/user/userAdminSubmitConfirm");
 		}
 
 		return mav;

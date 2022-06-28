@@ -46,7 +46,7 @@ public class UpdateMyInfo {
 	@RequestMapping(value="/myPage/userUpdate/check", method=RequestMethod.POST)
 	private ModelAndView newUserUpdateCheck(UpdateForm form,
 			ModelAndView mav) {
-		mav.setViewName("/Admin/Confirm/myUpdateConfirm");
+		mav.setViewName("/Admin/Confirm/user/myUpdateConfirm");
 		return mav;
 
 	}
