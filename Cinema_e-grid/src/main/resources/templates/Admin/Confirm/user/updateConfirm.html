@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="table-responsive">
 		<br>
-			<p>この内容で会員情報を更新しますか？</p>
+			<p>下記の内容で変更します。よろしいですか？</p>
 			<table class="table table-striped table-bordered">
 				<tr>
 					<th>ユーザーID</th>
@@ -32,7 +32,7 @@
 				</tr>
 			</table>
 			<form th:action="@{/admin/user/update/success}" th:object="${user}" method="post">
-				<input type="submit" name="exec" th:value="変更確定"
+				<input type="submit" name="exec" th:value="上記の内容で変更する"
 					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
 				<input type="submit" name="back" value="戻る" class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">
