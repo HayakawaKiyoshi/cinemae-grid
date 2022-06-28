@@ -93,7 +93,7 @@ public class SubmitController {
 			mav.addObject("btn", "トップページへ");
 		} else {
 			//管理者が行う会員登録の場合
-			mav.addObject("url", "#");
+			mav.addObject("url", "/admin/alldisplay");
 			mav.addObject("btn", "管理者トップページへ");
 
 		}
