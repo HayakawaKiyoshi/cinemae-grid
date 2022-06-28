@@ -75,14 +75,13 @@ public class UpdateSchedule {
 		} catch (ParseException e) {
 			System.out.println("データ変換中にエラーです。");
 		}
-		System.out.println(day + "aaa");
 		ScheduleExecutiveDao.update(new java.sql.Date(day.getTime()), form.getNo(), form.getTime(),
 				 form.getName(), form.getMovieTime(), form.getAgeLevel(),
 				  form.getContent(), form.getStatusSchedule(), (String) session.getAttribute("day"));
 		mav.addObject("title", "上映情報更新完了");
 		mav.addObject("msg", "上映情報の更新");
-		mav.addObject("uel", "/cinena/mypage/top");
-		mav.addObject("btn", "マイページへ");
+		mav.addObject("url", "/login/schedule");
+		mav.addObject("btn", "スケジュールへ");
 		mav.setViewName("/Admin/Done/myUpdateDone");
 		return mav;
 	}

@@ -23,7 +23,7 @@ public class ScheduleForm {
 	@Size(max = 150)
 	private String content;
 
-	@Size(max = 1)
+	@NotEmpty
 	private String statusSchedule;
 
 	@NotEmpty

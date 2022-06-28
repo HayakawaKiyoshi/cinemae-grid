@@ -32,14 +32,15 @@
   	  <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}"
 			th:errorclass="error-field">error!</span><br>
   	  予約受付中<input type="radio" name="statusSchedule" th:value="*{0}">　
-  	  予約受付終了<input type="radio" name="statusSchedule" th:value="*{1}" th:errorclass="fieldError">
+  	  予約受付終了<input type="radio" name="statusSchedule" th:value="*{1}"
+  	  		th:errorclass="fieldError">　
   	  <span th:if="${#fields.hasErrors('statusSchedule')}" th:errors="*{statusSchedule}"
 			th:errorclass="error-field">error!</span><br>
   	  <input type="hidden" name="no" th:field="*{no}">
   	  <input type="hidden" name="time" th:field="*{time}">
   	  <input type="submit" value="更新">
   	</form>
-  	<form action="#" method="post">
+  	<form action="/login/schedule" method="post">
   	  <input type="submit" value="戻る">
   	</form>
   </div>
