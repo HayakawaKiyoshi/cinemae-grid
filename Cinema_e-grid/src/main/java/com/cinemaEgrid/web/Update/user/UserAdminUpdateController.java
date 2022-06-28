@@ -1,4 +1,4 @@
-package com.cinemaEgrid.web.Update.store;
+package com.cinemaEgrid.web.Update.user;
 import java.sql.SQLException;
 import java.util.List;
 
