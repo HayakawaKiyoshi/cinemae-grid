@@ -30,8 +30,8 @@ public class test_matsuo {
 		return mav;
 	}
 
-	//http://localhost:10000/cinema/test2
-	@RequestMapping(value = "/cinema/test2", method = RequestMethod.GET)
+	//http://localhost:10000/toppage
+	@RequestMapping(value = "/toppage", method = RequestMethod.GET)
 	private ModelAndView Toptest(ModelAndView mav) throws SQLException {
 
 		mav.setViewName("User/Top/TopPage");

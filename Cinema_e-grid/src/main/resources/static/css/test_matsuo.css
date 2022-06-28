@@ -36,6 +36,15 @@
 	margin: 7px;
 }
 
+.mypage:hover{
+	box-shadow: 0px 12px 24px rgba(20, 146, 175, 0.38);
+    transform: translateY(-4px);
+}
+
 .pillslink{
 	color: white;
+}
+
+.topTable{
+overflow: auto;
 }
