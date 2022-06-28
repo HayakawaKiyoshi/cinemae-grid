@@ -1,12 +1,27 @@
 package com.cinemaEgrid.bean;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User {
 
+	@NotEmpty(message = "{0}を入力してください。")
 	private String user_id;
+
+	@NotEmpty(message = "{0}を入力してください。")
+	@Email(message = "{0}を正しく入力してください。")
 	private String user_mail;
+
+	@NotEmpty(message = "{0}を入力してください。")
 	private String user_name;
+
+	@NotEmpty(message = "{0}を入力してください。")
+//	@Pattern(regexp = "^[0-9]+$", message = "数値を入力してください。")
 	private String password;
+
+	@NotEmpty(message = "{0}を入力してください。")
 	private String authority;
+
 	private String user_del_flg;
 
 
