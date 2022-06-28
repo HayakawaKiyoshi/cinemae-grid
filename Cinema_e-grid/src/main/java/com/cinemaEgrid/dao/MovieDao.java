@@ -163,7 +163,7 @@ public class MovieDao {
 			ps = conn.prepareStatement(MovieSQL.DELETE_MOVIE);
 			ps.setInt(1, no);
 
-			System.out.println(ps.executeUpdate()+"件のデータを削除しました。");
+			System.out.println("削除:" + ps.executeUpdate()+"削除しました。");
 
 		} catch(SQLException | ClassNotFoundException e){
 			e.printStackTrace();
@@ -188,6 +188,39 @@ public class MovieDao {
 			System.out.println("更新：" +  ps.executeUpdate() + "件");
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+		}
+	}
+	//変更・削除する際に選択されたデータを抽出するDao
+	public static Movie selectMovie(int no) {
+		DBManager manager = new DBManager();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		Movie movie = new Movie();
+		try {
+			//接続する
+			conn = manager.getConn();
+			//選択された映画を更新する
+			ps = conn.prepareStatement(MovieSQL.MOVIE_SELECT);
+			ps.setInt(1, no);
+			ResultSet rs = ps.executeQuery();
+
+			//検索されたデータをbeanへ
+			rs.next();
+			movie.setMovie_no(rs.getInt("movie_no"));
+			movie.setMovie_title(rs.getString("movie_title"));
+			movie.setGenre_name1(rs.getString("genre_name1"));
+			movie.setGenre_name2(rs.getString("genre_name2"));
+			movie.setTime(rs.getString("time"));
+			movie.setAge_level(rs.getInt("age_level"));
+			movie.setRelease_day(rs.getString("release_day"));
+			movie.setRemarks(rs.getString("remarks"));
+			movie.setMovie_del_flg(rs.getInt("movie_del_flg"));
+
+			return movie;
+
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }
