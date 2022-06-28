@@ -27,37 +27,37 @@ public class AllDisplayController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	private ModelAndView index2(User form, Store form2, Movie form3, ModelAndView mav) {
-		List<User> userlist = null;
-		List<Movie> movielist = null;
-		List<Store> storelist = null;
 		try {
+			List<User> userlist = null;
+			List<Movie> movielist = null;
+			List<Store> storelist = null;
 			userlist = UserDao.findAll();
 			movielist = MovieDao.selectAllmovie();
 			storelist = StoreDao.dispStore();
+			mav.addObject("ulist", userlist);
+			mav.addObject("mlist", movielist);
+			mav.addObject("slist", storelist);
+			mav.setViewName("Admin/AllDisplay");
 		} catch (SQLException e) {
 		}
-		mav.addObject("ulist", userlist);
-		mav.addObject("mlist", movielist);
-		mav.addObject("slist", storelist);
-		mav.setViewName("Admin/AllDisplay");
 		return mav;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(User form, Store form2, Movie form3, ModelAndView mav) {
-		List<User> userlist = null;
-		List<Movie> movielist = null;
-		List<Store> storelist = null;
 		try {
+			List<User> userlist = null;
+			List<Movie> movielist = null;
+			List<Store> storelist = null;
 			userlist = UserDao.findAll();
 			movielist = MovieDao.selectAllmovie();
 			storelist = StoreDao.dispStore();
+			mav.addObject("ulist", userlist);
+			mav.addObject("mlist", movielist);
+			mav.addObject("slist", storelist);
+			mav.setViewName("Admin/AllDisplay");
 		} catch (SQLException e) {
 		}
-		mav.addObject("ulist", userlist);
-		mav.addObject("mlist", movielist);
-		mav.addObject("slist", storelist);
-		mav.setViewName("Admin/AllDisplay");
 		return mav;
 	}
 }

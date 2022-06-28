@@ -66,7 +66,7 @@ public class LoginController {
 	private ModelAndView adminLogin(LoginForm form, ModelAndView mav) {
 		//管理者ID(pass)が入力されたら管理者用のトップページへ
 		if (form.getAdminId().equals("pass")) {
-			mav.setViewName("/admin/alldisplay");
+			mav.setViewName("forward:/admin/alldisplay");
 		} else {
 			//管理者IDが間違えていたら戻る
 			mav.addObject("msg", "管理者用のIDが違います。");
