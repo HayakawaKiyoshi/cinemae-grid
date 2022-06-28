@@ -30,7 +30,6 @@ public class SubmitController {
 	HttpSession session;
 
 	//トップページのurlを記入すること
-	//後にpostに変更するように(特に管理者)
 
 	@RequestMapping("/userSubmit")
 	private String newUserSubmit(SubmitForm form) {
@@ -38,7 +37,7 @@ public class SubmitController {
 		return "/Admin/Submit/user/newUserSubmit";
 	}
 
-	@RequestMapping("/userAdminSubmit")
+	@RequestMapping(value="/userAdminSubmit", method=RequestMethod.POST)
 	private String newUserAdminSubmit(SubmitForm form) {
 		//管理者会員登録
 		return "/Admin/Submit/user/userAdminSubmit";
@@ -99,7 +98,7 @@ public class SubmitController {
 			String[] user = UserDao.login
 					(userList.get(0).getUser_id(), userList.get(0).getPassword());
 			session.setAttribute("user", user);
-			mav.addObject("url", "/login/topPage");
+			mav.addObject("url", "/toppage");
 			mav.addObject("btn", "トップページへ");
 		} else {
 			//管理者が行う会員登録の場合
