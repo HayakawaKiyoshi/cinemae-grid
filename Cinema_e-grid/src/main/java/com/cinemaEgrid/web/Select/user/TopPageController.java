@@ -1,4 +1,4 @@
-package com.cinemaEgrid.web.test;
+package com.cinemaEgrid.web.Select.user;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,12 +18,12 @@ import com.cinemaEgrid.dao.EventDao;
 import com.cinemaEgrid.dao.MovieDao;
 
 @Controller
-public class test_matsuo {
+public class TopPageController {
 	@Autowired
 	HttpSession session;
 
-	//http://localhost:10000/cinema/test
-	@RequestMapping(value = "/cinema/test", method = RequestMethod.GET)
+	//http://localhost:10000/test
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	private ModelAndView login(ModelAndView mav) {
 		mav.setViewName("Layout/Layout");
 
@@ -31,7 +31,7 @@ public class test_matsuo {
 	}
 
 	//http://localhost:10000/toppage
-	@RequestMapping(value = "/toppage", method = RequestMethod.GET)
+	@RequestMapping(value = "/toppage", method = RequestMethod.POST)
 	private ModelAndView Toptest(ModelAndView mav) throws SQLException {
 
 		mav.setViewName("User/Top/TopPage");
