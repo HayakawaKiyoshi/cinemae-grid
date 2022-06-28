@@ -30,7 +30,7 @@ public class EventExecutiveDao {
 			while (rs.next()) {
 				value = true;
 				String eventId = rs.getString("Event_id");
-				String title = rs.getString("Update_title");
+				String title = rs.getString("Event_title");
 				String content = rs.getString("Event_Content");
 				String updateDate = rs.getString("Update_date");
 				EventExecutive eventE = new EventExecutive(eventId, title, content, updateDate);
