@@ -29,11 +29,12 @@ public class ReserveDao {
 				//予約表にスケジュールを登録
 				PreparedStatement pStmt = conn.prepareStatement(reserveSQL.ADD_RESERVE);
 
-				pStmt.setString(1,schedule.getSchedule_date());
-				pStmt.setString(2,user_id);
-				pStmt.setInt(3,schedule.getSchedule_no());
-				pStmt.setString(4,formatNowDate);
-				pStmt.setString(5,code);
+				pStmt.setInt(1,schedule.getSchedule_no());
+				pStmt.setString(2,schedule.getSchedule_date());
+				pStmt.setString(3,schedule.getSchedule_name());
+				pStmt.setString(4,user_id);
+				pStmt.setString(5,formatNowDate);
+				pStmt.setString(6,code);
 
 
 				ResultSet rs = pStmt.executeQuery();
@@ -45,6 +46,6 @@ public class ReserveDao {
 				//e.printStackTrace();
 
 			}
-			//return empList;
+
 }
 	}

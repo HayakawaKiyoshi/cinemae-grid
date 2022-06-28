@@ -1,5 +1,8 @@
 package com.cinemaEgrid.bean;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ScheduleExecutive {
 
 	private String Schedule_date;
@@ -11,9 +14,10 @@ public class ScheduleExecutive {
 	private String Schedule_content;
 	private String Schedule_status;
 
-	public ScheduleExecutive(String date, String no, String time, String name,
+	public ScheduleExecutive(Date date, String no, String time, String name,
 			String movie, String age, String content, String status) {
-		this.Schedule_date = date;
+		SimpleDateFormat sm = new SimpleDateFormat("yyyy/MM/dd");
+		this.Schedule_date = sm.format(date);
 		this.Schedule_no = no;
 		this.Schedule_time = time;
 		this.Schedule_name = name;

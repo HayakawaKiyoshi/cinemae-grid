@@ -51,14 +51,16 @@ public class test_yoshida {
 	@RequestMapping(value = "/login/reserveResult", method = RequestMethod.GET)
 	private ModelAndView reserveresult(ModelAndView mav) {
 
+		Schedule schedule = (Schedule) session.getAttribute("schedule");
 		String code = AlphaNumericStringGenerator.getRandomString(15);  //ランダムなコード発行
-		Schedule schedule = (Schedule) session.getAttribute("schedule"); //スケジュールのセッションを取得
 		String[] user = (String[]) session.getAttribute("user");		  //ユーザーのセッションを取得
+		
 		ReserveDao.addReserve(schedule, "1",code);
-
+		//ReserveDao.addReserve(schedule,user[0],code);
 		mav.addObject("code",code);
 		mav.addObject("schedule",schedule);
 		mav.setViewName("User/Reserve/ReserveResult");
+
 
 		return mav;
 	}
