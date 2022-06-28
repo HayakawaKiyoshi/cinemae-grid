@@ -49,16 +49,14 @@ public class UserAdminUpdateController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	private ModelAndView index2(
-			//@Validated
-			User form,
-			//BindingResult result,
+	private ModelAndView index2(@Validated User form,
+			BindingResult result,
 			ModelAndView mav, Model model) {
-//		if (result.hasErrors()) {
-//			mav.setViewName("Admin/Update/user/storeUpdate");
-//		} else {
+		if (result.hasErrors()) {
+			mav.setViewName("Admin/Update/user/storeUpdate");
+		} else {
 			mav.setViewName("Admin/Confirm/user/updateConfirm");
-//		}
+		}
 		return mav;
 	}
 

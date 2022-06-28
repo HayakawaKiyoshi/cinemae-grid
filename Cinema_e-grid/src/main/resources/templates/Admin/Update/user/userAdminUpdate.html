@@ -19,9 +19,9 @@
 						<td><input type="text" name="user_mail"
 							th:value="*{user_mail}" th:field="*{user_mail}"
 							style="width: 200px;">
-							<!-- <span th:if="${#fields.hasErrors('user_mail')}"
+							<span th:if="${#fields.hasErrors('user_mail')}"
 							th:errors="*{user_mail}"
-							th:errorclass="error-field">error!</span> -->
+							th:errorclass="error-field">error!</span>
 						</td>
 					</tr>
 					<tr>
@@ -29,9 +29,9 @@
 						<td><input type="text" name="user_name"
 							th:value="*{user_name}" th:field="*{user_name}"
 							style="width: 200px;">
-							<!-- <span th:if="${#fields.hasErrors('user_name')}"
+							<span th:if="${#fields.hasErrors('user_name')}"
 							th:errors="*{user_name}"
-							th:errorclass="error-field">error!</span> -->
+							th:errorclass="error-field">error!</span>
 						</td>
 					</tr>
 					<tr>
@@ -39,9 +39,9 @@
 						<td><input type="password" name="password"
 							th:value="*{password}" th:field="*{password}"
 							style="width: 200px;">
-							<!-- <span th:if="${#fields.hasErrors('password')}"
+							<span th:if="${#fields.hasErrors('password')}"
 							th:errors="*{password}"
-							th:errorclass="error-field">error!</span> -->
+							th:errorclass="error-field">error!</span>
 						</td>
 					</tr>
 					<tr>
@@ -52,9 +52,9 @@
 							 th:field="*{authority}">一般会員
 							<input type="radio" name="authority" value="3"
 							 th:field="*{authority}">経営者
-							<!-- <span th:if="${#fields.hasErrors('authority')}"
+							<span th:if="${#fields.hasErrors('authority')}"
 							th:errors="*{authority}"
-							th:errorclass="error-field">error!</span> -->
+							th:errorclass="error-field">error!</span>
 						</td>
 					</tr>
 					<tr>
@@ -63,9 +63,6 @@
 							th:field="*{user_del_flg}" disabled="disabled" checked>有効
 							<input type="radio" name="user_del_flg" value="1"
 							 th:field="*{user_del_flg}" disabled="disabled">削除
-							<!-- <span th:if="${#fields.hasErrors('user_del_flg')}"
-							th:errors="*{user_del_flg}"
-							th:errorclass="error-field">error!</span> -->
 						</td>
 					</tr>
 				</table>
