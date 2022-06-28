@@ -22,7 +22,7 @@
 					<th>権限</th>
 					<th>ユーザー削除フラグ</th>
 				</tr>
-				<tr th:object="${session.user}">
+				<tr th:object="${user}">
 					<td th:text="*{user_id}"></td>
 					<td th:text="*{user_mail}"></td>
 					<td th:text="*{user_name}"></td>
@@ -31,7 +31,7 @@
 					<td th:text="*{user_del_flg}"></td>
 				</tr>
 			</table>
-			<form th:action="@{/admin/user/update/success}" th:object="${session.user}" method="post">
+			<form th:action="@{/admin/user/update/success}" th:object="${user}" method="post">
 				<input type="submit" name="exec" th:value="上記の内容で変更する"
 					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
 				<input type="submit" name="back" value="戻る" class="btn btn-outline-secondary"
