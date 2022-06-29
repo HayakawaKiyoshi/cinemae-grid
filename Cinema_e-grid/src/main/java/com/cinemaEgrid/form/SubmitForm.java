@@ -6,23 +6,23 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class SubmitForm {
 
-	@NotEmpty
-	@Size(max = 20)
+	@NotEmpty(message = "{IDnotEmpty}")
+	@Size(max = 20, message = "{IDcheck}")
 	private String id;
 
-	@NotEmpty
-	@Size(max = 60)
+	@NotEmpty(message = "{MAILnotEmpty}")
+	@Size(max = 60, message = "{MAILcheck}")
 	private String mail;
 
-	@NotEmpty
-	@Size(max = 60)
+	@NotEmpty(message = "{NAMEnotEmpty}")
+	@Size(max = 60, message = "{NAMEcheck}")
 	private String name;
 
-	@NotEmpty
-	@Size(max = 60)
+	@NotEmpty(message = "{PASSnotEmpty}")
+	@Size(max = 60,  message = "{PASScheck}")
 	private String pass;
 
-	@NotEmpty
+	@NotEmpty(message = "{AUTHORITYnotEmpty}")
 	private String authority;
 
 	@NotEmpty

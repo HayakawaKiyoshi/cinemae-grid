@@ -6,15 +6,15 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class EventForm {
 
-	@NotEmpty
-	@Size(max = 25)
+	@NotEmpty(message = "{EVENTTITLEnotEmpty}")
+	@Size(max = 25, message = "{EVENTTITLEcheck}")
 	private String eventTitle;
 
-	@NotEmpty
-	@Size(max = 150)
+	@NotEmpty(message = "{EVENTCONTENTnotEmpty}")
+	@Size(max = 150, message = "{EVENTCONTENTcheck}")
 	private String eventContent;
 
-	@NotEmpty
+	@NotEmpty(message = "{DATEnotEmpty}")
 	private String updateDate;
 
 

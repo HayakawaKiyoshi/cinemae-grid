@@ -6,30 +6,30 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class ScheduleForm {
 
-	@NotEmpty
+	@NotEmpty(message = "{DATEnotEmpty}")
 	private String date;
 
-	@NotEmpty
-	@Size(max = 30)
+	@NotEmpty(message = "{NAMEnotEmpty}")
+	@Size(max = 30, message = "{NAMEcheck}")
 	private String name;
 
-	@NotEmpty
-	@Size(max = 15)
+	@NotEmpty(message = "{TIMEnotEmpty}")
+	@Size(max = 15, message = "{TIMEcheck}")
 	private String movieTime;
 
-	@NotEmpty
+	@NotEmpty(message = "{AGELEVELnotEmpty}")
 	private String ageLevel;
 
-	@Size(max = 150)
+	@Size(max = 150, message = "{REMARKSnotEmpty}")
 	private String content;
 
-	@NotEmpty
+	@NotEmpty(message = "{STATUSnotEmpty}")
 	private String statusSchedule;
 
-	@NotEmpty
+	@NotEmpty(message = "{NOnotEmpty}")
 	private String no;
 
-	@NotEmpty
+	@NotEmpty(message = "{TIMEnotEmpty}")
 	private String time;
 
 

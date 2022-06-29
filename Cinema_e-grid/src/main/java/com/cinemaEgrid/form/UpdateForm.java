@@ -6,12 +6,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class UpdateForm {
 
-	@NotEmpty
-	@Size(max = 60)
+	@NotEmpty(message = "{NAMEnotEmpty}")
+	@Size(max = 60, message = "{NAMEcheck}")
 	private String name;
 
-	@NotEmpty
-	@Size(max = 60)
+	@NotEmpty(message = "{MAILnotEmpty}")
+	@Size(max = 60, message = "{MAILcheck}")
 	private String email;
 
 
