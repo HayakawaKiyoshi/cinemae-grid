@@ -12,7 +12,7 @@
 	ログインしてください
 	<p th:text="${msg}" class="error-field"></p>
 	<form action="/login" method="post" th:object="${loginForm}">
-		ID：<input type="text" name="id" th:field="*{id}"
+		　 　 ID：<input type="text" name="id" th:field="*{id}"
 			th:errorclass="fieldError">
 		<span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
 			th:errorclass="error-field">error!</span>
