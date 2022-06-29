@@ -44,7 +44,7 @@ public class TopPageController {
 			@RequestParam("searchGenre") String genre, @RequestParam("searchGenre") String genre2, ModelAndView mav)
 			throws SQLException {
 
-		mav.setViewName("User/Top/TopPage");
+		mav.setViewName("User/Top/topPage");
 		if(title.equals("") && genre != "") {
 			ArrayList<Movie> movieList = MovieDao.searchGenreMovie(genre, genre2);
 			mav.addObject("movieList", movieList);

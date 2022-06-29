@@ -32,7 +32,7 @@ public class ReserveController {
 
 		//mavに登録
 		mav.addObject("scheduleList",scheduleList);
-		mav.setViewName("User/Reserve/MovieSchedule");
+		mav.setViewName("User/Reserve/movieSchedule");
 
 		return mav;
 	}
@@ -44,7 +44,7 @@ public class ReserveController {
 		session.setAttribute("schedule", schedule);
 
 		mav.addObject("schedule",schedule);
-		mav.setViewName("User/Reserve/ReserveDone");
+		mav.setViewName("User/Reserve/reserveDone");
 
 		return mav;
 	}
@@ -58,7 +58,7 @@ public class ReserveController {
 		ReserveDao.addReserve(schedule,user[0],code);
 		mav.addObject("code",code);
 		mav.addObject("schedule",schedule);
-		mav.setViewName("User/Reserve/ReserveResult");
+		mav.setViewName("User/Reserve/reserveResult");
 
 
 		return mav;
