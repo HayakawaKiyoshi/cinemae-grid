@@ -20,7 +20,7 @@ public class ReserveLogSQL {
 			+ "schedule_no,\r\n"
 			+ "TO_CHAR(book_date, 'YYYY-MM-DD') AS bookDate,\r\n"
 			+ "book_code\r\n"
-			+ "FROM reserve_table WHERE book_code = ?";
+			+ "FROM reserve_table WHERE user_id = ? AND book_code = ?";
 
 
 	//予約キャンセル(データ削除)SQL

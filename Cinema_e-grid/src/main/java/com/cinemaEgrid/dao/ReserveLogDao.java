@@ -54,7 +54,7 @@ public class ReserveLogDao {
 	}
 
 	//予約履歴取得メソッド(キャンセル)
-	public static Reserve reserveCancel(String code) throws SQLException {
+	public static Reserve reserveCancel(String id, String code) throws SQLException {
 
 		DBManager manager = new DBManager();
 		Connection conn = null;
@@ -65,9 +65,9 @@ public class ReserveLogDao {
 			conn = manager.getConn();
 			String sql = ReserveLogSQL.RESERVE_CANCEL;
 			ps = conn.prepareStatement(sql);
-			//ps.setString(1, id);
+			ps.setString(1, id);
 			//ps.setString(1, "1");
-			ps.setString(1, code);
+			ps.setString(2, code);
 			//ps.setString(1, "a1b2c3d4e5f6g7h");
 
 			ResultSet rs = ps.executeQuery();

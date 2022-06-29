@@ -51,10 +51,10 @@ public class MyPageController {
 	@RequestMapping(value = "/mypage/reservelog/cancel", method = RequestMethod.GET)
 	private ModelAndView reserveCancel(@RequestParam("code") String code, ModelAndView mav) throws SQLException {
 
-		Reserve reserve = ReserveLogDao.reserveCancel(code);
 
-		String id = null;
-		// (String) session.getAttribute("ユーザーセッション");
+		String[] user = (String[]) session.getAttribute("user");
+
+		Reserve reserve = ReserveLogDao.reserveCancel(user[0], code);
 
 		mav.setViewName("User/Reserve/reserveCancel");
 		mav.addObject("reserveCancel", reserve);
