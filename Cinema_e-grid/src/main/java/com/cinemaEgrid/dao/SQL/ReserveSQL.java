@@ -1,6 +1,10 @@
 package com.cinemaEgrid.dao.SQL;
 
-public class ReserveLogSQL {
+/**
+* 予約SQL
+*
+*/
+public class ReserveSQL {
 
 
 	//予約履歴取得SQL
@@ -26,5 +30,9 @@ public class ReserveLogSQL {
 	//予約キャンセル(データ削除)SQL
 	public static final String RESERVE_DELETE = "DELETE"
 			+ " FROM reserve_table WHERE user_id = ? AND book_code = ?";
+
+	//予約完了画面に予約情報を登録するsql
+		public static final String ADD_RESERVE =
+				"INSERT INTO reserve_table VALUES(?,?,?,?,?,?)";
 
 }

@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.EventExecutive;
-import com.cinemaEgrid.dao.SQL.EventExecutiveSQL;
+import com.cinemaEgrid.dao.SQL.EventSQL;
 
 public class EventExecutiveDao {
 
@@ -21,7 +21,7 @@ public class EventExecutiveDao {
 		try {
 			conn = manager.getConn(); // 接続する
 
-			String sql = EventExecutiveSQL.SELECT_ID;
+			String sql = EventSQL.SELECT_ID;
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 
@@ -66,7 +66,7 @@ public class EventExecutiveDao {
 		try {
 			conn = manager.getConn(); // 接続する
 
-			String sql = EventExecutiveSQL.UPDATE_ID;
+			String sql = EventSQL.UPDATE_ID;
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setString(1, eventId);

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.User;
-import com.cinemaEgrid.dao.UserAdminDao;
+import com.cinemaEgrid.dao.UserDao;
 
 // http://localhost:10000/admin/user/update
 
@@ -32,7 +32,7 @@ public class UserAdminUpdateController {
 	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(@RequestParam("ID") String id,
 			User form, ModelAndView mav) {
-		User menber = UserAdminDao.findOneUser(id);
+		User menber = UserDao.findOneUser(id);
 		session.setAttribute("user", menber);
 		// セッションよりデータを取得して設定
 		User menbers = (User) session.getAttribute("user");
@@ -70,7 +70,7 @@ public class UserAdminUpdateController {
 		User menbers = (User) session.getAttribute("user");
 		mav.addObject("user", menbers);
 		try {
-			UserAdminDao.updateAdminUser(menbers);
+			UserDao.updateAdminUser(menbers);
 		} catch (SQLException e) {
 		}
 		mav.setViewName("/Admin/Done/memberDone");
