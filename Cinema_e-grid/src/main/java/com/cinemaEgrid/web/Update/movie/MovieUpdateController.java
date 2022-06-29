@@ -21,18 +21,24 @@ public class MovieUpdateController {
 
 	//変更するmovieの情報を取得
 	@RequestMapping(value = "/admin/movie/update" , method  = RequestMethod.GET)
-	private ModelAndView update(@RequestParam("No") int no,ModelAndView mav,MovieForm form) {
+	private ModelAndView update(@RequestParam("No") int no,@RequestParam("action") String action,ModelAndView mav,MovieForm form) {
+		if(action.equals("cancel")) {
+			mav.setViewName("Admin/update/movie/movieUpdate");
+			return mav;
+		}else {
 		Movie movie = MovieDao.selectMovie(no);
 		session.setAttribute("no", no);
 		session.setAttribute("movie", movie);
 		//変更画面に遷移
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
+		}
+
 	}
 	@RequestMapping(value = "/admin/movie/update/success" , method = RequestMethod.GET)
 	private ModelAndView updatedone(MovieForm form,ModelAndView mav	) {
 		session.setAttribute("movie", form);
-		mav.setViewName("Admin/Done/moiveUpdateDone");
+		mav.setViewName("Admin/Done/movieUpdateDone");
 		return mav;
 	}
 }

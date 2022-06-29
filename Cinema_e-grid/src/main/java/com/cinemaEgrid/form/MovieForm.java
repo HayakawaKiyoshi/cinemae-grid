@@ -6,6 +6,7 @@ public class MovieForm {
 	private int genre_1;
 	private int genre_2;
 	private String time;
+	private int age_level;
 	private String release_day;
 	private String remarks;
 	public String getMovie_title() {
@@ -43,6 +44,12 @@ public class MovieForm {
 	}
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+	public int getAge_level() {
+		return age_level;
+	}
+	public void setAge_level(int age_level) {
+		this.age_level = age_level;
 	}
 
 }
