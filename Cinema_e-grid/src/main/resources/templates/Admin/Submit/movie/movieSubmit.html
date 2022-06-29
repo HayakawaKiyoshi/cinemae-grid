@@ -14,7 +14,7 @@
 	<div layout:fragment="notMember_contents">
 		<div class="container">
 			<div class="container">
-				<form th:action="@{/admin/movie/submit/}" th:object="${session.form}"
+				<form th:action="@{/admin/movie/submit/}" th:object="${movieForm}"
 					method="post">
 					<br>
 					<p>登録する映画情報を入力してください</p>
@@ -25,8 +25,7 @@
 						</tr>
 						<tr>
 							<td>ジャンル１</td>
-							<td><select name="genre_1">
-
+							<td><select name="genre_1" th:field="*{genre_1}">
 									<option value=0>なし</option>
 									<option value=1>アクション</option>
 									<option value=2>冒険</option>
@@ -54,8 +53,7 @@
 							</select></td>
 						<tr>
 							<td>ジャンル2</td>
-							<td><select name="genre_2">
-
+							<td><select name="genre_2" th:field="*{genre_2}">
 									<option value=0>なし</option>
 									<option value=1>アクション</option>
 									<option value=2>冒険</option>

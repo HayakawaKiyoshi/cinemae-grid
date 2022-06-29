@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.bean.Store;
 import com.cinemaEgrid.dao.MovieDao;
 import com.cinemaEgrid.form.MovieForm;
@@ -35,12 +36,22 @@ public class MovieSubmitController {
 	@RequestMapping(value="/" ,method = RequestMethod.POST)
 	private ModelAndView submitconfirm(@ModelAttribute MovieForm form , ModelAndView mav) {
 		session.setAttribute("form", form);
+		mav.addObject("movieForm", form);
 		mav.setViewName("Admin/Confirm/movie/movieConfirm");
 		mav.addObject("msg", "映画");
 		mav.addObject("url", "/admin/movie/submit/success");
 		mav.addObject("btn", "登録確定");
 		return mav;
 	}
+
+	//戻るボタンが押された場合のコントローラ
+		@RequestMapping(value = "/admin/movie/submit/cancel" ,method = RequestMethod.POST)
+		private ModelAndView updatecancel(Movie form, ModelAndView mav) {
+			mav.addObject("movie", session.getAttribute("movie"));
+			mav.setViewName("Admin/Submit/movie/movieSubmit");
+			return mav;
+		}
+
 	//戻るボタンが押下された場合
 	@RequestMapping(value = "/back",  method = RequestMethod.POST)
 	private ModelAndView index3(@Validated Store form, BindingResult result,
