@@ -23,7 +23,7 @@
 				<tr th:if="${store} != null" th:object="${store}">
 					<td th:text="*{store_name}"></td>
 					<td th:text="*{store_location}"></td>
-					<td th:text="*{store_del_flg == 0} ? 有効:削除"></td>
+					<td th:text="*{store_del_flg == 0} ? 有効:削除済"></td>
 				</tr>
 			</table>
 			<form th:action="@{${url}}" th:object="${store}" method="post">

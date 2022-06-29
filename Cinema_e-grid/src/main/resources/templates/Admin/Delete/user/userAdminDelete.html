@@ -27,8 +27,12 @@
 					<td th:text="*{user_mail}"></td>
 					<td th:text="*{user_name}"></td>
 					<td th:text="*{password}"></td>
-					<td th:text="*{authority}"></td>
-					<td th:text="*{user_del_flg}"></td>
+					<th:block th:switch = "*{authority}">
+					<td th:case=1>管理者</td>
+					<td th:case=2>一般会員</td>
+					<td th:case=3>経営者</td>
+					</th:block>
+					<td th:text="*{user_del_flg == 0} ? 有効:削除済"></td>
 				</tr>
 			</table>
 			<a th:object="${session.user}"
