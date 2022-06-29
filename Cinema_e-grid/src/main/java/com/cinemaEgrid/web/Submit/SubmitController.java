@@ -60,7 +60,7 @@ public class SubmitController {
 					//同じものがあったら戻る
 					mav.addObject("msg", "このIDは既に存在します。");
 					if(type == 0) {
-						mav.setViewName("/User/Submit/newUserSubmitt");
+						mav.setViewName("/User/Submit/newUserSubmit");
 					} else {
 						mav.setViewName("/Admin/Submit/user/userAdminSubmit");
 					}
