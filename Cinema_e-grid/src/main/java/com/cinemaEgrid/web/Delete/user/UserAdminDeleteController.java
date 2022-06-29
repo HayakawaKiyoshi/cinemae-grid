@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.User;
-import com.cinemaEgrid.dao.UserAdminDao;
+import com.cinemaEgrid.dao.UserDao;
 
 /**
 * 管理者/会員情報削除
@@ -29,7 +29,7 @@ public class UserAdminDeleteController {
 	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(@RequestParam("ID") String id,
 			User form, ModelAndView mav) {
-		User menber = UserAdminDao.findOneUser(id);
+		User menber = UserDao.findOneUser(id);
 		session.setAttribute("user", menber);
 		mav.setViewName("Admin/Delete/user/userAdminDelete");
 		return mav;
@@ -39,7 +39,7 @@ public class UserAdminDeleteController {
 	private ModelAndView index2(User form, ModelAndView mav, Model model) {
 		User form1 = (User) session.getAttribute("user");
 			try {
-				UserAdminDao.deleteAdminUser(form1.getUser_id());
+				UserDao.deleteAdminUser(form1.getUser_id());
 			} catch (SQLException e) {
 			}
 			mav.setViewName("/Admin/Done/memberDone");
