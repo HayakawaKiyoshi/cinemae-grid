@@ -63,7 +63,7 @@ public class UpdateSchedule {
 
 
 		}
-		mav.addObject("mlist", movielist);
+		session.setAttribute("mlist", movielist);
 		mav.setViewName("/Executive/Schedule/scheduleChange");
 		return mav;
 	}

@@ -56,7 +56,7 @@
 					<th>公開日</th>
 					<th>備考</th>
 					</tr>
-					<tr th:each="m:${mlist}" th:if="*{m.movie_del_flg} != 1">
+					<tr th:each="m:${session.mlist}" th:if="*{m.movie_del_flg} != 1">
 					<td th:text="*{m.movie_no}"></td>
 					<td th:text="*{m.movie_title}"></td>
 					<td th:text="*{m.genre_name1}"></td>
