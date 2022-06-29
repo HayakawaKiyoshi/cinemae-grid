@@ -42,14 +42,14 @@ public class MovieSubmitController {
 		return mav;
 	}
 	//戻るボタンが押下された場合
-	@RequestMapping(value = "/success", params = "back", method = RequestMethod.POST)
+	@RequestMapping(value = "/back",  method = RequestMethod.POST)
 	private ModelAndView index3(@Validated Store form, BindingResult result,
 			ModelAndView mav, Model model) {
 		mav.setViewName("Admin/Submit/movie/movieSubmit");
 		return mav;
 	}
 	//登録完了画面を表示する
-	@RequestMapping(value = "/success" , params = "exec" ,method = RequestMethod.POST)
+	@RequestMapping(value = "/success"  ,method = RequestMethod.POST)
 	private ModelAndView submitdone(@ModelAttribute MovieForm form ,ModelAndView mav) {
 		MovieForm movie = (MovieForm) session.getAttribute("form");
 		MovieDao.submitMovie(movie);
@@ -59,6 +59,5 @@ public class MovieSubmitController {
 		mav.addObject("url", "/admin/alldisplay");
 		mav.addObject("btn", "管理者トップページへ");
 		return mav;
-
 	}
 }

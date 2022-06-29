@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="table-responsive">
 				<form th:action="@{/admin/movie/update/success}"
-					th:object="${movieBean}" method="get">
+					th:object="${movieBean}" method="post">
 					<table class="table table-striped table-borderd">
 						<tr>
 							<td>映画タイトル</td>
@@ -25,7 +25,7 @@
 						</tr>
 						<tr>
 							<td>ジャンル1</td>
-							<td><select name="genre1" th:errorclass="fieldError" th:field="*{genre1}">
+							<td><select name="genre1" th:field="*{genre1}">
 									<option value=0 selected>なし</option>
 									<option value=1>アクション</option>
 									<option value=2>冒険</option>
@@ -50,15 +50,11 @@
 									<option value=21>スリラー</option>
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
-							</select>
-							<span th:if="${#fields.hasErrors('genre1')}" th:errors="*{genre1}"
-									th:errorclass="error-field">error!</span>
-							</td>
+							</select></td>
 						</tr>
 						<tr>
 							<td>ジャンル2</td>
-							<td><select name="genre2" th:errorclass="fieldError" th:field="*{genre2}">
-
+							<td><select name="genre2" th:field="*{genre2}">
 									<option value=0>なし</option>
 									<option value=1>アクション</option>
 									<option value=2>冒険</option>
@@ -83,10 +79,7 @@
 									<option value=21>スリラー</option>
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
-							</select>
-							<span th:if="${#fields.hasErrors('genre2')}" th:errors="*{genre2}"
-									th:errorclass="error-field">error!</span>
-							</td>
+							</select></td>
 						</tr>
 						<tr>
 							<td>時間</td>
@@ -97,19 +90,17 @@
 						</tr>
 						<tr>
 							<td>年齢制限</td>
-							<td><select name="age_level" th:errorclass="fieldError" th:field="*{age_level}">
+							<td><select name="age_level" th:field="*{age_level}">
 									<option value=1>G</option>
 									<option value=2>PG12</option>
 									<option value=3>R16+</option>
 									<option value=4>R18+</option>
 							</select>
-							<span th:if="${#fields.hasErrors('age_level')}" th:errors="*{age_level}"
-									th:errorclass="error-field">error!</span>
 							</td>
 						<tr>
 							<td>公開日</td>
 							<td><input type="text" name="release_day"
-								th:value="*{release_day}" th:errorclass="fieldError" >
+								th:field="*{release_day}" th:errorclass="fieldError" >
 							<span th:if="${#fields.hasErrors('release_day')}" th:errors="*{release_day}"
 									th:errorclass="error-field">error!</span>
 							</td>

@@ -35,7 +35,7 @@ public class MovieUpdateController {
 
 	}
 	//変更確認画面表示
-	@RequestMapping(value = "/admin/movie/update/success" , method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/movie/update/success" , method = RequestMethod.POST)
 	private ModelAndView updatedone(@Validated Movie form, BindingResult result, ModelAndView mav) {
 		if(result.hasErrors()) {
 			mav.addObject("movieBean", form);
@@ -47,14 +47,14 @@ public class MovieUpdateController {
 		return mav;
 	}
 	//戻るボタンが押された場合のコントローラ
-	@RequestMapping(value = "/admin/movie/update/cancel" ,method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/movie/update/cancel" ,method = RequestMethod.POST)
 	private ModelAndView updatecancel(Movie form, ModelAndView mav) {
 		mav.addObject("movieBean", session.getAttribute("movie"));
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
 	}
 	//更新が完了した後の画面遷移
-	@RequestMapping(value = "/admin/movie/update/done" ,method =  RequestMethod.GET)
+	@RequestMapping(value = "/admin/movie/update/done" ,method =  RequestMethod.POST)
 	private ModelAndView updateDone(ModelAndView mav) {
 		Movie movie = (Movie) session.getAttribute("movie");
 		int no = (int) session.getAttribute("no");

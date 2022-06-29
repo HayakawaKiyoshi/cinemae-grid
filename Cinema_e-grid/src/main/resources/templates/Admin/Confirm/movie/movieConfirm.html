@@ -32,12 +32,14 @@
 						<td th:text="*{remarks}"></td>
 						</tr>
 				</table>
-				<form action="@{${url}}" th:object="${form}" method="post">
-				<input type="submit" name="exec" th:value="${btn}"
+				<form action="/admin/movie/submit/success" th:object="${form}" method="post">
+				<input type="submit" th:value="${btn}"
 					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
+			</form>
+			<form action="/admin/movie/submit/back" th:object="${form}" method="post">
 				<input type="submit" name="back" value="戻る" class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">
-			</form>
+					</form>
 			</div>
 		</div>
 	</div>

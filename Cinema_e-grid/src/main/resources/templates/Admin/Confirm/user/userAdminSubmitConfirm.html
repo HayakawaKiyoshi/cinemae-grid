@@ -31,7 +31,7 @@
   	<input type="submit" value="登録" class="btn btn-outline-secondary btn-sm"
   	style="width: 200px; border-radius: 8px;" >
   </form>
-  <form action="/login/userAdminSubmit" th:object="${submitForm}">
+  <form action="/login/userAdminSubmit" th:object="${submitForm}" method="post">
   <input type="hidden" name="id" th:field="*{id}">
   	<input type="hidden" name= pass th:field="*{pass}">
   	<input type="hidden" name="name" th:field="*{name}">
