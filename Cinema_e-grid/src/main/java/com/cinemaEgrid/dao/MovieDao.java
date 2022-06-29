@@ -228,4 +228,27 @@ public class MovieDao {
 			return null;
 		}
 	}
+	//データを登録するDao
+	public static void submitMovie(MovieForm form) {
+		DBManager manager = new DBManager();
+		Connection conn = null;
+		PreparedStatement ps = null;
+
+		try {
+			//接続する
+			conn = manager.getConn();
+			//映画情報をもとにデータを登録する
+			ps = conn.prepareStatement(MovieSQL.SUBMIT_MOVIE);
+			ps.setString(1,form.getMovie_title());
+			ps.setInt(2, form.getGenre_1());
+			ps.setInt(3, form.getGenre_2());
+			ps.setString(4, form.getTime());
+			ps.setInt(5, form.getAge_level());
+			ps.setString(6, form.getRelease_day());
+			ps.setString(7, form.getRemarks());
+			System.out.println("登録：" +  ps.executeUpdate() + "件");
+		}catch(SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }

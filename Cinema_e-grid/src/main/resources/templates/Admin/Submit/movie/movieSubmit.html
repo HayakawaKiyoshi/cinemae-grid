@@ -11,17 +11,21 @@
 <link rel="stylesheet" media="all" th:href="@{/css/Style.css}" />
 </head>
 <body>
-<div layout:fragment="notMember_contents">
-<div class="container"><div class="container">
-<form th:action="@{/admin/movie/submit/}" th:object="${movie}" method="post">
-<br>
-<p>登録する映画情報を入力してください</p>
-<table class="table table-striped table-bordered" id="movie">
-<tr><td>映画タイトル</td>
-<td><input type="text" name="movie_title"></td>
-</tr>
-<tr><td>ジャンル１</td>
-<td><select name="genre_1">
+	<div layout:fragment="notMember_contents">
+		<div class="container">
+			<div class="container">
+				<form th:action="@{/admin/movie/submit/}" th:object="${session.form}"
+					method="post">
+					<br>
+					<p>登録する映画情報を入力してください</p>
+					<table class="table table-striped table-bordered" id="movie">
+						<tr>
+							<td>映画タイトル</td>
+							<td><input type="text" name="movie_title" th:value="*{movie_title}"></td>
+						</tr>
+						<tr>
+							<td>ジャンル１</td>
+							<td><select name="genre_1">
 
 									<option value=0>なし</option>
 									<option value=1>アクション</option>
@@ -48,7 +52,8 @@
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
 							</select></td>
-							<tr><td>ジャンル2</td>
+						<tr>
+							<td>ジャンル2</td>
 							<td><select name="genre_2">
 
 									<option value=0>なし</option>
@@ -75,26 +80,40 @@
 									<option value=21>スリラー</option>
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
-							</select><td><tr>
-							<tr><td>時間</td>
-							<td><input type="text" name="time"></td>
-							</tr>
-							<tr>
-							<td>年齢制限</td>
-							<td><select name="age_level">
-						<option value=1>G</option>
-						<option value=2>PG12</option>
-						<option value=3>R16+</option>
-						<option value=4>R18+</option>
-						</select>
-						</td></tr>
-						<tr><td>公開日</td>
-						<td><input type="text" name="release_day"></td>
+							</select>
+							<td>
+						<tr>
+						<tr>
+							<td>時間</td>
+							<td><input type="text" name="time" th:value="*{time}"></td>
 						</tr>
-						<tr><td>備考</td>
-						<td><input type="text" name="remarks">
-							</table></form>
-</div></div>
-</div>
+						<tr>
+							<td>年齢制限</td>
+							<td><select name="age_level" th:value="*{age_level}">
+									<option value=1>G</option>
+									<option value=2>PG12</option>
+									<option value=3>R16+</option>
+									<option value=4>R18+</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>公開日</td>
+							<td><input type="text" name="release_day" th:value="*{release_day}"></td>
+						</tr>
+						<tr>
+							<td>備考</td>
+							<td><input type="text" name="remarks" th:value="*{remarks}">
+					</table>
+					<input type="submit" value="登録する" class="btn btn-outline-secondary"
+					style="width: 200px; border-radius: 8px;">
+			</form>
+			<form action="/admin/alldisplay" method="post">
+				<input type="submit" value="戻る" class="btn btn-outline-secondary"
+				style="width: 200px; border-radius: 8px;">
+			</form>
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

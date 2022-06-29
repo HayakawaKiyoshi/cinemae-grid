@@ -57,7 +57,7 @@ public class MovieSQL {
 
 	//yoshida 編集中
 	//映画を登録する
-	public static final String SUBMIT_MOVIE= "INSERT INTO movie_table VALUES(movie_seq.nextval,?,?,?,?,?,?,?,?,0)";
+	public static final String SUBMIT_MOVIE= "INSERT INTO movie_table VALUES(movie_seq.nextval,?,?,?,?,?,?,?,0)";
 
 	//選択した映画を削除するSQL
 	public static final String DELETE_MOVIE = "UPDATE movie_table SET movie_del_flg = 1 WHERE movie_no = ?";
