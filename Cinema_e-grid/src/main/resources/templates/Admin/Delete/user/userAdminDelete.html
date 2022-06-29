@@ -35,11 +35,10 @@
 					<td th:text="*{user_del_flg == 0} ? 有効:削除済"></td>
 				</tr>
 			</table>
-			<a th:object="${session.user}"
-				th:href="@{/admin/user/delete/success(ID=*{user_id})}">
-				<button class="btn btn-outline-secondary"
-					style="width: 200px; border-radius: 8px;">この会員を削除する</button>
-			</a>
+			<form th:action="@{/admin/user/delete/success(ID=*{user_id})}" th:object="${session.user}" method="post">
+				<input type="submit" value="この会員を削除する" class="btn btn-outline-secondary"
+					style="width: 200px; border-radius: 8px;">
+			</form>
 			<form action="/admin/alldisplay" method="post">
 				<input type="submit" value="管理者メニューへ戻る" class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">

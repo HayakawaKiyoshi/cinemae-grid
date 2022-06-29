@@ -29,7 +29,7 @@ public class UserAdminUpdateController {
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(@RequestParam("ID") String id,
 			User form, ModelAndView mav) {
 		User menber = UserAdminDao.findOneUser(id);
@@ -41,7 +41,7 @@ public class UserAdminUpdateController {
 		return mav;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	private ModelAndView index2(@Validated User form, BindingResult result,
 			ModelAndView mav, Model model) {
 		if (result.hasErrors()) {

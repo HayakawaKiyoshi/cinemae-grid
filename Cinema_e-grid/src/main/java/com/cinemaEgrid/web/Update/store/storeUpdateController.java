@@ -37,7 +37,7 @@ public class storeUpdateController {
 		return new Store();
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(@RequestParam("No") int id,
 			Store form, ModelAndView mav) {
 		List<Store> storelist = null;
@@ -51,7 +51,7 @@ public class storeUpdateController {
 		return mav;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	private ModelAndView index2(@Validated Store form,
 			BindingResult result,
 			ModelAndView mav, Model model) {

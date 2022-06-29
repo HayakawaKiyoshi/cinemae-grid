@@ -26,7 +26,7 @@ public class UserAdminDeleteController {
 	@Autowired
 	HttpSession session;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(@RequestParam("ID") String id,
 			User form, ModelAndView mav) {
 		User menber = UserAdminDao.findOneUser(id);
@@ -35,7 +35,7 @@ public class UserAdminDeleteController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/success", method = RequestMethod.GET)
+	@RequestMapping(value = "/success", method = RequestMethod.POST)
 	private ModelAndView index2(@RequestParam("ID") String id, User form,
 			ModelAndView mav, Model model) {
 		User form1 = (User) session.getAttribute("user");

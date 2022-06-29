@@ -13,7 +13,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 <div layout:fragment="notMember_contents">
 	<div class="login">
 		<div class="table-responsive">
-			<form th:action="@{/admin/user/update}" th:object="${user}" method="post">
+			<form th:action="@{/admin/user/update/}" th:object="${user}" method="post">
 			<p>更新したい項目を書き換えてください</p>
 			<input type="hidden" name="user_id" th:field="*{user_id}">
 			<input type="hidden" name="user_del_flg" value="0">

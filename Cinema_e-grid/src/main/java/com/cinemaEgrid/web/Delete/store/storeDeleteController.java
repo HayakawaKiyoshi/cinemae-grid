@@ -33,7 +33,7 @@ public class storeDeleteController {
 		return new Store();
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index(@RequestParam("No") int id,
 			Store form, ModelAndView mav) {
 		List<Store> storelist = null;
