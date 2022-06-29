@@ -1,9 +1,11 @@
 package com.cinemaEgrid.web.Update.executive;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.bean.ScheduleExecutive;
+import com.cinemaEgrid.dao.MovieDao;
 import com.cinemaEgrid.dao.ScheduleExecutiveDao;
 import com.cinemaEgrid.form.ScheduleForm;
 
@@ -34,8 +38,14 @@ public class UpdateSchedule {
 	HttpSession session;
 
 	@RequestMapping(value="/scheduleUpdate/{type}", method = RequestMethod.POST)
-	private String scheduleUpdate(@PathVariable int type, @ModelAttribute("day") String day,
-			@ModelAttribute("time") String time, @ModelAttribute("no") String no, ScheduleForm form) {
+	private ModelAndView scheduleUpdate(@PathVariable int type, @ModelAttribute("day") String day,
+			@ModelAttribute("time") String time, @ModelAttribute("no") String no, ScheduleForm form,ModelAndView mav) {
+		List<Movie> movielist = null;
+		try {
+			movielist = MovieDao.selectAllmovie();
+		} catch (SQLException e) {
+		}
+
 		if (type == 0) {
 			//最初に入ってきた場合
 			ArrayList<ScheduleExecutive> eventList = ScheduleExecutiveDao.search(no, time, day);
@@ -50,8 +60,12 @@ public class UpdateSchedule {
 			String[] schedule = {day, time, no};
 			session.setAttribute("schedule", schedule);
 			session.setAttribute("day", eventList.get(0).getSchedule_date());
+
+
 		}
-		return "/Executive/Schedule/scheduleChange";
+		mav.addObject("mlist", movielist);
+		mav.setViewName("/Executive/Schedule/scheduleChange");
+		return mav;
 	}
 
 	@RequestMapping(value = "/scheduleUpdate/check", method = RequestMethod.POST)
