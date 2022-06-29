@@ -9,6 +9,8 @@ public class MovieForm {
 	private int age_level;
 	private String release_day;
 	private String remarks;
+
+
 	public String getMovie_title() {
 		return movie_title;
 	}

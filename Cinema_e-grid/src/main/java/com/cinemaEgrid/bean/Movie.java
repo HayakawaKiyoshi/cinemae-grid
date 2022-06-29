@@ -1,13 +1,41 @@
 package com.cinemaEgrid.bean;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Movie {
 
 	private int movie_no;
+
+	@NotEmpty
+	@Size(max = 60)
 	private String movie_title;
+
+	@NotNull
 	private int genre1;
+
+	@NotNull
 	private int genre2;
 	private String genre_name1;
 	private String genre_name2;
+
+	@NotEmpty
+	@Size(max = 5)
+	private String time;
+
+	@NotNull
+	private int age_level;
+
+	@NotEmpty
+	private String release_day;
+
+	@NotEmpty
+	@Size(max = 150)
+	private String remarks;
+	private int movie_del_flg;
+
 
 	public String getGenre_name1() {
 		return genre_name1;
@@ -25,11 +53,6 @@ public class Movie {
 		this.genre_name2 = genre_name2;
 	}
 
-	private String time;
-	private int age_level;
-	private String release_day;
-	private String remarks;
-	private int movie_del_flg;
 
 	public int getMovie_no() {
 		return movie_no;

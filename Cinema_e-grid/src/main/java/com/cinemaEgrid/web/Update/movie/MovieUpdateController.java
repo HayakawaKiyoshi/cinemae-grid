@@ -4,6 +4,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,11 +23,12 @@ public class MovieUpdateController {
 
 	//変更するmovieの情報を取得
 	@RequestMapping(value = "/admin/movie/update" , method  = RequestMethod.GET)
-	private ModelAndView update(@RequestParam("No") int no,ModelAndView mav,MovieForm form) {
+	private ModelAndView update(@RequestParam("No") int no, ModelAndView mav, Movie form) {
 
 		Movie movie = MovieDao.selectMovie(no);
 		session.setAttribute("no", no);
 		session.setAttribute("movie", movie);
+		mav.addObject("movieBean", movie);
 		//変更画面に遷移
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
@@ -34,14 +37,20 @@ public class MovieUpdateController {
 	}
 	//変更確認画面表示
 	@RequestMapping(value = "/admin/movie/update/success" , method = RequestMethod.GET)
-	private ModelAndView updatedone(MovieForm form,ModelAndView mav	) {
-		session.setAttribute("movie", form);
-		mav.setViewName("Admin/Done/movieUpdateDone");
+	private ModelAndView updatedone(@Validated Movie form, BindingResult result, ModelAndView mav) {
+		if(result.hasErrors()) {
+			mav.addObject("movieBean", form);
+			mav.setViewName("Admin/Update/movie/movieUpdate");
+		} else {
+			session.setAttribute("movie", form);
+			mav.setViewName("Admin/Done/movieUpdateDone");
+		}
 		return mav;
 	}
 	//戻るボタンが押された場合のコントローラ
 	@RequestMapping(value = "/admin/movie/update/cancel" ,method = RequestMethod.GET)
-	private ModelAndView updatecancel(MovieForm form,ModelAndView mav) {
+	private ModelAndView updatecancel(Movie form, ModelAndView mav) {
+		mav.addObject("movieBean", session.getAttribute("movie"));
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
 	}
