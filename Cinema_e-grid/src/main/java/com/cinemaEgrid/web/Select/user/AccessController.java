@@ -28,7 +28,7 @@ public class AccessController {
 		} catch (SQLException e) {
 		}
 		mav.addObject("list", storelist);
-		mav.setViewName("User/Access/AccessDisplay");
+		mav.setViewName("User/Access/accessDisplay");
 		return mav;
 	}
 

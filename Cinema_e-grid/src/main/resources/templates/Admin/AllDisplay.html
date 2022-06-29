@@ -35,7 +35,7 @@
 				<li><form method="post" name="formMovie" action="#">
 				<a href="javascript:formMovie.submit()" class="nav-link">映画登録</a>
 				</form></li>
-				<li><form method="post" name="formStore" action="/admin/store/submit/destroy">
+				<li><form method="post" name="formStore" action="/admin/store/submit">
 				<a href="javascript:formStore.submit()" class="nav-link">店舗登録</a>
 				</form></li>
 			</ul>
@@ -70,11 +70,12 @@
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">更新</button>
 					</a></td>
+					<td><button type="button" class="btn btn-secondary btn-sm"
+								style="border-radius: 8px;">削除</button></td>
 					</th:block>
 					<th:block th:unless="*{u.user_del_flg != '1'}">
 					<td><button type="button" class="btn btn-secondary btn-sm"
 								style="border-radius: 8px;">退会</button></td>
-					</th:block>
 					<td><a th:href="@{/admin/user/delete(ID=*{u.user_id})}">
 							<button type="button" class="btn btn-outline-secondary btn-sm"
 								style="border-radius: 8px;">削除</button>

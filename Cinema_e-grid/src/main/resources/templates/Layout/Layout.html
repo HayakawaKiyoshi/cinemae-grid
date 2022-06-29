@@ -2,20 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
-<link rel="stylesheet" media="all" th:href="@{/css/test_matsuo.css}">
+<link rel="stylesheet" media="all" th:href="@{/css/Style.css}">
 <link
 	href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300" rel="stylesheet">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>レイアウト</title>
 </head>
 <body>
 	<div class="divall container">
-		<div class="header" layout:insert="~{Part/Header::header}"></div>
+		<div class="header" layout:insert="~{Layout/header::header}"></div>
 
 		<div class="contents" layout:fragment="contents"></div>
 
-		<div layout:insert="~{Part/Footer::footer}"></div>
+		<div layout:insert="~{Layout/footer::footer}"></div>
 	</div>
 
 	<!-- プッシュテスト -->

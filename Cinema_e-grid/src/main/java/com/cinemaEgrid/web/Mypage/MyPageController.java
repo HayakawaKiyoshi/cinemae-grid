@@ -25,7 +25,7 @@ public class MyPageController {
 	@RequestMapping(value = "/mypage", method = RequestMethod.POST)
 	private ModelAndView myPage(ModelAndView mav) throws SQLException {
 
-		mav.setViewName("User/MyPage/MyPage");
+		mav.setViewName("User/MyPage/myPage");
 
 		return mav;
 	}
@@ -40,7 +40,7 @@ public class MyPageController {
 		//ユーザーごとの予約履歴取得
 		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve(user[0]);
 
-		mav.setViewName("User/MyPage/ReserveLog");
+		mav.setViewName("User/MyPage/reserveLog");
 		mav.addObject("reserveList", reserveList);
 		//System.out.println("test" +  reserveList);
 		return mav;
@@ -56,7 +56,7 @@ public class MyPageController {
 		String id = null;
 		// (String) session.getAttribute("ユーザーセッション");
 
-		mav.setViewName("User/Reserve/ReserveCancel");
+		mav.setViewName("User/Reserve/reserveCancel");
 		mav.addObject("reserveCancel", reserve);
 		//System.out.println("test" +  reserveList);
 		return mav;
@@ -75,7 +75,7 @@ public class MyPageController {
 		String id = null;
 		// (String) session.getAttribute("ユーザーセッション");
 
-		mav.setViewName("User/Reserve/ReserveCancelDone");
+		mav.setViewName("User/Reserve/reserveCancelDone");
 
 		//System.out.println("test" +  reserveList);
 		return mav;

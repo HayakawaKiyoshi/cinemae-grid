@@ -9,11 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Store;
@@ -26,24 +23,18 @@ import com.cinemaEgrid.dao.StoreDao;
 */
 @Controller
 @RequestMapping("/admin/store/submit")
-@SessionAttributes("store")
 public class StoreSubmitController {
 	@Autowired
 	HttpSession session;
 
-	@ModelAttribute("store")
-	public Store setUpStore() {
-		return new Store();
-	}
-
 	@RequestMapping(method = RequestMethod.POST)
 	private ModelAndView index2(@Validated Store form,
-			BindingResult result,
-			ModelAndView mav, Model model) {
+			BindingResult result, ModelAndView mav, Model model) {
 		if (result.hasErrors()) {
 			mav.setViewName("Admin/Submit/store/storeSubmit");
 		} else {
-			mav.setViewName("Admin/Confirm/store/storeconfirm");
+			mav.setViewName("Admin/Confirm/store/storeConfirm");
+			session.setAttribute("store",form);
 			mav.addObject("msg", "店舗");
 			mav.addObject("url", "/admin/store/submit/success");
 			mav.addObject("btn", "登録確定");
@@ -54,14 +45,20 @@ public class StoreSubmitController {
 	@RequestMapping(value = "/success", params = "back", method = RequestMethod.POST)
 	private ModelAndView index3(@Validated Store form, BindingResult result,
 			ModelAndView mav, Model model) {
+		// セッションよりデータを取得して設定
+		Store stores = (Store) session.getAttribute("store");
+		mav.addObject("store", stores);
 		mav.setViewName("Admin/Submit/store/storeSubmit");
 		return mav;
 	}
 
 	@RequestMapping(value = "/success", params = "exec", method = RequestMethod.POST)
 	private ModelAndView index4(Store form, ModelAndView mav) {
+		// セッションよりデータを取得して設定
+		Store stores = (Store) session.getAttribute("store");
+		mav.addObject("store", stores);
 		try {
-			StoreDao.submitStore(form);
+			StoreDao.submitStore(stores);
 		} catch (SQLException e) {
 		}
 		mav.setViewName("/Admin/Done/memberDone");
@@ -69,14 +66,6 @@ public class StoreSubmitController {
 		mav.addObject("url", "/admin/alldisplay");
 		mav.addObject("btn", "管理者トップページへ");
 		return mav;
-	}
-
-	@RequestMapping("/destroy")
-	public String destroy(SessionStatus sessionStatus) {
-		// セッション廃棄
-		sessionStatus.setComplete();
-		session.removeAttribute("store");
-		return "redirect:/admin/store/submit";
 	}
 
 }
