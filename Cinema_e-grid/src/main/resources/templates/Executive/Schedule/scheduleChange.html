@@ -43,6 +43,34 @@
   	<form action="/login/schedule" method="post">
   	  <input type="submit" value="戻る">
   	</form>
+  	<div class="table-responsive">
+			<h5 id="movie">映画一覧</h5>
+			<table class="table table-hover table-sm">
+				<tr class="table-light">
+					<th>映画NO.</th>
+					<th>映画タイトル</th>
+					<th>ジャンル1</th>
+					<th>ジャンル2</th>
+					<th>時間</th>
+					<th>年齢制限</th>
+					<th>公開日</th>
+					<th>備考</th>
+					</tr>
+					<tr th:each="m:${mlist}" th:if="*{m.movie_del_flg} != 1">
+					<td th:text="*{m.movie_no}"></td>
+					<td th:text="*{m.movie_title}"></td>
+					<td th:text="*{m.genre_name1}"></td>
+					<td th:text="*{m.genre_name2}"></td>
+					<td th:text="*{m.time}"></td>
+					<th:block th:switch = "*{m.age_level}">
+					<td th:case=1>G</td>
+					<td th:case=2>PG12</td>
+					<td th:case=3>R16</td>
+					<td th:case=4>R18</td>
+					</th:block>
+					<td th:text="*{m.release_day}"></td>
+					<td th:text="*{m.remarks}"></td>
+					</tr></table>
   </div>
 </body>
 </html>

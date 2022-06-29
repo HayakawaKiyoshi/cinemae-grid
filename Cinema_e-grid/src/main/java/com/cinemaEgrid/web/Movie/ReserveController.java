@@ -1,4 +1,4 @@
-package com.cinemaEgrid.web.test;
+package com.cinemaEgrid.web.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
