@@ -14,7 +14,6 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	<div class="login">
 		<div class="table-responsive">
 			<form th:action="@{/admin/user/update}" th:object="${user}" method="post">
-			<br>
 			<p>更新したい項目を書き換えてください</p>
 			<input type="hidden" name="user_id" th:field="*{user_id}">
 			<input type="hidden" name="user_del_flg" value="0">
@@ -72,7 +71,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 					</tr>
 				</table>
 				<input type="submit" value="更新する" class="btn btn-outline-secondary"
-					style="width: 80px; border-radius: 8px;">
+					style="width: 200px; border-radius: 8px;">
 			</form>
 			<form action="/admin/alldisplay" method="post">
 				<input type="submit" value="管理者メニューへ戻る" class="btn btn-outline-secondary"

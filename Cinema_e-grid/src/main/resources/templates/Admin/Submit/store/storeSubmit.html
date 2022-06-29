@@ -14,7 +14,6 @@
 	<div class="login">
 		<div class="table-responsive">
 			<form th:action="@{/admin/store/submit/}" th:object="${store}" method="post">
-			<br>
 			<p>登録する店舗情報を入力してください</p>
 			<input type="hidden" name="store_no" th:field="*{store_no}">
 			<input type="hidden" name="store_del_flg" value="0">
@@ -49,11 +48,11 @@
 					</tr>
 				</table>
 				<input type="submit" value="登録する" class="btn btn-outline-secondary"
-					style="width: 80px; border-radius: 8px;">
+					style="width: 200px; border-radius: 8px;">
 			</form>
 			<form action="/admin/alldisplay" method="post">
 				<input type="submit" value="戻る" class="btn btn-outline-secondary"
-				style="width: 80px; border-radius: 8px;">
+				style="width: 200px; border-radius: 8px;">
 			</form>
 		</div>
 	</div>
