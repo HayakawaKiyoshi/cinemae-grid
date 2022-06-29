@@ -9,10 +9,10 @@
 <body>
 	<div class="container">
 		<div class="table-responsive">
-			以下の情報を削除しますか？
+			以下の情報で更しますか？
 			<table class="table table-striped table-bordered" id="movie">
 				<tr>
-					<th>映画No.</th>
+
 					<th>映画タイトル</th>
 					<th>ジャンル1</th>
 					<th>ジャンル2</th>
@@ -23,7 +23,6 @@
 					<th>映画削除フラグ</th>
 				</tr>
 				<tr th:object="${session.movie}">
-					<td th:text="*{movie_no}"></td>
 					<td th:text="*{movie_title}"></td>
 					<td th:text="*{genre_name1}"></td>
 					<td th:text="*{genre_name2}"></td>
@@ -35,8 +34,8 @@
 
 				</tr>
 			</table>
-			<form th:action="@{/admin/movie/delete/success}" method="get">
-				<input type="submit" th:value="この映画を削除する"
+			<form th:action="@{/admin/movie/update/success}" method="get">
+				<input type="submit" th:value="この内容で変更する"
 					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
 			</form>
 			<form action="/admin/alldisplay" method="get">

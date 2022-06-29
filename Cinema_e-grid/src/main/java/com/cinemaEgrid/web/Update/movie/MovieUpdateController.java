@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.dao.MovieDao;
+import com.cinemaEgrid.form.MovieForm;
 
 @Controller
 public class MovieUpdateController {
@@ -18,11 +19,20 @@ public class MovieUpdateController {
 	@Autowired
 	HttpSession session;
 
+	//変更するmovieの情報を取得
 	@RequestMapping(value = "/admin/movie/update" , method  = RequestMethod.GET)
-	private ModelAndView update(@RequestParam("No") int no,ModelAndView mav) {
+	private ModelAndView update(@RequestParam("No") int no,ModelAndView mav,MovieForm form) {
 		Movie movie = MovieDao.selectMovie(no);
+		session.setAttribute("no", no);
 		session.setAttribute("movie", movie);
+		//変更画面に遷移
 		mav.setViewName("Admin/Update/movie/movieUpdate");
+		return mav;
+	}
+	@RequestMapping(value = "/admin/movie/update/success" , method = RequestMethod.GET)
+	private ModelAndView updatedone(MovieForm form,ModelAndView mav	) {
+		session.setAttribute("movie", form);
+		mav.setViewName("Admin/Done/moiveUpdateDone");
 		return mav;
 	}
 }
