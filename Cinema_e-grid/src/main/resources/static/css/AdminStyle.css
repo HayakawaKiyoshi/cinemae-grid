@@ -20,6 +20,10 @@
 	margin: 0 auto;
 }
 
+.text-end{
+	display:inline-block;
+}
+
 hr {
 	color: white;
 	border: 1px solid midnightblue;
