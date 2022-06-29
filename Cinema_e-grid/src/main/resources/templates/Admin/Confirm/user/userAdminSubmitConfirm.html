@@ -28,7 +28,8 @@
   	<input type="hidden" name="email" th:field="*{mail}">
   	<input type="hidden" name="authority" th:value="*{authority}">
   	<input type="hidden" name="del_flg" th:value="*{0}">
-  	<input type="submit" value="登録" class="btn btn-outline-secondary btn-sm">
+  	<input type="submit" value="登録" class="btn btn-outline-secondary btn-sm"
+  	style="width: 200px; border-radius: 8px;" >
   </form>
   <form action="/login/userAdminSubmit" th:object="${submitForm}">
   <input type="hidden" name="id" th:field="*{id}">
@@ -36,7 +37,8 @@
   	<input type="hidden" name="name" th:field="*{name}">
   	<input type="hidden" name="email" th:field="*{mail}">
   	<input type="hidden" name="authority" th:value="*{authority}">
-  	<input type="submit" value="戻る" class="btn btn-outline-secondary btn-sm">
+  	<input type="submit" value="戻る" class="btn btn-outline-secondary btn-sm"
+  	style="width: 200px; border-radius: 8px;" >
   </form>
   </div>
   </div>
