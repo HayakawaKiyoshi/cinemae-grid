@@ -46,7 +46,7 @@ public class SubmitController {
 			@Validated SubmitForm form, BindingResult result, ModelAndView mav) {
 		if(result.hasErrors()) {
 			if(type == 0) {
-				mav.setViewName("/Admin/Submit/user/newUserSubmit");
+				mav.setViewName("/User/Submit/newUserSubmit");
 			} else {
 				mav.setViewName("/Admin/Submit/user/userAdminSubmit");
 			}
@@ -60,7 +60,7 @@ public class SubmitController {
 					//同じものがあったら戻る
 					mav.addObject("msg", "このIDは既に存在します。");
 					if(type == 0) {
-						mav.setViewName("/Admin/Submit/user/newUserSubmit");
+						mav.setViewName("/User/Submit/newUserSubmit");
 					} else {
 						mav.setViewName("/Admin/Submit/user/userAdminSubmit");
 					}

@@ -10,7 +10,7 @@
  <div layout:fragment="notMember_contents">
   <div class="login">
 	ログインしてください
-	<p th:text="${msg}"></p>
+	<p th:text="${msg}" class="error-field"></p>
 	<form action="/login" method="post" th:object="${loginForm}">
 		ID：<input type="text" name="id" th:field="*{id}"
 			th:errorclass="fieldError">
