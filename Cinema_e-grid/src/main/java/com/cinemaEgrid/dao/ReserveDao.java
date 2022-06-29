@@ -13,7 +13,7 @@ import com.cinemaEgrid.bean.Schedule;
 import com.cinemaEgrid.dao.SQL.ReserveSQL;
 
 /**
-* 予約履歴関係
+* 予約、予約履歴関係
 * @author matsuo
 *
 */

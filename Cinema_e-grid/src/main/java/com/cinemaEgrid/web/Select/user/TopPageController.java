@@ -17,6 +17,12 @@ import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.dao.EventDao;
 import com.cinemaEgrid.dao.MovieDao;
 
+
+/**
+* トップページコントローラ
+* @author matsuo
+*
+*/
 @Controller
 public class TopPageController {
 	@Autowired

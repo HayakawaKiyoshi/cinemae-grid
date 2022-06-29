@@ -14,6 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Reserve;
 import com.cinemaEgrid.dao.ReserveDao;
+/**
+* マイページ表示、予約キャンセル
+* @author matsuo
+*
+*/
 
 @Controller
 public class MyPageController {
