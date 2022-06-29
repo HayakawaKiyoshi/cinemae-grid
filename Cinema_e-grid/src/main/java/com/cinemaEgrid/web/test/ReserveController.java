@@ -32,7 +32,7 @@ public class ReserveController {
 
 		//mavに登録
 		mav.addObject("scheduleList",scheduleList);
-		mav.setViewName("User/Reserve/movieSchedule");
+		mav.setViewName("User/Reserve/MovieSchedule");
 
 		return mav;
 	}
