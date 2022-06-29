@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.dao.MovieDao;
-import com.cinemaEgrid.form.MovieForm;
 
 @Controller
 public class MovieUpdateController {
@@ -57,7 +56,7 @@ public class MovieUpdateController {
 	//更新が完了した後の画面遷移
 	@RequestMapping(value = "/admin/movie/update/done" ,method =  RequestMethod.GET)
 	private ModelAndView updateDone(ModelAndView mav) {
-		MovieForm movie = (MovieForm) session.getAttribute("movie");
+		Movie movie = (Movie) session.getAttribute("movie");
 		int no = (int) session.getAttribute("no");
 		MovieDao.updateMovie(movie,no);
 		mav.setViewName("/Admin/Done/memberDone");

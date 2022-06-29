@@ -173,7 +173,7 @@ public class MovieDao {
 			e.printStackTrace();
 		}
 	}
-	public static void updateMovie(MovieForm movie , int no) {
+	public static void updateMovie(Movie movie , int no) {
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -183,8 +183,8 @@ public class MovieDao {
 			//選択された映画を更新する
 			ps = conn.prepareStatement(MovieSQL.UPDATE_MOVIE);
 			ps.setString(1, movie.getMovie_title());
-			ps.setInt(2,movie.getGenre_1());
-			ps.setInt(3, movie.getGenre_2());
+			ps.setInt(2,movie.getGenre1());
+			ps.setInt(3, movie.getGenre2());
 			ps.setString(4, movie.getTime());
 			ps.setInt(5, movie.getAge_level());
 			ps.setString(6,movie.getRelease_day());
@@ -213,8 +213,8 @@ public class MovieDao {
 			rs.next();
 			movie.setMovie_no(rs.getInt("movie_no"));
 			movie.setMovie_title(rs.getString("movie_title"));
-			movie.setGenre_name1(rs.getString("genre_name1"));
-			movie.setGenre_name2(rs.getString("genre_name2"));
+			movie.setGenre1(rs.getInt("genre_1"));
+			movie.setGenre2(rs.getInt("genre_2"));
 			movie.setTime(rs.getString("time"));
 			movie.setAge_level(rs.getInt("age_level"));
 			movie.setRelease_day(rs.getString("release_day"));
