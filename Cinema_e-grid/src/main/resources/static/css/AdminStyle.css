@@ -20,8 +20,10 @@
 	margin: 0 auto;
 }
 
-.text-end{
+.right{
 	display:inline-block;
+	margin-left: auto;
+	margin-right: 0;
 }
 
 hr {
