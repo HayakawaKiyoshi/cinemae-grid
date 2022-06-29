@@ -34,8 +34,12 @@
 							</tr>
 						</tbody>
 					</table>
-					<a class="btn btn-primary" href="/login/schedule" role="button">戻る</a>
-					<a class="btn btn-primary" href="/login/reserveResult" role="button">はい</a>
+					<form action = "/login/schedule" method = "post">
+					<input type = submit  class="btn btn-primary" role="button" value = "戻る">
+					</form>
+					<form action = "/login/reserveResult" method = "post">
+					<input type = submit  class="btn btn-primary" role="button" value = "予約する">
+					</form>
 				</div>
 </body>
 </html>

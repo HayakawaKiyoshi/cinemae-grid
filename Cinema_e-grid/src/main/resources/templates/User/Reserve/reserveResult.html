@@ -9,12 +9,15 @@
 <title>予約コード発行</title>
 </head>
 <body>
-<div layout:fragment="contents">
-<h2 style="text-align:center">予約が完了しました！</h2>
-<div class="panel panel-default">
-<h2 class="bg-warning text-center"  th:text = "|予約コード:${code}|">成功（中央）</h2>
-</div>
-<a class="btn btn-primary text-center" href="/login/schedule" role="button">完了</a>
-</div>
+		<div layout:fragment="contents">
+			<h2 style="text-align: center">予約が完了しました！</h2>
+			<div class="panel panel-default">
+				<h2 class="bg-warning text-center" th:text="|予約コード:${code}|">成功（中央）</h2>
+			</div>
+		<form action="/login/schedule" method="post">
+			<input type="submit" class="btn btn-primary text-center"
+				role="button" value="完了">
+		</form>
+	</div>
 </body>
 </html>
