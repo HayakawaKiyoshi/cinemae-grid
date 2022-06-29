@@ -1,5 +1,7 @@
 package com.cinemaEgrid.bean;
 
+import javax.validation.constraints.Size;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -12,9 +14,11 @@ public class Store {
 	private int store_no;
 
 	@NotEmpty(message = "{0}を入力してください。")
+	@Size(max = 60)
 	private String store_name;
 
 	@NotEmpty(message = "{0}を入力してください。")
+	@Size(max = 60)
 	private String store_location;
 
 	private int store_del_flg;
