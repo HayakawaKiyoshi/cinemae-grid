@@ -12,7 +12,89 @@
 </head>
 <body>
 <div layout:fragment="notMember_contents">
-<div class="conteinter></div>
+<div class="container"><div class="container">
+<form th:action="@{/admin/movie/submit/}" th:object="${movie}" method="post">
+<br>
+<p>登録する映画情報を入力してください</p>
+<table class="table table-striped table-bordered" id="movie">
+<tr><td>映画タイトル</td>
+<td><input type="text" name="movie_title"></td>
+</tr>
+<tr><td>ジャンル１</td>
+<td><select name="genre_1">
+
+									<option value=0>なし</option>
+									<option value=1>アクション</option>
+									<option value=2>冒険</option>
+									<option value=3>アニメーション</option>
+									<option value=4>伝記</option>
+									<option value=5>コメディ</option>
+									<option value=6>犯罪</option>
+									<option value=7>ドキュメンタリー</option>
+									<option value=8>ドラマ</option>
+									<option value=9>ファミリー</option>
+									<option value=10>ファンタジー</option>
+									<option value=11>フィルムノワール</option>
+									<option value=12>歴史</option>
+									<option value=13>ホラー</option>
+									<option value=14>音楽</option>
+									<option value=15>ミュージカル</option>
+									<option value=16>ミステリー</option>
+									<option value=17>ロマンス</option>
+									<option value=18>SF</option>
+									<option value=19>短編</option>
+									<option value=20>スポーツ</option>
+									<option value=21>スリラー</option>
+									<option value=22>戦争</option>
+									<option value=23>西部劇</option>
+							</select></td>
+							<tr><td>ジャンル2</td>
+							<td><select name="genre_2">
+
+									<option value=0>なし</option>
+									<option value=1>アクション</option>
+									<option value=2>冒険</option>
+									<option value=3>アニメーション</option>
+									<option value=4>伝記</option>
+									<option value=5>コメディ</option>
+									<option value=6>犯罪</option>
+									<option value=7>ドキュメンタリー</option>
+									<option value=8>ドラマ</option>
+									<option value=9>ファミリー</option>
+									<option value=10>ファンタジー</option>
+									<option value=11>フィルムノワール</option>
+									<option value=12>歴史</option>
+									<option value=13>ホラー</option>
+									<option value=14>音楽</option>
+									<option value=15>ミュージカル</option>
+									<option value=16>ミステリー</option>
+									<option value=17>ロマンス</option>
+									<option value=18>SF</option>
+									<option value=19>短編</option>
+									<option value=20>スポーツ</option>
+									<option value=21>スリラー</option>
+									<option value=22>戦争</option>
+									<option value=23>西部劇</option>
+							</select><td><tr>
+							<tr><td>時間</td>
+							<td><input type="text" name="time"></td>
+							</tr>
+							<tr>
+							<td>年齢制限</td>
+							<td><select name="age_level">
+						<option value=1>G</option>
+						<option value=2>PG12</option>
+						<option value=3>R16+</option>
+						<option value=4>R18+</option>
+						</select>
+						</td></tr>
+						<tr><td>公開日</td>
+						<td><input type="text" name="release_day"></td>
+						</tr>
+						<tr><td>備考</td>
+						<td><input type="text" name="remarks">
+							</table></form>
+</div></div>
 </div>
 </body>
 </html>

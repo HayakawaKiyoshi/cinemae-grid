@@ -50,7 +50,8 @@
 									<option value=23>西部劇</option>
 							</select></td>
 						</tr>
-						<tr><td>ジャンル2</td>
+						<tr>
+							<td>ジャンル2</td>
 							<td><select name="genre_2">
 
 									<option value=0>なし</option>
@@ -77,22 +78,20 @@
 									<option value=21>スリラー</option>
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
-							</select>
-							</td>
-							</tr>
-						<tr>
-							<td>時間</td>
-							<td><input type="text" name="time" th:value="*{time}"></td>
+							</select></td>
 						</tr>
 						<tr>
-						<td>年齢制限</td>
-						<td><select name="age_level">
-						<option value=1>G</option>
-						<option value=2>PG12</option>
-						<option value=3>R16+</option>
-						<option value=4>R18+</option>
-						</select>
-
+							<td>時間</td>
+							<td><input type="text" name="time"></td>
+						</tr>
+						<tr>
+							<td>年齢制限</td>
+							<td><select name="age_level">
+									<option value=1>G</option>
+									<option value=2>PG12</option>
+									<option value=3>R16+</option>
+									<option value=4>R18+</option>
+							</select>
 						<tr>
 							<td>公開日</td>
 							<td><input type="text" name="release_day"
@@ -100,20 +99,19 @@
 						</tr>
 						<tr>
 							<td>備考</td>
-							<td><input type="text" name="remarks" th:value="*{remarks}"></td>
+							<td><input type="text" name="remarks"></td>
 						</tr>
 					</table>
 
-				<input type="submit" value="更新する" class="btn btn-outline-secondary"
+					<input type="submit" value="登録する" class="btn btn-outline-secondary"
 						style="width: 80px; border-radius: 8px;">
-			</form>
-			<form action="/admin/alldisplay" method="post">
-				<input type="submit" value="管理者メニューへ戻る"
+				</form>
+				<form action="/admin/alldisplay" method="post">
+					<input type="submit" value="管理者メニューへ戻る"
 						class="btn btn-outline-secondary"
 						style="width: 200px; border-radius: 8px;">
-			</form>
+				</form>
 			</div>
 		</div>
-		</div>
-</body>
-</html>
+	</div>
+</body
