@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.Reserve;
-import com.cinemaEgrid.dao.SQL.ReserveLogSQL;
+import com.cinemaEgrid.dao.SQL.ReserveSQL;
 
 /**
 * 予約履歴関係
@@ -27,7 +27,7 @@ public class ReserveLogDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = ReserveLogSQL.RESERVE_LOG;
+			String sql = ReserveSQL.RESERVE_LOG;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			//ps.setString(1, "1");
@@ -63,7 +63,7 @@ public class ReserveLogDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = ReserveLogSQL.RESERVE_CANCEL;
+			String sql = ReserveSQL.RESERVE_CANCEL;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			//ps.setString(1, "1");
@@ -100,7 +100,7 @@ public class ReserveLogDao {
 
 		try {
 			conn = manager.getConn();
-			String sql = ReserveLogSQL.RESERVE_DELETE;
+			String sql = ReserveSQL.RESERVE_DELETE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, code);

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cinemaEgrid.bean.User;
-import com.cinemaEgrid.dao.SQL.UserAdminSQL;
+import com.cinemaEgrid.dao.SQL.UserSQL;
 
 public class UserAdminDao {
 
@@ -27,7 +27,7 @@ public class UserAdminDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql = UserAdminSQL.FIND_ONE_STORE;
+			String sql = UserSQL.FIND_ONE_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			System.out.println("選択：" + id);
@@ -67,7 +67,7 @@ public class UserAdminDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql = UserAdminSQL.UPDATE_ADMIN_USER;
+			String sql = UserSQL.UPDATE_ADMIN_USER;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getUser_mail());
 			ps.setString(2, user.getUser_name());
@@ -114,7 +114,7 @@ public class UserAdminDao {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql = UserAdminSQL.DERETE_ADMIN_USER;
+			String sql = UserSQL.DERETE_ADMIN_USER;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			count = ps.executeUpdate();

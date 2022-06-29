@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.ScheduleExecutive;
-import com.cinemaEgrid.dao.SQL.ScheduleExecutiveSQL;
+import com.cinemaEgrid.dao.SQL.ScheduleSQL;
 
 public class ScheduleExecutiveDao {
 
@@ -22,7 +22,7 @@ public class ScheduleExecutiveDao {
 		try {
 			conn = manager.getConn(); // 接続する
 
-			String sql = ScheduleExecutiveSQL.SELECT_ID;
+			String sql = ScheduleSQL.SELECT_ID;
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, noS);
 			ps.setString(2, timeS);
@@ -75,7 +75,7 @@ public class ScheduleExecutiveDao {
 		try {
 			conn = manager.getConn(); // 接続する
 
-			String sql = ScheduleExecutiveSQL.UPDATE_ID;
+			String sql = ScheduleSQL.UPDATE_ID;
 			PreparedStatement ps = conn.prepareStatement(sql);
 
 			ps.setDate(1, date);

@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.cinemaEgrid.bean.Schedule;
-import com.cinemaEgrid.dao.SQL.reserveSQL;
+import com.cinemaEgrid.dao.SQL.ReserveSQL;
 
 //吉田　ReserveDao
 public class ReserveDao {
@@ -27,7 +27,7 @@ public class ReserveDao {
 			try (Connection conn = manager.getConn()) {
 
 				//予約表にスケジュールを登録
-				PreparedStatement pStmt = conn.prepareStatement(reserveSQL.ADD_RESERVE);
+				PreparedStatement pStmt = conn.prepareStatement(ReserveSQL.ADD_RESERVE);
 
 				pStmt.setInt(1,schedule.getSchedule_no());
 				pStmt.setString(2,schedule.getSchedule_date());
