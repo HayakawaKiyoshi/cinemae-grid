@@ -1,6 +1,5 @@
 package com.cinemaEgrid.bean;
 
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -13,10 +12,7 @@ public class Movie {
 	@Size(max = 60)
 	private String movie_title;
 
-	@NotNull
 	private int genre1;
-
-	@NotNull
 	private int genre2;
 	private String genre_name1;
 	private String genre_name2;
@@ -25,7 +21,6 @@ public class Movie {
 	@Size(max = 5)
 	private String time;
 
-	@NotNull
 	private int age_level;
 
 	@NotEmpty
