@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.dao.SQL.MovieSQL;
+import com.cinemaEgrid.form.MovieForm;
 
 /**
 * 映画関係
@@ -172,7 +173,7 @@ public class MovieDao {
 			e.printStackTrace();
 		}
 	}
-	public static void updateMovie(Movie movie) {
+	public static void updateMovie(MovieForm movie , int no) {
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -182,12 +183,13 @@ public class MovieDao {
 			//選択された映画を更新する
 			ps = conn.prepareStatement(MovieSQL.UPDATE_MOVIE);
 			ps.setString(1, movie.getMovie_title());
-			ps.setString(2,movie.getGenre_name1());
-			ps.setString(3, movie.getGenre_name2());
+			ps.setInt(2,movie.getGenre_1());
+			ps.setInt(3, movie.getGenre_2());
 			ps.setString(4, movie.getTime());
 			ps.setInt(5, movie.getAge_level());
 			ps.setString(6,movie.getRelease_day());
 			ps.setString(7, movie.getRemarks());
+			ps.setInt(8, no);
 			System.out.println("更新：" +  ps.executeUpdate() + "件");
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();

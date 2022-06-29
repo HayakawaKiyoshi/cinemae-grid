@@ -32,11 +32,11 @@
 
 				</tr>
 			</table>
-			<form th:action="@{/admin/movie/update/success}" method="get">
+			<form th:action="@{/admin/movie/update/done}" method="get">
 				<input type="submit" th:value="この内容で変更する"
 					class="btn btn-outline-secondary" style="width: 200px; border-radius: 8px;">
 			</form>
-			<form action="/admin/movie/update?action=cancel" method="get">
+			<form action="/admin/movie/update/cancel" method="get">
 				<input type="submit" value="戻る" class="btn btn-outline-secondary"
 					style="width: 200px; border-radius: 8px;">
 			</form>
