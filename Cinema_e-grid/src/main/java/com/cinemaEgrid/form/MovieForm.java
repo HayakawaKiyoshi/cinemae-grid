@@ -1,10 +1,10 @@
 package com.cinemaEgrid.form;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class MovieForm {
 
@@ -24,7 +24,8 @@ public class MovieForm {
 	private int age_level;
 
 	@NotNull(message = "{DATEnotEmpty}")
-	@DateTimeFormat(pattern = "yyyy/mm/dd")
+	@Pattern(regexp = "((19|[2-9][0-9])[0-9]{2})/"
+	+ "(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])", message ="{DATEcheck}")
 	private String release_day;
 
 	@NotEmpty(message = "{REMARKSnotEmpty}")
