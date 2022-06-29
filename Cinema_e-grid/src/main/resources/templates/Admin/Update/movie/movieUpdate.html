@@ -19,8 +19,9 @@
 							<td>映画タイトル</td>
 							<td><input type="text" name="movie_title"
 								th:field="*{movie_title}" th:errorclass="fieldError">
-							<span th:if="${#fields.hasErrors('movie_title')}" th:errors="*{movie_title}"
-									th:errorclass="error-field">error!</span>
+								<span th:if="${#fields.hasErrors('movie_title')}" th:errors="*{movie_title}"
+								th:errorclass="error-field">error!</span>
+
 							</td>
 						</tr>
 						<tr>

@@ -28,8 +28,8 @@
 				<tr th:object="${session.movie}">
 					<td th:text="*{movie_no}"></td>
 					<td th:text="*{movie_title}"></td>
-					<td th:text="*{genre_name1}"></td>
-					<td th:text="*{genre_name2}"></td>
+					<td th:text="*{genre1}"></td>
+					<td th:text="*{genre2}"></td>
 					<td th:text="*{time}"></td>
 					<td th:switch="*{age_level}">
 						<span th:case=1>G</span>
