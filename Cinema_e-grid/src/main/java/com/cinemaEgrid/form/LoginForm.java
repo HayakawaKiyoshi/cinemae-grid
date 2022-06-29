@@ -6,11 +6,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class LoginForm {
 
-	@NotEmpty
+	@NotEmpty(message = "{notEmpty}")
 	@Size(max = 20)
 	private String id;
 
-	@NotEmpty
+	@NotEmpty(message = "{notEmpty}")
 	@Size(max = 60)
 	private String pass;
 
