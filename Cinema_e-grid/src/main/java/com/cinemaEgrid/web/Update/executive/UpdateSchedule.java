@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cinemaEgrid.bean.Movie;
 import com.cinemaEgrid.bean.ScheduleExecutive;
 import com.cinemaEgrid.dao.MovieDao;
-import com.cinemaEgrid.dao.ScheduleExecutiveDao;
+import com.cinemaEgrid.dao.ScheduleDao;
 import com.cinemaEgrid.form.ScheduleForm;
 
 /**
@@ -48,7 +48,7 @@ public class UpdateSchedule {
 
 		if (type == 0) {
 			//最初に入ってきた場合
-			ArrayList<ScheduleExecutive> eventList = ScheduleExecutiveDao.search(no, time, day);
+			ArrayList<ScheduleExecutive> eventList = ScheduleDao.search(no, time, day);
 			form.setDate(eventList.get(0).getSchedule_date());
 			form.setNo(eventList.get(0).getSchedule_no());
 			form.setTime(eventList.get(0).getSchedule_time());
@@ -86,7 +86,7 @@ public class UpdateSchedule {
 		} catch (ParseException e) {
 			System.out.println("データ変換中にエラーです。");
 		}
-		ScheduleExecutiveDao.update(new java.sql.Date(day.getTime()), form.getNo(), form.getTime(),
+		ScheduleDao.update(new java.sql.Date(day.getTime()), form.getNo(), form.getTime(),
 				 form.getName(), form.getMovieTime(), form.getAgeLevel(),
 				  form.getContent(), form.getStatusSchedule(), (String) session.getAttribute("day"));
 		mav.addObject("title", "上映情報更新完了");

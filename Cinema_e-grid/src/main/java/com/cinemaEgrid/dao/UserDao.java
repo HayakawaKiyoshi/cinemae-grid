@@ -283,20 +283,16 @@ public class UserDao {
 			String sql = UserSQL.FIND_ONE_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
-			System.out.println("選択：" + id);
 			rs = ps.executeQuery();
 			//結果表に格納されたレコードの内容を表示
 			rs.next();
-
 				user.setUser_id(rs.getString("user_id"));
 				user.setUser_mail(rs.getString("user_mail"));
 				user.setUser_name(rs.getString("user_name"));
 				user.setPassword(rs.getString("password"));
 				user.setAuthority(rs.getString("authority"));
 				user.setUser_del_flg(rs.getString("user_del_flg"));
-
 				return user;
-
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			return null;
@@ -313,7 +309,6 @@ public class UserDao {
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 		int count = 0;
 
 		try {
@@ -333,18 +328,6 @@ public class UserDao {
 		} catch (Exception e) {
 			System.out.println("DB文字列検索操作中にエラーが発生しました。");
 		} finally {
-			// ResultSetをクローズ
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			// Statementをクローズ
-			if (ps != null) {
-				ps.close();
-			}
 			// 切断処理
 			manager.close(conn);
 		}
@@ -360,7 +343,6 @@ public class UserDao {
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
-		ResultSet rs = null;
 		int count = 0;
 
 		try {
@@ -375,18 +357,6 @@ public class UserDao {
 		} catch (Exception e) {
 			System.out.println("DB文字列検索操作中にエラーが発生しました。");
 		} finally {
-			// ResultSetをクローズ
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			// Statementをクローズ
-			if (ps != null) {
-				ps.close();
-			}
 			// 切断処理
 			manager.close(conn);
 		}

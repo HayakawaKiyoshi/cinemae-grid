@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.Reserve;
-import com.cinemaEgrid.dao.ReserveLogDao;
+import com.cinemaEgrid.dao.ReserveDao;
 
 @Controller
 public class MyPageController {
@@ -38,7 +38,7 @@ public class MyPageController {
 		String[] user = (String[]) session.getAttribute("user");
 
 		//ユーザーごとの予約履歴取得
-		ArrayList<Reserve> reserveList = ReserveLogDao.selectReserve(user[0]);
+		ArrayList<Reserve> reserveList = ReserveDao.selectReserve(user[0]);
 
 		mav.setViewName("User/MyPage/reserveLog");
 		mav.addObject("reserveList", reserveList);
@@ -54,7 +54,7 @@ public class MyPageController {
 
 		String[] user = (String[]) session.getAttribute("user");
 
-		Reserve reserve = ReserveLogDao.reserveCancel(user[0], code);
+		Reserve reserve = ReserveDao.reserveCancel(user[0], code);
 
 		mav.setViewName("User/Reserve/reserveCancel");
 		mav.addObject("reserveCancel", reserve);
@@ -70,7 +70,7 @@ public class MyPageController {
 		System.out.println(code);
 		String[] user = (String[]) session.getAttribute("user");
 
-		ReserveLogDao.reserveCancelDone(user[0], code);
+		ReserveDao.reserveCancelDone(user[0], code);
 
 		String id = null;
 		// (String) session.getAttribute("ユーザーセッション");

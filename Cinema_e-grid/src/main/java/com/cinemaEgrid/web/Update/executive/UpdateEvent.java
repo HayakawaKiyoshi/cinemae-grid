@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cinemaEgrid.bean.EventExecutive;
-import com.cinemaEgrid.dao.EventExecutiveDao;
+import com.cinemaEgrid.dao.EventDao;
 import com.cinemaEgrid.form.EventForm;
 
 /**
@@ -29,7 +29,7 @@ public class UpdateEvent {
 			@ModelAttribute("eventId") String eventId, EventForm form) {
 		if (type == 0) {
 			//最初に入ってきた場合
-			ArrayList<EventExecutive> eventList = EventExecutiveDao.search(eventId);
+			ArrayList<EventExecutive> eventList = EventDao.search(eventId);
 			form.setEventTitle(eventList.get(0).getUpdate_title());
 			form.setEventContent(eventList.get(0).getEvent_content());
 		}
@@ -47,7 +47,7 @@ public class UpdateEvent {
 
 	@RequestMapping(value = "/eventUpdate/done", method = RequestMethod.POST)
 	private ModelAndView eventUpdateDone(EventForm form, ModelAndView mav) {
-		EventExecutiveDao.update("1", form.getEventTitle(),
+		EventDao.update("1", form.getEventTitle(),
 				form.getEventContent(), form.getUpdateDate());
 		System.out.println();
 		mav.addObject("title", "イベント更新完了");
