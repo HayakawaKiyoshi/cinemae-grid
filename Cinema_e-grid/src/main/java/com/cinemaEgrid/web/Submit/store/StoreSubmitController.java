@@ -28,6 +28,12 @@ public class StoreSubmitController {
 	HttpSession session;
 
 	@RequestMapping(method = RequestMethod.POST)
+	private ModelAndView index(Store form, ModelAndView mav, Model model) {
+		mav.setViewName("Admin/Submit/store/storeSubmit");
+		return mav;
+	}
+
+	@RequestMapping(value = "/", method = RequestMethod.POST)
 	private ModelAndView index2(@Validated Store form,
 			BindingResult result, ModelAndView mav, Model model) {
 		if (result.hasErrors()) {

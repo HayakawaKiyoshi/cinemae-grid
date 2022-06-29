@@ -13,7 +13,7 @@
 <div layout:fragment="notMember_contents">
 	<div class="container">
 		<div class="table-responsive">
-			<form th:action="@{/admin/store/submit}" th:object="${store}" method="post">
+			<form th:action="@{/admin/store/submit/}" th:object="${store}" method="post">
 			<br>
 			<p>登録する店舗情報を入力してください</p>
 			<input type="hidden" name="store_no" th:field="*{store_no}">
@@ -45,9 +45,6 @@
 							th:field="*{store_del_flg}" disabled="disabled" checked>有効
 							<input type="radio" name="store_del_flg" value="1"
 							 th:field="*{store_del_flg}" disabled="disabled">削除
-							<!-- <span th:if="${#fields.hasErrors('store_del_flg')}"
-							th:errors="*{store_del_flg}"
-							th:errorclass="error-field">error!</span> -->
 						</td>
 					</tr>
 				</table>
