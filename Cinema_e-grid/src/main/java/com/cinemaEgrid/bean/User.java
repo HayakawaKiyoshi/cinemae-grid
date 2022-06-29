@@ -8,20 +8,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 
 	@NotEmpty(message = "{0}を入力してください。")
-	@Size(max = 20)
+	@Size(max = 20, message = "{0}を正しく入力してください")
 	private String user_id;
 
 	@NotEmpty(message = "{0}を入力してください。")
 	@Email(message = "{0}を正しく入力してください。")
-	@Size(max = 60)
+	@Size(max = 60, message = "{0}を正しく入力してください")
 	private String user_mail;
 
 	@NotEmpty(message = "{0}を入力してください。")
-	@Size(max = 60)
+	@Size(max = 60, message = "{0}を正しく入力してください")
 	private String user_name;
 
 	@NotEmpty(message = "{0}を入力してください。")
-	@Size(max = 60)
+	@Size(max = 60, message = "{0}を正しく入力してください")
 	private String password;
 
 	@NotEmpty(message = "{0}を入力してください。")

@@ -14,11 +14,11 @@ public class Store {
 	private int store_no;
 
 	@NotEmpty(message = "{0}を入力してください。")
-	@Size(max = 60)
+	@Size(max = 60, message = "{0}を正しく入力してください")
 	private String store_name;
 
 	@NotEmpty(message = "{0}を入力してください。")
-	@Size(max = 60)
+	@Size(max = 60, message = "{0}を正しく入力してください")
 	private String store_location;
 
 	private int store_del_flg;
