@@ -29,8 +29,6 @@ import com.cinemaEgrid.dao.StoreDao;
 @RequestMapping("/admin/store/update")
 @SessionAttributes("store")
 public class storeUpdateController {
-//	@Autowired
-//	HttpSession session;
 
 	@ModelAttribute("store")
 	public Store setUpStore() {

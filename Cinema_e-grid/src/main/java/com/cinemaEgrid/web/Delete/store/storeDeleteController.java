@@ -16,8 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.cinemaEgrid.bean.Store;
 import com.cinemaEgrid.dao.StoreDao;
 
-// http://localhost:10000/admin/store/delete
-
 /**
 * 管理者/店舗情報削除
 * @author iwai

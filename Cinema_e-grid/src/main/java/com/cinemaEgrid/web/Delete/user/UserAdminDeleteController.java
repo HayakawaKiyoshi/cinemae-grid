@@ -36,22 +36,16 @@ public class UserAdminDeleteController {
 	}
 
 	@RequestMapping(value = "/success", method = RequestMethod.POST)
-	private ModelAndView index2(@RequestParam("ID") String id, User form,
-			ModelAndView mav, Model model) {
+	private ModelAndView index2(User form, ModelAndView mav, Model model) {
 		User form1 = (User) session.getAttribute("user");
-		if (form1.getUser_del_flg().equals("1")) {
 			try {
-				UserAdminDao.deleteAdminUser(id);
+				UserAdminDao.deleteAdminUser(form1.getUser_id());
 			} catch (SQLException e) {
 			}
 			mav.setViewName("/Admin/Done/memberDone");
 			mav.addObject("msg", "会員削除");
 			mav.addObject("url", "/admin/alldisplay");
 			mav.addObject("btn", "管理者トップページへ");
-		} else {
-			mav.addObject("msg", "ユーザー削除フラグが機能しています");
-			mav.setViewName("redirect:/admin/alldisplay");
-		}
 		return mav;
 	}
 }
