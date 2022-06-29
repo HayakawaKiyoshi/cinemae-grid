@@ -1,12 +1,15 @@
 <!-- 吉田　編集中 -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="layout/layout">
 <head>
 <meta charset="UTF-8">
 <title>映画情報削除</title>
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
+  <div layout:fragment="contents">
 	<div class="container">
 		<div class="table-responsive">
 			以下の情報を削除しますか？
@@ -45,5 +48,6 @@
 			</form>
 		</div>
 	</div>
+  </div>
 </body>
 </html>
