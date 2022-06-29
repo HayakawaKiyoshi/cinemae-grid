@@ -18,7 +18,7 @@
       	  <input type="text" name="id" th:field="*{id}" th:errorclass="fieldError">
       	  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
 			th:errorclass="error-field">error!</span>
-      	  <span th:text="${msg}"></span>
+      	  <span th:text="${msg}" class="error-field"></span>
       	</td>
       </tr>
       <tr>
