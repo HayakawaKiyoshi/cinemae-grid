@@ -143,6 +143,18 @@ public class ScheduleDao {
 		}
 	}
 
+	/**
+	 * スケジュール更新
+	 * @param date
+	 * @param no
+	 * @param time
+	 * @param name
+	 * @param movie
+	 * @param age
+	 * @param content
+	 * @param statusS
+	 * @param day
+	 */
 	public static void update(Date date, String no, String time,
 			String name, String movie, String age, String content, String statusS, String day) {
 

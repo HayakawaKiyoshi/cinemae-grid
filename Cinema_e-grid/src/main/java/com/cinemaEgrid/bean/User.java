@@ -5,6 +5,11 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+/**
+ * 会員情報
+ * @author aishikawa
+ *
+ */
 public class User {
 
 	@NotEmpty(message = "{0}を入力してください。")

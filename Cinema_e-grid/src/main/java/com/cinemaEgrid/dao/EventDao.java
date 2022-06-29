@@ -47,6 +47,11 @@ public class EventDao {
 		return eventList;
 	}
 
+	/**
+	 * イベント検索
+	 * @param id
+	 * @return
+	 */
 	public static ArrayList<EventExecutive> search(String id) {
 		ArrayList<EventExecutive> userList = new ArrayList<EventExecutive>();
 		boolean value = false;
@@ -93,6 +98,13 @@ public class EventDao {
 		}
 	}
 
+	/**
+	 * イベント更新
+	 * @param eventId
+	 * @param updateTitle
+	 * @param eventContent
+	 * @param updateDate
+	 */
 	public static void update(String eventId, String updateTitle,
 			String eventContent, String updateDate) {
 
