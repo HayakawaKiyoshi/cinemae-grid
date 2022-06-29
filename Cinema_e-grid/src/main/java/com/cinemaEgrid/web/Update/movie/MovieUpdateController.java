@@ -45,6 +45,7 @@ public class MovieUpdateController {
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
 	}
+	//更新が完了した後の画面遷移
 	@RequestMapping(value = "/admin/movie/update/done" ,method =  RequestMethod.GET)
 	private ModelAndView updateDone(ModelAndView mav) {
 		MovieForm movie = (MovieForm) session.getAttribute("movie");
