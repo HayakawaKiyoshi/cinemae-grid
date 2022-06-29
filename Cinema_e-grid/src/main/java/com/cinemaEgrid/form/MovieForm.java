@@ -1,13 +1,31 @@
 package com.cinemaEgrid.form;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class MovieForm {
 
+	@NotEmpty(message = "{TITLEnotEmpty}")
+	@Size(max = 60, message = "{TITLEcheck}")
 	private String movie_title;
+
+
 	private int genre_1;
 	private int genre_2;
+
+	@NotEmpty(message = "{TIMEnotEmpty}")
+	@Size(max = 5, message = "{TIMEcheck}")
 	private String time;
+
+
 	private int age_level;
+
+	@NotEmpty(message = "{DATEnotEmpty}")
 	private String release_day;
+
+	@NotEmpty(message = "{REMARKSnotEmpty}")
+	@Size(max = 150, message = "{REMARKScheck}")
 	private String remarks;
 
 
