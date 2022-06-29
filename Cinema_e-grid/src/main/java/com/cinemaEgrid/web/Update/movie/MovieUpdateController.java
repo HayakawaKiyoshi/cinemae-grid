@@ -27,7 +27,7 @@ public class MovieUpdateController {
 		Movie movie = MovieDao.selectMovie(no);
 		session.setAttribute("no", no);
 		session.setAttribute("movie", movie);
-		mav.addObject("movieBean", movie);
+		mav.addObject("movie", movie);
 		//変更画面に遷移
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
@@ -38,7 +38,7 @@ public class MovieUpdateController {
 	@RequestMapping(value = "/admin/movie/update/success" , method = RequestMethod.POST)
 	private ModelAndView updatedone(@Validated Movie form, BindingResult result, ModelAndView mav) {
 		if(result.hasErrors()) {
-			mav.addObject("movieBean", form);
+			mav.addObject("movie", form);
 			mav.setViewName("Admin/Update/movie/movieUpdate");
 		} else {
 			session.setAttribute("movie", form);
@@ -49,7 +49,7 @@ public class MovieUpdateController {
 	//戻るボタンが押された場合のコントローラ
 	@RequestMapping(value = "/admin/movie/update/cancel" ,method = RequestMethod.POST)
 	private ModelAndView updatecancel(Movie form, ModelAndView mav) {
-		mav.addObject("movieBean", session.getAttribute("movie"));
+		mav.addObject("movie", session.getAttribute("movie"));
 		mav.setViewName("Admin/Update/movie/movieUpdate");
 		return mav;
 	}
