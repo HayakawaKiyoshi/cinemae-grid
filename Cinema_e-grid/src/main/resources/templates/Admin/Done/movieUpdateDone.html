@@ -1,18 +1,18 @@
-<!-- 吉田　編集中 -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="layout/layout">
+	  layout:decorate="Layout/notMemberLayout">
 <head>
 <meta charset="UTF-8">
 <title>映画情報更新</title>
 <link rel="stylesheet" media="all" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-  <div layout:fragment="contents">
-	<div class="container">
+  <div layout:fragment="notMember_contents">
+	<div class="login">
 		<div class="table-responsive">
-			以下の情報で変更しますか？
+			<p>下記の内容で変更します。よろしいですか？</p>
 			<table class="table table-striped table-bordered" id="movie">
 				<tr>
 
