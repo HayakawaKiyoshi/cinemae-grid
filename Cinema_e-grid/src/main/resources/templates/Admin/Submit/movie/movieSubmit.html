@@ -21,9 +21,10 @@
 					<table class="table table-striped table-bordered" id="movie">
 						<tr>
 							<td>映画タイトル</td>
-							<td><input type="text" name="movie_title" th:value="*{movie_title}" th:errorclass="fieldError">
-							<span th:if="${#fields.hasErrors('movie_title')}" th:errors="*{movie_title}"
-								th:errorclass="error-field">error!</span>
+							<td><input type="text" name="movie_title"
+								th:value="*{movie_title}" th:errorclass="fieldError"> <span
+								th:if="${#fields.hasErrors('movie_title')}"
+								th:errors="*{movie_title}" th:errorclass="error-field">error!</span>
 							</td>
 						</tr>
 						<tr>
@@ -54,6 +55,7 @@
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
 							</select></td>
+						</tr>
 						<tr>
 							<td>ジャンル2</td>
 							<td><select name="genre_2" th:field="*{genre_2}">
@@ -81,14 +83,15 @@
 									<option value=21>スリラー</option>
 									<option value=22>戦争</option>
 									<option value=23>西部劇</option>
-							</select><td>
-						<tr>
+							</select>
+							</td>
+						</tr>
 						<tr>
 							<td>時間</td>
-							<td><input type="text" name="time" th:value="*{time}" th:errorclass="fieldError">
-							<span th:if="${#fields.hasErrors('time')}" th:errors="*{time}"
-								th:errorclass="error-field">error!</span>
-							</td>
+							<td><input type="text" name="time" th:value="*{time}"
+								th:errorclass="fieldError"> <span
+								th:if="${#fields.hasErrors('time')}" th:errors="*{time}"
+								th:errorclass="error-field">error!</span></td>
 						</tr>
 						<tr>
 							<td>年齢制限</td>
@@ -101,27 +104,27 @@
 						</tr>
 						<tr>
 							<td>公開日</td>
-							<td><input type="text" name="release_day" th:value="*{release_day}" th:errorclass="fieldError">
-							<span th:if="${#fields.hasErrors('release_day')}" th:errors="*{release_day}"
-								th:errorclass="error-field">error!</span>
+							<td><input type="text" name="release_day"
+								th:value="*{release_day}" th:errorclass="fieldError"> <span
+								th:if="${#fields.hasErrors('release_day')}"
+								th:errors="*{release_day}" th:errorclass="error-field">error!</span>
 							</td>
 						</tr>
 						<tr>
 							<td>備考</td>
-							<td><input type="text" name="remarks" th:value="*{remarks}" th:errorclass="fieldError">
-							<span th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}"
-								th:errorclass="error-field">error!</span>
-
-							</td>
+							<td><input type="text" name="remarks" th:value="*{remarks}"
+								th:errorclass="fieldError"> <span
+								th:if="${#fields.hasErrors('remarks')}" th:errors="*{remarks}"
+								th:errorclass="error-field">error!</span></td>
 						</tr>
 					</table>
 					<input type="submit" value="登録する" class="btn btn-outline-secondary"
-					style="width: 200px; border-radius: 8px;">
-			</form>
-			<form action="/admin/alldisplay" method="post">
-				<input type="submit" value="戻る" class="btn btn-outline-secondary"
-				style="width: 200px; border-radius: 8px;">
-			</form>
+						style="width: 200px; border-radius: 8px;">
+				</form>
+				<form action="/admin/alldisplay" method="post">
+					<input type="submit" value="戻る" class="btn btn-outline-secondary"
+						style="width: 200px; border-radius: 8px;">
+				</form>
 			</div>
 		</div>
 	</div>
