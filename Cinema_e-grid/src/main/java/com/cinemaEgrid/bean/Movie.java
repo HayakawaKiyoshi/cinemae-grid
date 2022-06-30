@@ -8,8 +8,8 @@ public class Movie {
 
 	private int movie_no;
 
-	@NotEmpty
-	@Size(max = 60)
+	@NotEmpty(message = "{0}を入力してください。")
+	@Size(max = 60, message = "{0}を正しく入力してください")
 	private String movie_title;
 
 	private int genre1;
@@ -17,18 +17,19 @@ public class Movie {
 	private String genre_name1;
 	private String genre_name2;
 
-	@NotEmpty
-	@Size(max = 5)
+	@NotEmpty(message = "{0}を入力してください。")
+	@Size(max = 5, message = "{0}を正しく入力してください")
 	private String time;
 
 	private int age_level;
 
-	@NotEmpty
+	@NotEmpty(message = "{0}を入力してください。")
 	private String release_day;
 
-	@NotEmpty
-	@Size(max = 150)
+	@NotEmpty(message = "{0}を入力してください。")
+	@Size(max = 150, message = "{0}を正しく入力してください")
 	private String remarks;
+
 	private int movie_del_flg;
 
 
