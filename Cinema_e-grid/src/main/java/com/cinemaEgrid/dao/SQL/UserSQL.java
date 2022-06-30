@@ -79,4 +79,7 @@ public class UserSQL {
 	public static final String DERETE_ADMIN_USER =
 			"DELETE FROM user_table WHERE user_id = ?";
 
+	public static final String DERETE_ADMIN_RESERVE =
+			"DELETE FROM reserve_table WHERE user_id = ?";
+
 }

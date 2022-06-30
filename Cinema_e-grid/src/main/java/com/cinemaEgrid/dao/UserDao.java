@@ -325,6 +325,7 @@ public class UserDao {
 			String sql = UserSQL.FIND_ONE_STORE;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
+			System.out.println("更新：" + id + "件");
 			rs = ps.executeQuery();
 			//結果表に格納されたレコードの内容を表示
 			rs.next();
@@ -385,16 +386,21 @@ public class UserDao {
 		DBManager manager = new DBManager();
 		Connection conn = null;
 		PreparedStatement ps = null;
+		PreparedStatement pst = null;
 		int count = 0;
-
+		System.out.println( id + "件");
 		try {
 			// 接続する
 			conn = manager.getConn();
 			// SQL構文構築
-			String sql = UserSQL.DERETE_ADMIN_USER;
+			String sql = UserSQL.DERETE_ADMIN_RESERVE;
 			ps = conn.prepareStatement(sql);
+			String sqls = UserSQL.DERETE_ADMIN_USER;
+			pst = conn.prepareStatement(sqls);
 			ps.setString(1, id);
-			count = ps.executeUpdate();
+			pst.setString(1, id);
+			ps.executeUpdate();
+			count = pst.executeUpdate();
 			System.out.println("削除：" + count + "件");
 		} catch (Exception e) {
 			System.out.println("DB文字列検索操作中にエラーが発生しました。");
