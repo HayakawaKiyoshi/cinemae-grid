@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div layout:fragment="notMember_contents">
-		<div class="container">
+		<div class="login">
 			<div class="table-responsive">
 				<form th:action="@{/admin/movie/update/success}"
 					th:object="${movie}" method="post">
@@ -115,8 +115,8 @@
 						</tr>
 					</table>
 
-					<input type="submit" value="登録する" class="btn btn-outline-secondary"
-						style="width: 80px; border-radius: 8px;">
+					<input type="submit" value="更新する" class="btn btn-outline-secondary"
+						style="width: 200px; border-radius: 8px;">
 				</form>
 				<form action="/admin/alldisplay" method="post">
 					<input type="submit" value="管理者メニューへ戻る"
