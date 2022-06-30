@@ -24,7 +24,13 @@
 					<span>指定日:</span>
 					<h5 th:text="*{schedule_date}"></h5>
 					<span>時間:</span>
-					<h5 th:text="*{schedule_no}"></h5>
+					<!-- h5 th:text="*{schedule_no}"></h5 -->
+					<h5>
+						<th:block th:if="*{schedule_no} eq 1">9:00～</th:block>
+						<th:block th:if="*{schedule_no} eq 2">12:00～</th:block>
+						<th:block th:if="*{schedule_no} eq 3">15:00～</th:block>
+						<th:block th:if="*{schedule_no} eq 4">18:00～</th:block>
+					</h5>
 					<span>予約コード:</span>
 					<h5 th:text="*{book_code}"></h5>
 				</div>
