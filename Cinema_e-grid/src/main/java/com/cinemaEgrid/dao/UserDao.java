@@ -11,6 +11,12 @@ import com.cinemaEgrid.dao.SQL.UserSQL;
 
 public class UserDao {
 
+	/**
+	 * ログイン
+	 * @param id
+	 * @param pass
+	 * @return
+	 */
 	public static String[] login(String id, String pass) {
 		String[] user = new String[3]; //ログインしたユーザーの情報
 		Connection conn = null;
@@ -50,6 +56,16 @@ public class UserDao {
 		return user;
 	}
 
+	/**
+	 * 新規会員登録
+	 * @param id
+	 * @param name
+	 * @param email
+	 * @param pass
+	 * @param auth
+	 * @param del_flg
+	 * @return
+	 */
 	public static ArrayList<User> submit(String id, String name, String email, String pass,
 			String auth, String del_flg) {
 		ArrayList<User> empList = new ArrayList<User>();
@@ -105,6 +121,10 @@ public class UserDao {
 		return empList;
 	}
 
+	/**
+	 * 全会員表示
+	 * @return
+	 */
 	public static ArrayList<User> findAll() {
 		ArrayList<User> userList = new ArrayList<User>();
 
@@ -147,6 +167,11 @@ public class UserDao {
 		return userList;
 	}
 
+	/**
+	 * 会員1名検索
+	 * @param id
+	 * @return
+	 */
 	public static ArrayList<User> search(String id) {
 		ArrayList<User> userList = new ArrayList<User>();
 		boolean value = false;
@@ -195,6 +220,15 @@ public class UserDao {
 		}
 	}
 
+	/**
+	 * プロフィール変更
+	 * @param userId
+	 * @param userMail
+	 * @param userName
+	 * @param password
+	 * @param authority
+	 * @param userDelFlg
+	 */
 	public static void update(String userId, String userMail, String userName,
 			String password, String authority, String userDelFlg) {
 
@@ -231,6 +265,14 @@ public class UserDao {
 		}
 	}
 
+	/**
+	 * 会員退会
+	 * @param userId
+	 * @param userMail
+	 * @param userName
+	 * @param password
+	 * @param authority
+	 */
 	public static void delete(String userId, String userMail, String userName,
 			String password, String authority) {
 		Connection conn = null;

@@ -3,6 +3,11 @@ package com.cinemaEgrid.bean;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * 経営者が使用するスケジュール情報
+ * @author aishikawa
+ *
+ */
 public class ScheduleExecutive {
 
 	private String Schedule_date;

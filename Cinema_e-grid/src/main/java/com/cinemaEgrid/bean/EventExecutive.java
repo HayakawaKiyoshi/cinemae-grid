@@ -1,5 +1,10 @@
 package com.cinemaEgrid.bean;
 
+/**
+ * 経営者が使用するイベント情報
+ * @author aishikawa
+ *
+ */
 public class EventExecutive {
 
 	private String event_id;
