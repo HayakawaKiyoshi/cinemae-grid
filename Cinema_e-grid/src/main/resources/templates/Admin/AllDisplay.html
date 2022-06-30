@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="Layout/notMemberLayout">
 <head>
 <meta charset="UTF-8">
 <title>管理者メニュー画面</title>
@@ -13,10 +14,6 @@
 <body>
 <div layout:fragment="notMember_contents">
 	<div class="container">
-		<div class="header">
-		<br>
-			<p class="title">Cinema e-grid</p>
-		</div>
 		<hr />
 		<div class="flex">
 			<div class="left">
