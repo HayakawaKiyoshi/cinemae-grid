@@ -17,7 +17,6 @@ public class ScheduleForm {
 	@Size(max = 15, message = "{TIMEcheck}")
 	private String movieTime;
 
-	@NotEmpty(message = "{AGELEVELnotEmpty}")
 	private String ageLevel;
 
 	@Size(max = 150, message = "{REMARKSnotEmpty}")
