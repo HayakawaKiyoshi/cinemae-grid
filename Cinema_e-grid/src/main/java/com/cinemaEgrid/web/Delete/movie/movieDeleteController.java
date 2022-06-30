@@ -32,7 +32,7 @@ public class movieDeleteController {	//削除の際選択されたデータを�
 	private ModelAndView deletedone(ModelAndView mav) {
 		Movie movie = (Movie) session.getAttribute("movie");
 		MovieDao.deleteMovie(movie.getMovie_no());
-		mav.setViewName("/Admin/Done/myUpdateDone");
+		mav.setViewName("/Admin/Done/memberDone");
 		mav.addObject("msg", "映画削除");
 		mav.addObject("url", "/admin/alldisplay");
 		mav.addObject("btn", "管理者トップページへ");
