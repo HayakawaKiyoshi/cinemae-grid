@@ -20,7 +20,7 @@ public class MovieSQL {
 			+ "M.movie_del_flg\r\n"
 			+ "FROM movie_table M INNER JOIN genre_table G\r\n"
 			+ "ON M.genre1 = G.genre_id INNER JOIN genre_table G2\r\n"
-			+ "ON M.genre2 = G2.genre_id ORDER BY M.release_day";
+			+ "ON M.genre2 = G2.genre_id WHERE movie_del_flg = 0 ORDER BY M.release_day";
 
 	//検索した映画
 	public static final String SEARCH_SELECT_MOVIE = "SELECT\r\n"
