@@ -8,6 +8,7 @@
 </head>
 <body>
   <div layout:fragment="contents" class="divContent">
+  <p>下記の内容で変更します。よろしいですか？</p>
   	<form action="/login/scheduleUpdate/done" method="post" th:object="${scheduleForm}">
   	  公開日：
   	  <label th:text="*{date}"></label><br>
